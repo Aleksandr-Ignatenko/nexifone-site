@@ -221,5 +221,72 @@ function animate() {
   // connections...
 }
 
+<canvas id="mesh"></canvas>
+<script>
+const canvas = document.getElementById("mesh");
+const ctx = canvas.getContext("2d");
+let w, h;
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = 360; // высота анимации
+}
+resize();
+window.addEventListener("resize", resize);
+
+const nodes = [];
+const NUM = 45;
+
+for (let i = 0; i < NUM; i++) {
+  nodes.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.6,
+    vy: (Math.random() - 0.5) * 0.6,
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+
+  // draw nodes
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+
+    if (n.x < 0 || n.x > w) n.vx *= -1;
+    if (n.y < 0 || n.y > h) n.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0, 232, 255, 0.8)";
+    ctx.fill();
+  });
+
+  // draw connections
+  for (let i = 0; i < NUM; i++) {
+    for (let j = i + 1; j < NUM; j++) {
+      const n1 = nodes[i];
+      const n2 = nodes[j];
+      const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
+
+      if (dist < 160) {
+        ctx.strokeStyle = `rgba(0, 232, 255, ${1 - dist / 160})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(n1.x, n1.y);
+        ctx.lineTo(n2.x, n2.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+  
 </body>
 </html>
