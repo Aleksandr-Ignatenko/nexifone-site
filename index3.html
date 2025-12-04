@@ -197,7 +197,6 @@
   const MAX_DIST = 160;         // максимальная дистанция для соединения
   const NODE_RADIUS = 3.0;
   const COLOR_RGBA = { r: 0, g: 232, b: 255 }; // cyan
-  const BACKUP_COLOR = 'rgba(255,255,255,0.8)';
 
   // Elements
   const canvas = document.getElementById(CANVAS_ID);
@@ -207,26 +206,36 @@
   // Sizes
   let w = 0, h = 0;
   function resize() {
-    // ширина = ширина контейнера hero, высота фиксированная
-    const rect = canvas.parentElement.getBoundingClientRect();
-    w = canvas.width = Math.ceil(rect.width);
-    h = canvas.height = Math.ceil(getComputedStyle(canvas).height ? parseInt(getComputedStyle(canvas).height) : 360);
-    // В случае когда CSS задаёт height в px, canvas берёт тот размер; иначе fallback 360
+    // ширина = ширина контейнера hero; высота — берем из CSS или ограничиваем
+    const parentRect = canvas.parentElement.getBoundingClientRect();
+    // prefer CSS height if set (e.g. 360px), otherwise use parent's height limited to 420
+    const cssHeight = parseFloat(getComputedStyle(canvas).height);
+    const desiredHeight = cssHeight && !isNaN(cssHeight) ? cssHeight : Math.min(parentRect.height, 420) || 360;
+
+    w = canvas.width = Math.max(1, Math.floor(parentRect.width));
+    h = canvas.height = Math.max(1, Math.floor(desiredHeight));
+
+    // ensure CSS size matches canvas drawing buffer size (avoid stretching)
+    canvas.style.width = parentRect.width + 'px';
+    canvas.style.height = h + 'px';
   }
-  // Установка размеров на старте
-  resize();
-  window.addEventListener('resize', debounce(resize, 120));
+
+  // small debounce helper
+  function debounce(fn, t){ let id; return (...a)=>{ clearTimeout(id); id = setTimeout(()=>fn(...a), t); }; }
 
   // Mouse / touch
   const mouse = { x: null, y: null, tx: null, ty: null };
   window.addEventListener('mousemove', (e) => {
+    // global client coords -> local to hero (parentElement)
+    const parentTop = canvas.parentElement.getBoundingClientRect().top;
     mouse.x = e.clientX;
-    mouse.y = e.clientY - canvas.parentElement.getBoundingClientRect().top; // локальные координаты внутри hero
+    mouse.y = e.clientY - parentTop;
   });
   window.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
+      const parentTop = canvas.parentElement.getBoundingClientRect().top;
       mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY - canvas.parentElement.getBoundingClientRect().top;
+      mouse.y = e.touches[0].clientY - parentTop;
     }
   }, { passive: true });
   window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
@@ -235,7 +244,7 @@
   const nodes = [];
   function initNodes() {
     nodes.length = 0;
-    for (let i = 0; i < NUM_NODES; i++) {
+    for (let i = 0; i < Math.max(6, NUM_NODES); i++) {
       nodes.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -247,9 +256,7 @@
     }
   }
 
-  // Helpers
   function lerp(a, b, t) { return a + (b - a) * t; }
-  function debounce(fn, t){ let id; return (...a)=>{ clearTimeout(id); id = setTimeout(()=>fn(...a), t); }; }
   function rgbaStr(alpha = 1) {
     const c = COLOR_RGBA;
     return `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
@@ -260,40 +267,39 @@
   function loop(now) {
     const dt = Math.min(40, now - last);
     last = now;
-    step(dt / 16.666); // normalized time step (16.666ms = 60fps)
+    step(dt / 16.666);
     render();
     requestAnimationFrame(loop);
   }
 
-  // Physics step
   function step(stepScale) {
     // smooth mouse target
     if (mouse.x != null && mouse.y != null) {
-      mouse.tx = mouse.tx == null ? mouse.x : lerp(mouse.tx, mouse.x, 0.2);
-      mouse.ty = mouse.ty == null ? mouse.y : lerp(mouse.ty, mouse.y, 0.2);
+      mouse.tx = mouse.tx == null ? mouse.x : lerp(mouse.tx, mouse.x, 0.18);
+      mouse.ty = mouse.ty == null ? mouse.y : lerp(mouse.ty, mouse.y, 0.18);
     } else {
-      mouse.tx = lerp(mouse.tx == null ? 0 : mouse.tx, 9999, 0.02); // push away
-      mouse.ty = lerp(mouse.ty == null ? 0 : mouse.ty, 9999, 0.02);
+      // push away if no mouse
+      mouse.tx = mouse.tx == null ? 9999 : lerp(mouse.tx, 9999, 0.02);
+      mouse.ty = mouse.ty == null ? 9999 : lerp(mouse.ty, 9999, 0.02);
     }
 
     nodes.forEach(n => {
-      // small floating using phase
       n.phase += 0.003 * stepScale;
       n.x += n.vx * stepScale + Math.sin(n.phase) * 0.12;
       n.y += n.vy * stepScale + Math.cos(n.phase) * 0.12;
 
-      // Boundaries bounce
+      // bounds
       if (n.x < 0) { n.x = 0; n.vx *= -1; }
       if (n.x > w) { n.x = w; n.vx *= -1; }
       if (n.y < 0) { n.y = 0; n.vy *= -1; }
       if (n.y > h) { n.y = h; n.vy *= -1; }
 
-      // Mouse repulsion (if within range)
+      // mouse repulsion
       if (mouse.tx != null && mouse.ty != null && mouse.tx < 9000) {
         const dx = n.x - mouse.tx;
         const dy = n.y - mouse.ty;
         const dist = Math.hypot(dx, dy);
-        const influence = 120; // радиус влияния мыши
+        const influence = 120;
         if (dist < influence && dist > 1) {
           const push = (1 - dist / influence) * 0.85;
           n.x += (dx / dist) * push * 6 * (stepScale * 0.8);
@@ -303,11 +309,11 @@
     });
   }
 
-  // Render
   function render() {
+    // clear full buffer
     ctx.clearRect(0, 0, w, h);
 
-    // draw connections
+    // connections
     for (let i = 0; i < nodes.length; i++) {
       const a = nodes[i];
       for (let j = i + 1; j < nodes.length; j++) {
@@ -328,16 +334,13 @@
       }
     }
 
-    // draw nodes (glow effect: draw blurred circles via multiple strokes)
+    // nodes with soft glow
     nodes.forEach(n => {
-      // glow - outer
-      const gAlpha = 0.06;
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r * 5.0, 0, Math.PI * 2);
-      ctx.fillStyle = rgbaStr(gAlpha);
+      ctx.fillStyle = rgbaStr(0.06);
       ctx.fill();
 
-      // solid core
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
       ctx.fillStyle = rgbaStr(0.95);
@@ -345,7 +348,6 @@
     });
   }
 
-  // Init + start
   function start() {
     resize();
     initNodes();
@@ -353,16 +355,17 @@
     requestAnimationFrame(loop);
   }
 
-  // restart on resize
+  // resize handling
   window.addEventListener('resize', debounce(() => {
     resize();
     initNodes();
   }, 200));
 
-  // start after small delay to ensure layout ready
-  setTimeout(start, 80);
+  // small delay to ensure layout is stable
+  setTimeout(start, 100);
 })();
 </script>
+
 
   
 </body>
