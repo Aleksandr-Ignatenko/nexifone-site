@@ -6,7 +6,9 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
+renderer.setSize(canvas.width, canvas.height, false);
 renderer.setClearColor(0x000000, 0);
 
 // Scene & Camera
@@ -76,8 +78,9 @@ animate();
 
 // ===== RESIZE FIX =====
 function resize() {
-  const w = canvas.clientWidth;
-  const h = canvas.clientHeight;
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+
 
   renderer.setSize(w, h, false);
   composer.setSize(w, h);
