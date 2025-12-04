@@ -186,40 +186,7 @@
     })();
   </script>
 
-<script>
-let mouse = {x: null, y: null};
-window.addEventListener("mousemove", e => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
 
-function animate() {
-  ctx.clearRect(0,0,w,h);
-
-  nodes.forEach(n => {
-    const dx = n.x - mouse.x;
-    const dy = n.y - mouse.y;
-    const dist = Math.hypot(dx, dy);
-
-    if (dist < 120) {
-      n.x += dx * 0.012;
-      n.y += dy * 0.012;
-    }
-
-    n.x += n.vx;
-    n.y += n.vy;
-
-    if (n.x < 0 || n.x > w) n.vx *= -1;
-    if (n.y < 0 || n.y > h) n.vy *= -1;
-
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, 3, 0, Math.PI*2);
-    ctx.fillStyle = "rgba(0, 232, 255, 0.8)";
-    ctx.fill();
-  });
-
-  // connections...
-}
 
 <canvas id="mesh"></canvas>
 <script>
@@ -286,7 +253,40 @@ function animate() {
 
 animate();
 </script>
+<script>
+let mouse = {x: null, y: null};
+window.addEventListener("mousemove", e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
 
+function animate() {
+  ctx.clearRect(0,0,w,h);
+
+  nodes.forEach(n => {
+    const dx = n.x - mouse.x;
+    const dy = n.y - mouse.y;
+    const dist = Math.hypot(dx, dy);
+
+    if (dist < 120) {
+      n.x += dx * 0.012;
+      n.y += dy * 0.012;
+    }
+
+    n.x += n.vx;
+    n.y += n.vy;
+
+    if (n.x < 0 || n.x > w) n.vx *= -1;
+    if (n.y < 0 || n.y > h) n.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 3, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(0, 232, 255, 0.8)";
+    ctx.fill();
+  });
+
+  // connections...
+}
   
 </body>
 </html>
