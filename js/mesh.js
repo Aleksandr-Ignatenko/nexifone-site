@@ -1,27 +1,22 @@
 // ===== BASE SETUP =====
 const canvas = document.getElementById("mesh");
+
 const renderer = new THREE.WebGLRenderer({
   canvas,
   antialias: true,
   alpha: true
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
-renderer.setSize(canvas.width, canvas.height, false);
 renderer.setClearColor(0x000000, 0);
 
-// Scene & Camera
+// Scene
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  55,
-  canvas.clientWidth / canvas.clientHeight,
-  0.1,
-  1000
-);
+
+// Camera
+const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 1000);
 camera.position.set(0, 0, 28);
 
-// ===== GEOMETRY (glowing curve mesh) =====
+// ===== GEOMETRY =====
 const points = [];
 for (let i = 0; i < 180; i++) {
   const angle = i * 0.12;
@@ -37,33 +32,43 @@ for (let i = 0; i < 180; i++) {
 const curve = new THREE.CatmullRomCurve3(points);
 const geometry = new THREE.TubeGeometry(curve, 500, 0.12, 16, true);
 
-// Glow gradient (cyan → magenta)
 const material = new THREE.MeshBasicMaterial({
   color: 0xffffff,
   transparent: true,
   opacity: 0.85
 });
 
-// Mesh object
 const tube = new THREE.Mesh(geometry, material);
 scene.add(tube);
 
-// ===== BLOOM EFFECT (like Voximplant) =====
+// ===== BLOOM =====
 const composer = new THREE.EffectComposer(renderer);
 composer.addPass(new THREE.RenderPass(scene, camera));
 
 const bloomPass = new THREE.UnrealBloomPass(
-  new THREE.Vector2(canvas.clientWidth, canvas.clientHeight),
-  1.4,    // intensity
-  0.4,    // bloom radius
-  0.0
+  new THREE.Vector2(1, 1),
+  1.8,
+  0.45,
+  0
 );
-
-bloomPass.threshold = 0.0;
-bloomPass.strength = 1.8;  // glow
-bloomPass.radius = 0.45;
-
 composer.addPass(bloomPass);
+
+// ===== RESIZE =====
+function resize() {
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+
+  renderer.setSize(w, h, false);
+  composer.setSize(w, h);
+
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+
+  bloomPass.resolution.set(w, h);
+}
+
+window.addEventListener("resize", resize);
+resize();
 
 // ===== ANIMATION =====
 function animate() {
@@ -75,19 +80,3 @@ function animate() {
   composer.render();
 }
 animate();
-
-// ===== RESIZE FIX =====
-function resize() {
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-
-
-  renderer.setSize(w, h, false);
-  composer.setSize(w, h);
-
-  camera.aspect = w / h;
-  camera.updateProjectionMatrix();
-}
-
-window.addEventListener("resize", resize);
-resize();
