@@ -71,6 +71,8 @@
   <main>
     <section class="hero" id="home" aria-label="Hero section">
       <div class="hero-inner">
+        <canvas id="mesh"></canvas>
+
         <div class="hero-glass" role="region" aria-labelledby="hero-title">
           <h1 id="hero-title" class="hero-title">Next-Gen Telecom Solutions</h1>
           <p class="hero-sub">Routes • DID Numbers • PIN-2-Speech • Gateways Rental</p>
@@ -185,5 +187,17 @@
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
   </script>
+  
+  <!-- Three.js core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+<!-- Postprocessing for glow/bloom -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/postprocessing/UnrealBloomPass.js"></script>
+
+<!-- Our mesh animation -->
+<script src="js/mesh.js"></script>
+
 </body>
 </html>
