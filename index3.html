@@ -193,51 +193,53 @@
 (function () {
   // Config
   const CANVAS_ID = 'mesh';
-  const NUM_NODES = 46;         // количество точек
-  const MAX_DIST = 160;         // максимальная дистанция для соединения
+  const NUM_NODES = 46;
+  const MAX_DIST = 160;
   const NODE_RADIUS = 3.0;
-  const COLOR_RGBA = { r: 0, g: 232, b: 255 }; // cyan
+  const COLOR_RGBA = { r: 0, g: 232, b: 255 };
 
-  // Elements
   const canvas = document.getElementById(CANVAS_ID);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  // Sizes
   let w = 0, h = 0;
   function resize() {
-    // ширина = ширина контейнера hero; высота — берем из CSS или ограничиваем
     const parentRect = canvas.parentElement.getBoundingClientRect();
-    // prefer CSS height if set (e.g. 360px), otherwise use parent's height limited to 420
     const cssHeight = parseFloat(getComputedStyle(canvas).height);
-    const desiredHeight = cssHeight && !isNaN(cssHeight) ? cssHeight : Math.min(parentRect.height, 420) || 360;
+    const desiredHeight = cssHeight && !isNaN(cssHeight)
+      ? cssHeight
+      : Math.min(parentRect.height, 420) || 360;
 
     w = canvas.width = Math.max(1, Math.floor(parentRect.width));
     h = canvas.height = Math.max(1, Math.floor(desiredHeight));
 
-    // ensure CSS size matches canvas drawing buffer size (avoid stretching)
     canvas.style.width = parentRect.width + 'px';
     canvas.style.height = h + 'px';
   }
 
-  // small debounce helper
   function debounce(fn, t){ let id; return (...a)=>{ clearTimeout(id); id = setTimeout(()=>fn(...a), t); }; }
 
-  // Mouse / touch
+  // -------------------------
+  // FIXED MOUSE HANDLING
+  // -------------------------
   const mouse = { x: null, y: null, tx: null, ty: null };
+
+  function updateMouse(eventX, eventY) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = eventX - rect.left;
+    mouse.y = eventY - rect.top;
+  }
+
   window.addEventListener('mousemove', (e) => {
-    // global client coords -> local to hero (parentElement)
-    const parentTop = canvas.parentElement.getBoundingClientRect().top;
-    mouse.x = e.clientX;
-    mouse.y = e.clientY - parentTop;
+    updateMouse(e.clientX, e.clientY);
   });
+
   window.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
-      const parentTop = canvas.parentElement.getBoundingClientRect().top;
-      mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY - parentTop;
+      updateMouse(e.touches[0].clientX, e.touches[0].clientY);
     }
   }, { passive: true });
+
   window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
 
   // Nodes
@@ -262,7 +264,6 @@
     return `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
   }
 
-  // Animation loop
   let last = performance.now();
   function loop(now) {
     const dt = Math.min(40, now - last);
@@ -273,12 +274,10 @@
   }
 
   function step(stepScale) {
-    // smooth mouse target
     if (mouse.x != null && mouse.y != null) {
       mouse.tx = mouse.tx == null ? mouse.x : lerp(mouse.tx, mouse.x, 0.18);
       mouse.ty = mouse.ty == null ? mouse.y : lerp(mouse.ty, mouse.y, 0.18);
     } else {
-      // push away if no mouse
       mouse.tx = mouse.tx == null ? 9999 : lerp(mouse.tx, 9999, 0.02);
       mouse.ty = mouse.ty == null ? 9999 : lerp(mouse.ty, 9999, 0.02);
     }
@@ -288,13 +287,11 @@
       n.x += n.vx * stepScale + Math.sin(n.phase) * 0.12;
       n.y += n.vy * stepScale + Math.cos(n.phase) * 0.12;
 
-      // bounds
       if (n.x < 0) { n.x = 0; n.vx *= -1; }
       if (n.x > w) { n.x = w; n.vx *= -1; }
       if (n.y < 0) { n.y = 0; n.vy *= -1; }
       if (n.y > h) { n.y = h; n.vy *= -1; }
 
-      // mouse repulsion
       if (mouse.tx != null && mouse.ty != null && mouse.tx < 9000) {
         const dx = n.x - mouse.tx;
         const dy = n.y - mouse.ty;
@@ -310,10 +307,8 @@
   }
 
   function render() {
-    // clear full buffer
     ctx.clearRect(0, 0, w, h);
 
-    // connections
     for (let i = 0; i < nodes.length; i++) {
       const a = nodes[i];
       for (let j = i + 1; j < nodes.length; j++) {
@@ -334,7 +329,6 @@
       }
     }
 
-    // nodes with soft glow
     nodes.forEach(n => {
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r * 5.0, 0, Math.PI * 2);
@@ -355,16 +349,15 @@
     requestAnimationFrame(loop);
   }
 
-  // resize handling
   window.addEventListener('resize', debounce(() => {
     resize();
     initNodes();
   }, 200));
 
-  // small delay to ensure layout is stable
   setTimeout(start, 100);
 })();
 </script>
+
 
 
   
