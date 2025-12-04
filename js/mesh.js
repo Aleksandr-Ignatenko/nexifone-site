@@ -35,7 +35,7 @@ for (let i = 0; i < 180; i++) {
 }
 
 const curve = new THREE.CatmullRomCurve3(points);
-const geometry = new THREE.TubeGeometry(curve, 500, 0.12, 16, false);
+const geometry = new THREE.TubeGeometry(curve, 500, 0.12, 16, true);
 
 // Glow gradient (cyan → magenta)
 const material = new THREE.MeshBasicMaterial({
