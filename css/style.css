@@ -60,14 +60,14 @@ body {
   justify-content:space-between;    /* ← меню справа */
   gap:20px;
   width:100%;
-  max-width: 800px;                /* ← ВОТ ЗДЕСЬ ФИКСИРУЕТСЯ ШИРИНА ХЕДЕРА */
+  max-width: 1000px;                /* ← ВОТ ЗДЕСЬ ФИКСИРУЕТСЯ ШИРИНА ХЕДЕРА */
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* logo */
 .logo-img {
-  height: 48px;   /* изменяй значение — это размер логотипа */
+  height: 58px;   /* изменяй значение — это размер логотипа */
   width: auto;    /* сохраняет пропорции */
   display:block;
 }
@@ -99,7 +99,7 @@ body {
 
 /* Немного увеличиваем сам логотип */
 .logo-img {
-  height: 48px;   /* увеличено для баланса */
+  height: 68px;   /* увеличено для баланса */
   width: auto;
 }
 
