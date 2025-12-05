@@ -66,6 +66,35 @@ body {
   display:block;
 }
 
+/* LOGO BOX — прямоугольник под логотип */
+.logo-box {
+  background-color: #00117D;            /* цвет фона */
+  padding: 8px 10px;                    /* пространство вокруг логотипа */
+  border-radius: 14px;                  /* закругление углов */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);  /* тень прямоугольника */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  top: 18px;                             /* чтобы выпирало вниз из хедера */
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Увеличение при наведении */
+.logo-box:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* Немного увеличиваем сам логотип */
+.logo-img {
+  height: 38px;   /* увеличено для баланса */
+  width: auto;
+}
+
+
 /* desktop nav */
 .nav {
   display:flex;
