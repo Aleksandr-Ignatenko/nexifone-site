@@ -67,7 +67,8 @@ body {
 
 /* logo */
 .logo-img {
-  height:36px;
+  height: 44px;   /* изменяй значение — это размер логотипа */
+  width: auto;    /* сохраняет пропорции */
   display:block;
 }
 
@@ -75,6 +76,9 @@ body {
 .logo-box {
   background-color: #FFE900;            /* цвет фона #00117D */
   padding: 8px 10px;                    /* пространство вокруг логотипа */
+  min-width: 72px;                      /* минимальная ширина прямоугольника */
+  min-height: 72px;                     /* минимальная высота прямоугольника */
+  box-sizing: border-box;
   border-radius: 14px;                  /* закругление углов */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);  /* тень прямоугольника */
   display: flex;
@@ -82,7 +86,7 @@ body {
   justify-content: center;
 
   position: relative;
-  top: 18px;                             /* чтобы выпирало вниз из хедера */
+  top: 0;                             /* поднимет блок вверх на 12px относительно центра хедера */
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
