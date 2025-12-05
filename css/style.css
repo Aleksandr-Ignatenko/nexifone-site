@@ -74,9 +74,9 @@ body {
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: #FFE900;            /* цвет фона #00117D  #FFE900  */
+  background-color: #FF9900;            /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                    /* пространство вокруг логотипа */
-  min-width: 68px;                      /* минимальная ширина прямоугольника */
+  min-width: 60px;                      /* минимальная ширина прямоугольника */
   min-height: 72px;                     /* минимальная высота прямоугольника */
  /* box-sizing: border-box;  */
   border-radius: 14px;                  /* закругление углов */
@@ -86,7 +86,7 @@ body {
   justify-content: center;
 
   position: relative;
-  top: 20;                             /* поднимет блок вверх на xxpx относительно центра хедера */
+  top: 50;                             /* поднимет блок вверх на xxpx относительно центра хедера */
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
