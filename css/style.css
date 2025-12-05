@@ -50,6 +50,11 @@ body {
 }
 
 .header-inner {
+  max-width: 1000px; /* конкретно для header, не трогая остальной layout */
+}
+
+
+.header-inner {
   display:flex;
   align-items:center;
   justify-content:space-between;
