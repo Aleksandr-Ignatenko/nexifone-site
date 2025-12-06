@@ -9,7 +9,7 @@
   --radius-md: 12px;
   --fw-regular: 400;
   --fw-medium: 600;
-  --container: 100%;
+  --container: 80%;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,9 +55,9 @@ body {
   justify-content:space-between;    /* ← меню справа */
   gap:20px;
   width:100%;
-  max-width: var(--container);                /* ← ВОТ ЗДЕСЬ ФИКСИРУЕТСЯ ШИРИНА ХЕДЕРА, отсылает вот сюда --container: 1150px; */
+  max-width: var(--container);                
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 /* logo */
@@ -69,7 +69,7 @@ body {
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: #FF9900;            /* цвет фона #00117D  #FFE900  */
+  background-color: #00117D;            /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                    /* пространство вокруг логотипа */
   min-width: 60px;                      /* минимальная ширина прямоугольника */
   min-height: 72px;                     /* минимальная высота прямоугольника */
