@@ -68,73 +68,30 @@ body {
   display:block;
 }
 
-/* LOGO BOX — с неоновой рамкой */
+/* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  position: relative;
+  background-color: #00117D;                  /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                    /* пространство вокруг логотипа */
   min-width: 60px;                      /* минимальная ширина прямоугольника */
   min-height: 72px;                     /* минимальная высота прямоугольника */
   border-radius: 14px;                  /* закругление углов */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;                     /* обязательно — обрезает свечение */
 
-  background: #00117D;                  /* цвет фона #00117D  #FFE900  */
-
-  top: 50px;                             /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
-  transition: transform .25s ease;
-}
-
-/* Анимированная НЕОНОВАЯ рамка */
-.logo-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;                         /* толщина неоновой линии */
-  border-radius: inherit;
-
-  background: linear-gradient(
-    130deg,
-    #00eaff,
-    #0068ff,
-    #9a00ff,
-    #ff00c8,
-    #00eaff
-  );
-  background-size: 300% 300%;
-
-  animation: neon-flow 6s linear infinite;
-  z-index: 0;
-}
-
-/* маска — делает рамку тонкой */
-.logo-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #00117D;
-  border-radius: inherit;
-  z-index: 1;
-}
-
-/* содержимое над слоями */
-.logo-box img {
   position: relative;
-  z-index: 2;
+  top: 50px;                             /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Hover */
 .logo-box:hover {
   transform: scale(1.08);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
-/* АНИМАЦИЯ НЕОНА */
-@keyframes neon-flow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 /* desktop nav */
 .nav {
