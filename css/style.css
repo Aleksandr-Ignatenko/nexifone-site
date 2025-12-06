@@ -70,18 +70,18 @@ body {
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: #00117D;                  /* цвет фона #00117D  #FFE900  */
-  padding: 8px 10px;                    /* пространство вокруг логотипа */
-  min-width: 60px;                      /* минимальная ширина прямоугольника */
-  min-height: 72px;                     /* минимальная высота прямоугольника */
-  border-radius: 14px;                  /* закругление углов */
+  background-color: #00117D;                     /* цвет фона #00117D  #FFE900  */
+  padding: 8px 10px;                             /* пространство вокруг логотипа */
+  min-width: 60px;                               /* минимальная ширина прямоугольника */
+  min-height: 72px;                              /* минимальная высота прямоугольника */
+  border-radius: 0 0 14px 14px;                  /* закругление углов */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
 
   position: relative;
-  top: 50px;                             /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  top: 50px;                                     /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
