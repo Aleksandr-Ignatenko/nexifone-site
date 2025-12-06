@@ -9,7 +9,7 @@
   --radius-md: 12px;
   --fw-regular: 400;
   --fw-medium: 600;
-  --container: 1150px;
+  --container: 1000px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,14 +62,14 @@ body {
 
 /* logo */
 .logo-img {
-  height: 58px;   /* изменяй значение — это размер логотипа */
+  height: 78px;   /* изменяй значение — это размер логотипа */
   width: auto;    /* сохраняет пропорции */
   display:block;
 }
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: #001177;            /* цвет фона #00117D  #FFE900  */
+  background-color: #FFE900;            /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                    /* пространство вокруг логотипа */
   min-width: 60px;                      /* минимальная ширина прямоугольника */
   min-height: 72px;                     /* минимальная высота прямоугольника */
