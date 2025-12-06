@@ -80,8 +80,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  position: relative;
-  top: 50px;                                     /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  position: absolute;
+  top: 0;                                     /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  left: 0;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
