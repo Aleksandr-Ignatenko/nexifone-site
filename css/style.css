@@ -43,11 +43,14 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;        /* ← всегда на всю ширину */
+  width:100%;                   /* ← всегда на всю ширину */
+  height: 90px;                 /* новый ← фиксируем высоту хедера */
   z-index:1200;
   padding: 14px 0;
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35); /* ← ТЕНЬ */
+  display: flex;                /* новый */
+  align-items: center;          /* новый центрируем контент по вертикали */
 }
 
 .header-inner {
@@ -70,7 +73,7 @@ body {
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: #FFE900;                     /* цвет фона #00117D  #FFE900  */
+  background-color: #00117D;                     /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                             /* пространство вокруг логотипа */
   min-width: 60px;                               /* минимальная ширина прямоугольника */
   min-height: 72px;                              /* минимальная высота прямоугольника */
@@ -82,7 +85,7 @@ body {
 
   position: absolute;
   top: 0;                                     /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
-  /* left: 0; */
+  
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
