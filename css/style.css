@@ -1,5 +1,5 @@
 :root{
-  --bg: #00117D;                     /* фирменный фон */
+  --bg: #00117D;                                 /* фирменный фон */
   --glass: rgba(255,255,255,0.06);
   --glass-strong: rgba(255,255,255,0.10);
   --accent-cyan: #00E8FF;
@@ -43,33 +43,33 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;                     /* ← всегда на всю ширину */
-  height: 90px;                   /* новый ← фиксируем высоту хедера */
+  width:100%;                                 /* ← всегда на всю ширину */
+  /*  height: 90px;                               новый ← фиксируем высоту хедера */
   z-index:1200;
   padding: 14px 0;
   backdrop-filter: blur(8px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35); /* ← ТЕНЬ */
-  display: flex;                  /* новый */
-  align-items: center;            /* новый центрируем контент по вертикали */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
+  /*  display: flex;                              новый */
+  /* align-items: center;                         новый центрируем контент по вертикали */
 }
 
 .header-inner {
-  position: relative;              /* новый чтобы logo-box было внутри */
+  /* position: relative;                          новый чтобы logo-box было внутри */
   display:flex;
-  align-items:center;               /* ← Центрирование по вертикали */
-  justify-content:space-between;    /* ← меню справа */
-  /* gap:20px;  сказал  убрать */
+  align-items:center;                         /* ← Центрирование по вертикали */
+  justify-content:space-between;              /* ← меню справа */
+  gap:20px;                                    /* сказал  убрать */
   width:100%;
   max-width: var(--container);                
   margin: 0 auto;
   padding: 0 10px;
-  height: 100%;                    /* новый растянуть на всю высоту хедера */
+  /* height: 100%;                                новый растянуть на всю высоту хедера */
 }
 
 /* logo */
 .logo-img {
-  height: 58px;   /* изменяй значение — это размер логотипа */
-  width: auto;    /* сохраняет пропорции */
+  height: 58px;                                 /* изменяй значение — это размер логотипа */
+  width: auto;                                  /* сохраняет пропорции */
   display:block;
 }
 
@@ -86,7 +86,7 @@ body {
   justify-content: center;
 
   position: absolute;
-  top: 0;                                     /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  top: 0;                                       /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
   
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
