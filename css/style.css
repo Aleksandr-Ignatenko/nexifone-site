@@ -73,7 +73,7 @@ body {
   background-color: #FFE900;                     /* цвет фона #00117D  #FFE900  */
   padding: 8px 10px;                             /* пространство вокруг логотипа */
   min-width: 60px;                               /* минимальная ширина прямоугольника */
-  min-height: 180px;                              /* минимальная высота прямоугольника */
+  min-height: 80px;                              /* минимальная высота прямоугольника */
   border-radius: 0 0 14px 14px;                  /* закругление углов */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
