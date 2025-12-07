@@ -94,12 +94,19 @@ body {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
+  /* logo + brand group */
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* ← регулируешь расстояние между логотипом и текстом */
+  }
+
+
 /* BRAND NAME NEXT TO LOGO */
 .brand-name {
   font-size: 20px;
   font-weight: 600;
   color: var(--text);
-  margin-left: 20px; /* отступ вправо от логотипа */
   cursor: default;
   position: relative;
   padding-bottom: 2px;
