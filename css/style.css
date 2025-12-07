@@ -46,7 +46,7 @@ body {
   width:100%;                                 /* ← всегда на всю ширину */
   /* height: 55px; */
   z-index:1200;
-  padding: 10px 0;                            /* новое, уменьшаем с 14 на 10 */
+  padding: 14px 0;                            
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
 }
@@ -98,16 +98,8 @@ body {
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 32px;                            /* новое, убираем 120px; */                            /* ← регулируешь расстояние между логотипом и текстом */
-    position: relative;                   /* новое */        
+    gap: 120px;                           /* ← регулируешь расстояние между логотипом и текстом */     
   }
-
-  .logo-placeholder {                      /* новое, весь блок новый */
-      width: 46px;                         /* такая же min-width как у logo-box */
-      height: 90px;                        /* такая же min-height как у logo-box */
-      flex-shrink: 0;
-  }
-
 
 /* BRAND NAME NEXT TO LOGO */
 .brand-name {
@@ -271,7 +263,7 @@ body {
    HERO
 -------------------- */
 .hero {
-  padding-top:90px; /* header offset */  /* нове было 110px — уменьшай зеркально */
+  padding-top:110px; /* header offset */ 
   padding-bottom:80px;
   min-height: calc(100vh - 110px);
   display:flex;
