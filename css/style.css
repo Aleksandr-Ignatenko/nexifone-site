@@ -82,10 +82,12 @@ body {
   justify-content: center;
 
   position: absolute;
-  top: 0;                                         /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  top: 0;         /* прижат к верхней границе */
+  left: 0;        /* прижат к левому краю brand-group */
   
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* transition: transform 0.25s ease, box-shadow 0.25s ease; - этот убираем */
+  transform: translateY(45px);               /* чтобы выступал вниз из хедера — подберём точное значение */
 }
 
 /* Hover */
@@ -96,10 +98,12 @@ body {
 
   /* logo + brand group */
   .brand-group {
+    position: relative; /* ОБЯЗАТЕЛЬНО! */
     display: flex;
     align-items: center;
     gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
-    padding-left: 75px;                   /* ВОТ ОНО — решение */
+    padding-left: 80px;                  /* ← ДАЁМ МЕСТО под логотип */
+    
   }
 
 /* BRAND NAME NEXT TO LOGO */
