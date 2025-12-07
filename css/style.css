@@ -81,9 +81,8 @@ body {
   align-items: center;
   justify-content: center;
 
-  position: static;                             /* новый, был absolute; */
-  margin-top: -6px;                             /* новый, небольшой фокус, чтобы визуально поднять */
-  /* top: 0; убираем */                                      /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
+  position: absolute;
+  top: 0;                                         /* поднимет блок -вверх или вниз на xxpx относительно центра хедера */
   
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -98,10 +97,9 @@ body {
   /* logo + brand group */
   .brand-group {
     display: flex;
-    align-items: flex-start;        /* логотип прижат вверх */                                      /* новый,   было   center; */
-    gap: 32px;                      /* новое, это настроим было 120px; */                            /* ← регулируешь расстояние между логотипом и текстом */
-    position: relative;             /* новое */
-    
+    align-items: center;
+    gap: 120px;                            /* ← регулируешь расстояние между логотипом и текстом */
+        
   }
 
 
