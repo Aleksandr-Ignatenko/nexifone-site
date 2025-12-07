@@ -106,7 +106,9 @@ body {
   font-weight:var(--fw-regular);
   transition: color .18s ease, transform .18s ease;
 }
-.nav a:hover { color: var(--accent-cyan); transform: translateY(-2px); }
+.nav a:hover { 
+  color: var(--accent-cyan); transform: translateY(-2px); 
+}
 
 .btn-nav {
   padding:8px 14px;
