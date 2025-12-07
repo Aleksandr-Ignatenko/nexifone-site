@@ -99,7 +99,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   color: var(--text);
-  margin-left: 90px; /* отступ вправо от логотипа */
+  margin-left: 20px; /* отступ вправо от логотипа */
   cursor: default;
   position: relative;
   padding-bottom: 2px;
