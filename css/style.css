@@ -98,7 +98,8 @@ body {
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 120px;                           /* ← регулируешь расстояние между логотипом и текстом */     
+    gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
+    padding-left: 75px;                   /* ВОТ ОНО — решение */
   }
 
 /* BRAND NAME NEXT TO LOGO */
