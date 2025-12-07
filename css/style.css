@@ -112,7 +112,7 @@ body {
   padding:8px 14px;
   border-radius:10px;
   border:1px solid rgba(255,255,255,0.12);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
@@ -382,7 +382,10 @@ body {
 }
 
 /* small tweaks */
-.cta-btn.large { padding:14px 28px; font-size:18px; border-radius:14px; }
+.cta-btn.large { 
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  padding:14px 28px; font-size:18px; border-radius:14px; 
+}
 
 
 
