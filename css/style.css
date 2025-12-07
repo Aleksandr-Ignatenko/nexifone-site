@@ -88,7 +88,7 @@ body {
   
 
   /* transition: transform 0.25s ease, box-shadow 0.25s ease; - этот убираем */
-  transform: translateY(45px);               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: translateY(0px);               /* чтобы выступал вниз из хедера — подберём точное значение */
 }
 
 /* Hover */
