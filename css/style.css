@@ -94,6 +94,48 @@ body {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
+/* BRAND NAME NEXT TO LOGO */
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-left: 90px; /* отступ вправо от логотипа */
+  cursor: default;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color .18s ease, transform .18s ease;
+}
+
+/* эффект hover (как меню) */
+.brand-name:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+/* underline from center */
+.brand-name::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.brand-name:hover::after {
+  width: 100%;
+}
+
+/* скрываем на мобильных */
+@media (max-width: 768px) {
+  .brand-name {
+    display: none;
+  }
+}
+
 
 /* desktop nav */
 .nav {
