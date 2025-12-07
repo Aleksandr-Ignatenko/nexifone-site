@@ -44,6 +44,7 @@ body {
   top: 0;
   left: 0;
   width:100%;                                 /* ← всегда на всю ширину */
+  min-height: 72px;
   /* height: 55px; */
   z-index:1200;
   padding: 14px 0;                            
@@ -92,7 +93,7 @@ body {
 
 /* Hover */
 .logo-box:hover {
-  transform: scale(1.08);
+  transform: translateY(45px) scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
