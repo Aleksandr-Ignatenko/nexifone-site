@@ -70,8 +70,8 @@ body {
 
 /* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background-color: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));   /* цвет фона #00117D  #FFE900  */
-  padding: 8px 10px;                                                                     /* пространство вокруг логотипа */
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));   /* цвет фона #00117D  #FFE900  */
+  padding: 8px 10px;                                                               /* пространство вокруг логотипа */
   min-width: 56px;                               /* минимальная ширина прямоугольника */
   min-height: 150px;                              /* минимальная высота прямоугольника */
   border-radius: 0 0 14px 14px;                  /* закругление углов */
