@@ -73,7 +73,7 @@ body {
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));   /* цвет фона #00117D  #FFE900  */
   padding: 4px 6px;                                                               /* пространство вокруг логотипа */
   min-width: 56px;                               /* минимальная ширина прямоугольника */
-  min-height: 120px;                              /* минимальная высота прямоугольника */
+  min-height: 100px;                              /* минимальная высота прямоугольника */
   border-radius: 0 0 14px 14px;                  /* закругление углов */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
