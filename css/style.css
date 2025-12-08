@@ -88,12 +88,12 @@ body {
   
 
   /* transition: transform 0.25s ease, box-shadow 0.25s ease; - этот убираем */
-  transform: translateY(28px);               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: translateY(0px);               /* чтобы выступал вниз из хедера — подберём точное значение */
 }
 
 /* Hover */
 .logo-box:hover {
-  transform: translateY(28px) scale(1.08);
+  transform: translateY(0px) scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
