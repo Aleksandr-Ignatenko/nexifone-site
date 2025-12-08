@@ -83,15 +83,16 @@ body {
   justify-content: center;
 
   position: absolute;
-  top: 0;         /* прижат к верхней границе */
+  top: -14px;         /* прижат к верхней границе */
   left: 0;        /* прижат к левому краю brand-group */
   
-  transform: translateY(-14px);               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: none;               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 /* Hover */
 .logo-box:hover {
-  transform: translateY(0) scale(1.08);
+  transform: scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
