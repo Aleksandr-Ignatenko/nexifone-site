@@ -207,7 +207,7 @@ body {
   justify-content:center;
   padding:6px;
 }
-.burger span { display:block; height:2px; background:var(--text); border-radius:2px; transition: transform .25s ease, opacity .2s ease; }
+.burger span { display:block; height:2.4px; background:var(--text); border-radius:2px; transition: transform .25s ease, opacity .2s ease; }
 .burger span + span { margin-top:6px; }
 
 /* Mobile menu overlay */
