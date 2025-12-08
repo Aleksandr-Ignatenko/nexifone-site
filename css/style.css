@@ -45,14 +45,14 @@ body {
   left: 0;
   width:100%;                                 /* ← всегда на всю ширину */
   min-height: 72px;
-  /* height: 55px; */
   z-index:1200;
   padding: 14px 0;                            
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
-}
+  }
 
 .header-inner {
+  position: relative; /* ← ДОБАВЛЯЕМ СЮДА */
   display:flex;
   align-items:center;                         /* ← Центрирование по вертикали */
   justify-content:space-between;              /* ← меню справа */
@@ -60,7 +60,7 @@ body {
   width:100%;
   max-width: var(--container);                
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 10px 0 100px; /* ← место под логотип */
 }
 
 /* logo */
@@ -84,27 +84,23 @@ body {
 
   position: absolute;
   top: 0;         /* прижат к верхней границе */
-  left: 0;        /* прижат к левому краю brand-group */
+  left: 20;        /* прижат к левому краю brand-group */
   
-
-  /* transition: transform 0.25s ease, box-shadow 0.25s ease; - этот убираем */
-  transform: translateY(0px);               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: translateY(0);               /* чтобы выступал вниз из хедера — подберём точное значение */
 }
 
 /* Hover */
 .logo-box:hover {
-  transform: translateY(0px) scale(1.08);
+  transform: translateY(0) scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
   /* logo + brand group */
   .brand-group {
-    position: relative; /* ОБЯЗАТЕЛЬНО! */
     display: flex;
     align-items: center;
     gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
-    padding-left: 80px;                  /* ← ДАЁМ МЕСТО под логотип */
-    
+    position: static;                     /* ОБЯЗАТЕЛЬНО! */
   }
 
 /* BRAND NAME NEXT TO LOGO */
