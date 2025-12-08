@@ -60,7 +60,7 @@ body {
   width:100%;
   max-width: var(--container);                
   margin: 0 auto;
-  padding: 0 10px 0 100px; /* ← место под логотип */
+  padding: 0 20px 0 80px; /* ← место под логотип */
 }
 
 /* logo */
@@ -84,9 +84,9 @@ body {
 
   position: absolute;
   top: 0;         /* прижат к верхней границе */
-  left: 20;        /* прижат к левому краю brand-group */
+  left: 0;        /* прижат к левому краю brand-group */
   
-  transform: translateY(0);               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: translateY(-14px);               /* чтобы выступал вниз из хедера — подберём точное значение */
 }
 
 /* Hover */
