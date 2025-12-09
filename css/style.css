@@ -11,7 +11,7 @@
   --fw-medium: 600;
   
   /* --- контейнеры (токены) --- */
-  --container-desktop: min(80%, 1200px);
+  --container-desktop: min(90%, 1200px);
   --container-mobile:  min(90%, 768px);
   
   /* главный токен, который используют стили */
