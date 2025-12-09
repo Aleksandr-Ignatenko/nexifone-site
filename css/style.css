@@ -133,6 +133,7 @@ body {
     align-items: center;
     gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
     position: relative;
+    padding-left: 95px;                   /* ← ВАЖНО: пространство под логотип */
   }
 
 /* BRAND NAME NEXT TO LOGO */
