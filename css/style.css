@@ -151,23 +151,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* underline from center */
-.brand-name::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.brand-name:hover::after {
-  width: 100%;
-}
-
 /* скрываем на мобильных */
 @media (max-width: 768px) {
   .brand-name {
@@ -192,29 +175,6 @@ body {
   color: var(--accent-cyan); 
   transform: translateY(-2px); 
 }
-
-/* underline from center */
-.nav a {
-  position: relative;
-  padding-bottom: 2px;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px; 
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
 
 .btn-nav {
   padding:8px 14px;
