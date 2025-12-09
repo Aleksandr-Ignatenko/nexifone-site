@@ -155,7 +155,8 @@ body {
 /* скрываем на мобильных */
 @media (max-width: 768px) {
   .brand-name {
-    display: none;
+    display: block;
+    font-size: 18px;
   }
 }
 
