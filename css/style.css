@@ -57,7 +57,8 @@ body {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #00eaff, #007bff);
+  /* ← фирменный градиент */
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   transition: width 0.28s ease-out;
   border-radius: 3px;
 }
