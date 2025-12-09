@@ -9,7 +9,13 @@
   --radius-md: 12px;
   --fw-regular: 400;
   --fw-medium: 600;
-  --container: min(80%, 1200px);
+  
+  /* --- контейнеры (токены) --- */
+  --container-desktop: min(80%, 1200px);
+  --container-mobile:  min(90%, 1200px);
+  
+  /* главный токен, который используют стили */
+  --container: var(--container-desktop);
 
 }
 
@@ -490,5 +496,13 @@ body {
   padding:14px 28px; font-size:18px; border-radius:14px; 
 }
 
+/* --------------------
+   MOBILE TOKEN SWITCH
+-------------------- */
+@media (max-width: 768px) {
+  :root {
+    --container: var(--container-mobile);
+  }
+}
 
 
