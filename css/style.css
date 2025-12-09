@@ -132,7 +132,7 @@ body {
     display: flex;
     align-items: center;
     gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
-    position: static;                     /* ОБЯЗАТЕЛЬНО! */
+    position: relative;
   }
 
 /* BRAND NAME NEXT TO LOGO */
