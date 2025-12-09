@@ -34,7 +34,37 @@ body {
 }
 
 /* visually hidden */
-.visually-hidden { position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+.visually-hidden { 
+  position:absolute!important; 
+  height:1px; 
+  width:1px; 
+  overflow:hidden; 
+  clip:rect(1px,1px,1px,1px); 
+  white-space:nowrap; 
+}
+
+/* Единый эффект underline для навигации, логотипа и любых ссылок */
+.underline-anim {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-anim::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00eaff, #007bff);
+  transition: width 0.28s ease-out;
+  border-radius: 3px;
+}
+
+.underline-anim:hover::after {
+  width: 100%;
+}
 
 /* --------------------
    HEADER
