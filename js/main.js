@@ -1,14 +1,26 @@
-function toggleMenu() {
-  const button = document.querySelector('.hamburger');
-  const nav = document.getElementById('mobileMenu');  // ИМЯ ТВОЕГО БЛОКА
-  const overlay = document.getElementById('overlay');
+(function () {
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  const expanded = button.getAttribute('aria-expanded') === 'true';
-  const newState = !expanded;
+  window.toggleMenu = function () {
+    const button = document.querySelector('.hamburger');
+    const nav = document.getElementById('mobileMenu'); 
+    const overlay = document.getElementById('overlay');
 
-  button.setAttribute('aria-expanded', newState);
-  nav.classList.toggle('open', newState);
-  overlay.classList.toggle('open', newState);
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    const newState = !expanded;
 
-  document.body.style.overflow = newState ? 'hidden' : '';
-}
+    button.setAttribute('aria-expanded', newState);
+    nav.classList.toggle('open', newState);
+    overlay.classList.toggle('open', newState);
+
+    document.body.style.overflow = newState ? 'hidden' : '';
+  };
+
+  mobileLinks.forEach(link =>
+    link.addEventListener('click', () => toggleMenu())
+  );
+
+  overlay.addEventListener('click', () => toggleMenu());
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
