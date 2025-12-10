@@ -1,32 +1,32 @@
 (function () {
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('nav-links');
   const overlay = document.getElementById('overlay');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  function openMenu() {
-    burger.classList.add('open');
-    burger.setAttribute('aria-expanded', 'true');
-    mobileMenu.classList.add('open');
-    overlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-  }
+/* Открыть / закрыть меню */
+function toggleMenu() {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+  const newState = !expanded;
 
-  function closeMenu() {
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
-    overlay.hidden = true;
-    document.body.style.overflow = '';
-  }
+  hamburger.setAttribute('aria-expanded', newState);
 
-  burger.addEventListener('click', () => {
-    burger.classList.contains('open') ? closeMenu() : openMenu();
-  });
+  mobileMenu.classList.toggle('open', newState);
+  overlay.classList.toggle('open', newState);
 
-  overlay.addEventListener('click', closeMenu);
+  document.body.style.overflow = newState ? 'hidden' : '';
+}
 
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+/* Кнопка ☰ / ✖ */
+hamburger.addEventListener('click', toggleMenu);
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+/* Клик по оверлею */
+overlay.addEventListener('click', toggleMenu);
+
+/* Клик по пункту меню */
+mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+/* Год в футере */
+document.getElementById('year').textContent = new Date().getFullYear();
+
 })();
