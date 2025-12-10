@@ -1,36 +1,14 @@
-<script>
-(function () {
-  const burger = document.querySelector('.hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
+function toggleMenu() {
+  const button = document.querySelector('.hamburger');
+  const nav = document.getElementById('mobileMenu');  // ИМЯ ТВОЕГО БЛОКА
   const overlay = document.getElementById('overlay');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  function openMenu() {
-    burger.setAttribute('aria-expanded', 'true');
-    mobileMenu.classList.add('open');
-    overlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-  }
+  const expanded = button.getAttribute('aria-expanded') === 'true';
+  const newState = !expanded;
 
-  function closeMenu() {
-    burger.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
-    overlay.hidden = true;
-    document.body.style.overflow = '';
-  }
+  button.setAttribute('aria-expanded', newState);
+  nav.classList.toggle('open', newState);
+  overlay.classList.toggle('open', newState);
 
-  burger.addEventListener('click', () => {
-    const expanded = burger.getAttribute('aria-expanded') === 'true';
-    expanded ? closeMenu() : openMenu();
-  });
-
-  overlay.addEventListener('click', closeMenu);
-
-  mobileLinks.forEach(link =>
-    link.addEventListener('click', closeMenu)
-  );
-
-  // footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
-})();
-</script>
+  document.body.style.overflow = newState ? 'hidden' : '';
+}
