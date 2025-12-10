@@ -193,32 +193,47 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-/* hamburger (Block Beagle style) */
+/* Базовое состояние */
 .hamburger {
-  display: none;
-  background: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  color: var(--text-color, #ffffff);
+  background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 32px;
-  color: var(--text);
-  line-height: 1;
-  transition: opacity .2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.hamburger span {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Иконка ☰ по умолчанию видна */
 .hamburger-icon {
-  display: inline-block;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
+/* Иконка ✖ скрыта */
 .close-icon {
-  display: none;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.8);
 }
 
-.hamburger.open .hamburger-icon {
-  display: none;
+/* Когда меню открыто (aria-expanded=true) */
+.hamburger[aria-expanded="true"] .hamburger-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.8);
 }
 
-.hamburger.open .close-icon {
-  display: inline-block;
+.hamburger[aria-expanded="true"] .close-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 /* показать кнопку на мобильных */
