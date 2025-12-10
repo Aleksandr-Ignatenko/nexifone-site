@@ -1,32 +1,36 @@
+<script>
 (function () {
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.getElementById('nav-links');
+  const burger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
   const overlay = document.getElementById('overlay');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-/* Открыть / закрыть меню */
-function toggleMenu() {
-  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-  const newState = !expanded;
+  function openMenu() {
+    burger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open');
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
 
-  hamburger.setAttribute('aria-expanded', newState);
+  function closeMenu() {
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  }
 
-  mobileMenu.classList.toggle('open', newState);
-  overlay.classList.toggle('open', newState);
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    expanded ? closeMenu() : openMenu();
+  });
 
-  document.body.style.overflow = newState ? 'hidden' : '';
-}
+  overlay.addEventListener('click', closeMenu);
 
-/* Кнопка ☰ / ✖ */
-hamburger.addEventListener('click', toggleMenu);
+  mobileLinks.forEach(link =>
+    link.addEventListener('click', closeMenu)
+  );
 
-/* Клик по оверлею */
-overlay.addEventListener('click', toggleMenu);
-
-/* Клик по пункту меню */
-mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-/* Год в футере */
-document.getElementById('year').textContent = new Date().getFullYear();
-
+  // footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
+</script>
