@@ -193,39 +193,40 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-/* Базовое состояние */
+/* === HAMBURGER BUTTON (BLOCK BEAGLE BEHAVIOR) === */
 .hamburger {
   position: relative;
   width: 40px;
   height: 40px;
-  font-size: 32px;
-  color: var(--text-color, #ffffff);
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1001; /* поверх меню */
 }
 
 .hamburger span {
   position: absolute;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  font-size: 32px;
+  line-height: 1;
+  transition: opacity .25s ease, transform .25s ease;
+  color: var(--text); /* ОСТАВЛЯЕМ ЦВЕТ NEXIFONE */
 }
 
-/* Иконка ☰ по умолчанию видна */
+/* ☰ */
 .hamburger-icon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
-/* Иконка ✖ скрыта */
+/* ✖ */
 .close-icon {
   opacity: 0;
   transform: rotate(-90deg) scale(0.8);
 }
 
-/* Когда меню открыто (aria-expanded=true) */
 .hamburger[aria-expanded="true"] .hamburger-icon {
   opacity: 0;
   transform: rotate(90deg) scale(0.8);
@@ -236,10 +237,10 @@ body {
   transform: rotate(0deg) scale(1);
 }
 
-/* показать кнопку на мобильных */
+/* показать кнопку только на мобильных */
 @media (max-width: 768px) {
   .hamburger {
-    display: block;
+    display: flex;
   }
 }
 
