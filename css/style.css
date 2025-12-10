@@ -201,7 +201,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1001; /* поверх меню */
@@ -239,9 +239,8 @@ body {
 
 /* показать кнопку только на мобильных */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+  .nav { display:none; }
+  .hamburger { display: flex; }
 }
 
 /* Mobile menu overlay */
