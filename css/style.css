@@ -548,7 +548,7 @@ body {
 
 @media (max-width: 768px) {
   .nav { display:none; }
-  .burger { display:flex; }
+  .hamburger  { display:flex; }
 
   .cards { grid-template-columns: 1fr; }
   .hero-inner { padding: 24px; }
