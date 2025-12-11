@@ -8,7 +8,7 @@
   if (!burger || !mobileMenu) return;
 
   const openMenu = () => {
-    burger.classList.add('open);
+    burger.classList.add('open');
     burger.setAttribute('aria-expanded', 'true');
     mobileMenu.classList.add('open');
     mobileMenu.setAttribute('aria-hidden', 'false');
