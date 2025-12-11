@@ -82,7 +82,7 @@ body {
   left: 0;
   width:100%;                                 /* ← всегда на всю ширину */
   min-height: 72px;
-  z-index:1200;
+  z-index:2000;
   padding: 14px 0;                            
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
@@ -275,7 +275,7 @@ body {
   transform: translateY(-100%);              /* ← прячем над экраном, но под хедером */
   transition: transform .4s cubic-bezier(.2,.9,.2,1);
   
-  z-index:900;                                             /* ниже overlay и ниже header */
+  z-index:1400;                                             /* ниже overlay и ниже header */
 
 }
 
