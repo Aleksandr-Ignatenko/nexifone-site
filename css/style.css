@@ -259,10 +259,10 @@ body {
 /* sliding mobile menu */
 .mobile-menu {
   position: fixed;
-  top:72px;
+  top:0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 72px);
+  height: 100vh;
   
   background: rgba(5, 8, 14, 0.92);          /* ← тёмная полупрозрачная шторка */
   backdrop-filter: blur(10px);
@@ -276,6 +276,7 @@ body {
   
   z-index:1100;
   padding:18px;
+  padding-top: 72px;     /* ← отступ под высоту хедера */
 }
 
 /* open state */
