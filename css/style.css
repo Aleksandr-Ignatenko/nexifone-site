@@ -259,10 +259,10 @@ body {
 /* sliding mobile menu */
 .mobile-menu {
   position: fixed;
-  top:0;
+  top:72px;                                   /* ← меню начинается под хедером */
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 72px);                /* ← полная высота минус хедер */
   
   background: rgba(5, 8, 14, 0.92);          /* ← тёмная полупрозрачная шторка */
   backdrop-filter: blur(10px);
@@ -271,12 +271,11 @@ body {
   border-top: 1px solid rgba(255,255,255,0.06);
   box-shadow: 0 20px 60px rgba(0,0,0,0.45);
   
-  transform: translateY(-100%);
+  transform: translateY(-100%);              /* ← прячем над экраном, но под хедером */
   transition: transform .4s cubic-bezier(.2,.9,.2,1);
   
   z-index:1100;
   padding:18px;
-  padding-top: 72px;     /* ← отступ под высоту хедера */
 }
 
 /* open state */
