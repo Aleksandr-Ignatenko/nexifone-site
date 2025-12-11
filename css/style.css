@@ -86,8 +86,6 @@ body {
   padding: 14px 0;                            
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);       /* ← ТЕНЬ */
-  background: rgba(0, 17, 125, 0.85);            /* чуть затемним, чтобы было видно поверх шторки */
-  pointer-events: auto;                           /* важен! чтобы бургер оставался кликабельным */
   }
 
 .header-inner {
