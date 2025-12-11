@@ -260,24 +260,27 @@ body {
 .mobile-menu {
   position: fixed;
   top:72px;
-  right: -100%;
-  width: 320px;
+  left: 0;
+  width: 100%;
   height: calc(100vh - 72px);
+  
   background: rgba(5, 8, 14, 0.92);          /* ← тёмная полупрозрачная шторка */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);       /* ← Safari fix */
-  border-left: 1px solid rgba(255,255,255,0.06);
-  box-shadow: -20px 20px 60px rgba(0,0,0,0.45);
+  
+  border-top: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  
+  transform: translateY(-100%);
+  transition: transform .4s cubic-bezier(.2,.9,.2,1);
+  
   z-index:1100;
-  transition: right .35s cubic-bezier(.2,.9,.2,1);
   padding:18px;
-  border-top-left-radius:12px;
-  border-bottom-left-radius:12px;
 }
 
 /* open state */
 .mobile-menu.open { 
-  right: 0; 
+  transform: translateY(0);
 }
 
 .mobile-inner { 
