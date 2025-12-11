@@ -155,44 +155,6 @@
     </div>
   </footer>
 
-  <!-- small inline script for menu + accessibility -->
-  <script>
-    (function () {
-      const burger = document.getElementById('burger');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const overlay = document.getElementById('overlay');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      function openMenu() {
-        burger.classList.add('open');
-        burger.setAttribute('aria-expanded', 'true');
-        mobileMenu.classList.add('open');
-        mobileMenu.setAttribute('aria-hidden', 'false');
-        overlay.hidden = false;
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMenu() {
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('open');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        overlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-
-      burger.addEventListener('click', function () {
-        const expanded = burger.getAttribute('aria-expanded') === 'true';
-        if (expanded) closeMenu(); else openMenu();
-      });
-
-      overlay.addEventListener('click', closeMenu);
-
-      mobileLinks.forEach(a => a.addEventListener('click', closeMenu));
-
-      // footer year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
