@@ -80,13 +80,14 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;                                 /* ← всегда на всю ширину */
+  width:100%;                                     /* ← всегда на всю ширину */
   min-height: 72px;
-  z-index:3000;                    /* выше всего */
+  z-index:9999;                                   /* выше всего */
   padding: 14px 0;                            
   backdrop-filter: blur(8px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
-  background: rgba(0, 17, 125, 0.92);          /* чуть затемним, чтобы было видно поверх шторки */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);       /* ← ТЕНЬ */
+  background: rgba(0, 17, 125, 0.85);            /* чуть затемним, чтобы было видно поверх шторки */
+  pointer-events: auto;                           /* важен! чтобы бургер оставался кликабельным */
   }
 
 .header-inner {
@@ -260,12 +261,12 @@ body {
 /* sliding mobile menu */
 .mobile-menu {
   position: fixed;
-  top:0;                                                 /* ← меню начинается под хедером */
+  top: 92px;                                              /* начинаем строго под хедером (72px + отступы) */
   left: 0;
   width: 100%;
   /* max-height: 100vh;                                       не больше экрана */
-
-  padding: 92px 20px 60px;                               /* отступ сверху под хедер + снизу */
+  height: calc(100vh - 92px);                             /* занимаем всё место под хедером */
+  padding: 20px 20px 60px;                                /* отступ сверху под хедер + снизу */
   
   background: rgba(5, 8, 14, 0.97);                        /* ← тёмная полупрозрачная шторка */
   backdrop-filter: blur(12px);
@@ -273,10 +274,10 @@ body {
   
   /* border-top:  none;                                      не нужен, меню под хедером */
   
-  transform: translateY(-100%);                            /* ← прячем над экраном, но под хедером */
+  transform: translateY(-120%);                            /* ← прячем над экраном, но под хедером */
   transition: transform .45s cubic-bezier(0.22, 0.9, 0.2, 1);
   
-  z-index:2600;                                             /* ниже overlay и ниже header */
+  z-index:9000;                                             /* ниже overlay и ниже header */
   overflow-y: auto;                                         /* если пунктов станет больше — будет скролл */
   overscroll-behavior: contain;
   
