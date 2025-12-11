@@ -1,74 +1,46 @@
-(function () {
-  // Элементы
-  const button = document.querySelector('.hamburger');
-  const nav = document.getElementById('mobileMenu'); // твой мобильный блок
+// js/main.js
+(() => {
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
   const overlay = document.getElementById('overlay');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  // expose глобально, т.к. у тебя в HTML onclick="toggleMenu()"
-  window.toggleMenu = function () {
-    if (!button) return;
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    const newState = !expanded;
+  if (!burger || !mobileMenu) return;
 
-    // ARIA + визуальный класс (Block Beagle использует .hamburger.open)
-    button.setAttribute('aria-expanded', newState ? 'true' : 'false');
-    button.classList.toggle('open', newState);
-
-    // Открываем/закрываем шторку
-    if (nav) nav.classList.toggle('open', newState);
-
-    // overlay — используем hidden, чтобы соответствовать твоему CSS
-    if (overlay) {
-      overlay.hidden = !newState;
-      overlay.classList.toggle('open', newState); // на случай, если нужно CSS-переходы
-    }
-
-    // блокируем scroll body при открытом меню
-    document.body.style.overflow = newState ? 'hidden' : '';
+  const openMenu = () => {
+    burger.classList.add('open);
+    burger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
   };
 
-  // Закрыть меню при клике на оверлей
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      if (button && (button.getAttribute('aria-expanded') === 'true')) toggleMenu();
-    });
-  }
+  const closeMenu = () => {
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  };
 
-  // Закрыть меню при клике по ссылке в мобильном меню
-  if (mobileLinks && mobileLinks.length) {
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (button && (button.getAttribute('aria-expanded') === 'true')) toggleMenu();
-      });
-    });
-  }
-
-  // Поведение: клик вне меню закрывает его (как в Block Beagle)
-  document.addEventListener('click', (e) => {
-    if (!nav || !button) return;
-    const isOpen = nav.classList.contains('open');
-    if (!isOpen) return;
-
-    const clickedInsideNav = nav.contains(e.target);
-    const clickedOnButton = button.contains(e.target);
-
-    if (!clickedInsideNav && !clickedOnButton) {
-      toggleMenu();
-    }
+  burger.addEventListener('click', () => {
+    burger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
   });
 
-  // Если у тебя есть якорные ссылки — при клике закрываем мобильное меню (не ломая скролл)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function () {
-      if (nav && nav.classList.contains('open') && button && button.getAttribute('aria-expanded') === 'true') {
-        // небольшой тайм-аут можно добавить, но закрываем сразу
-        toggleMenu();
-      }
-    });
+  overlay.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Закрытие по клику вне меню
+  document.addEventListener('click', e => {
+    if (!mobileMenu.classList.contains('open')) return;
+    if (burger.contains(e.target) || mobileMenu.contains(e.target)) return;
+    closeMenu();
   });
 
-  // год в футере
+  // Автоматический год в футере
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
