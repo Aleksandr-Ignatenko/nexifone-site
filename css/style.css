@@ -259,26 +259,24 @@ body {
 /* sliding mobile menu */
 .mobile-menu {
   position: fixed;
-  top:72px;                                             /* ← меню начинается под хедером */
+  top:0;                                                 /* ← меню начинается под хедером */
   left: 0;
   width: 100%;
-  height: calc(100vh - 72px);                            /* ← полная высота минус хедер */
+  height: 100vh;                                         /* ← полная высота минус хедер */
+
+  padding-top: 72px;                                     /* ← хедер создаёт отступ */
   
   background: rgba(5, 8, 14, 0.92);                      /* ← тёмная полупрозрачная шторка */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);                   /* ← Safari fix */
   
-  border-top: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  border-top:  none;                                     /* не нужен, меню под хедером */
   
-  transform: translateY(calc(-100% - 72px));              /* ← прячем над экраном, но под хедером */
+  transform: translateY(-100%);              /* ← прячем над экраном, но под хедером */
   transition: transform .4s cubic-bezier(.2,.9,.2,1);
   
   z-index:900;                                             /* ниже overlay и ниже header */
-  padding:18px;
 
-  will-change: transform;       /* ← КЛЮЧ */
-  contain: layout style;        /* ← КЛЮЧ */
 }
 
 /* open state */
