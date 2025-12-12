@@ -245,12 +245,6 @@ body {
   transform: rotate(0deg) scale(1);
 }
 
-/* показать кнопку только на мобильных */
-@media (max-width: 768px) {
-  .nav-links { display:none; }
-  .hamburger { display: flex; }
-}
-
 /* --------------------
    HERO
 -------------------- */
@@ -482,18 +476,6 @@ body {
   .hero-glass { 
     padding:36px; 
   }
-}
-
-@media (max-width: 768px) {
-  .nav-links { display:none; }
-  .hamburger  { display:flex; }
-
-  .cards { grid-template-columns: 1fr; }
-  .hero-inner { padding: 24px; }
-
-  .hero-glass { padding:28px; border-radius:14px; }
-  .hero-decor { height:120px; opacity:0.45; }
-
 }
 
 /* small tweaks */
