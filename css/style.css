@@ -470,12 +470,23 @@ body {
 /* --------------------
    Responsive
 -------------------- */
+/* Планшеты 769–1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .cards { 
     grid-template-columns: repeat(2, 1fr); 
   }
   .hero-glass { 
-    padding:36px; 
+    padding: 36px; 
+  }
+}
+
+/* Мобильные <=768px */
+@media (max-width: 768px) { 
+  .cards { 
+    grid-template-columns: 1fr;  
+  }
+  .hero-glass { 
+    padding: 36px; 
   }
 }
 
