@@ -84,9 +84,9 @@ body {
   min-height: 72px;
   z-index:9999;                                   /* выше всего */
   padding: 14px 0;                            
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);       /* ← ТЕНЬ */
-  background: transparent !important;             /* убираем любой фон */
+  background: transparent;                       /* убираем любой фон */
   }
 
 .header-inner {
