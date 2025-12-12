@@ -24,4 +24,7 @@
 
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // → export to global so inline onclick works
+  window.toggleMenu = toggleMenu;
 })();
