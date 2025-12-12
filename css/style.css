@@ -508,7 +508,7 @@ body {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(0,17,125,0.98);
+    background: rgba(0,0,0,0.85);
     backdrop-filter: blur(12px);
     padding: 0 30px;
     gap: 20px;
