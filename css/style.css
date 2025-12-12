@@ -80,13 +80,12 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;                                     /* ← всегда на всю ширину */
+  width:100%;                                 /* ← всегда на всю ширину */
   min-height: 72px;
-  z-index:9999;                                   /* выше всего */
+  z-index:9999;                               /* выше всего */
   padding: 14px 0;                            
-  /* backdrop-filter: blur(8px); */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);       /* ← ТЕНЬ */
-  background: transparent;                       /* убираем любой фон */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
   }
 
 .header-inner {
@@ -170,18 +169,18 @@ body {
 
 
 /* desktop nav */
-.nav {
+.nav-links {
   display:flex;
   align-items:center;
   gap:22px;
 }
-.nav a {
+.nav-links a {
   color:var(--text);
   text-decoration:none;
   font-weight:var(--fw-regular);
   transition: color .18s ease, transform .18s ease;
 }
-.nav a:hover { 
+.nav-links a:hover { 
   color: var(--accent-cyan); 
   transform: translateY(-2px); 
 }
@@ -197,8 +196,8 @@ body {
 /* === HAMBURGER BUTTON (BLOCK BEAGLE BEHAVIOR) === */
 .hamburger {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 24px;
   background: none;
   border: none;
   cursor: pointer;
@@ -206,14 +205,22 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 1001; /* поверх меню */
+  transition: transform 0.3s ease;
+}
+
+.hamburger:active {
+  transform: scale(0.9);
 }
 
 .hamburger span {
   position: absolute;
-  font-size: 32px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
   line-height: 1;
   transition: opacity .25s ease, transform .25s ease;
-  color: var(--text); /* ОСТАВЛЯЕМ ЦВЕТ NEXIFONE */
+  color: var(--text);
 }
 
 /* ☰ */
@@ -228,96 +235,20 @@ body {
   transform: rotate(-90deg) scale(0.8);
 }
 
-.hamburger[aria-expanded="true"] .hamburger-icon {
+.hamburger.open .hamburger-icon {
   opacity: 0;
   transform: rotate(90deg) scale(0.8);
 }
 
-.hamburger[aria-expanded="true"] .close-icon {
+.hamburger.open .close-icon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
 /* показать кнопку только на мобильных */
 @media (max-width: 768px) {
-  .nav { display:none; }
+  .nav-links { display:none; }
   .hamburger { display: flex; }
-}
-
-/* Mobile menu overlay */
-.overlay {
-  position:fixed;
-  inset:0;
-  background: rgba(0,0,0,0.55);
-  z-index:1000;
-  transition: opacity .25s ease;
-}
-.overlay[hidden] {
-  opacity:0;
-  pointer-events:none;
-}
-
-/* sliding mobile menu */
-.mobile-menu {
-  position: fixed;
-  top: 92px;                                              /* начинаем строго под хедером (72px + отступы) */
-  left: 0;
-  width: 100%;
-  /* max-height: 100vh;                                       не больше экрана */
-  height: calc(100vh - 92px);                             /* занимаем всё место под хедером */
-  padding: 24px 20px 60px;                                /* отступ сверху под хедер + снизу */
-  
-  background: rgba(5, 8, 14, 0.97);                        /* ← тёмная полупрозрачная шторка */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(10px);                     /* ← Safari fix */
-  
-  /* border-top:  none;                                      не нужен, меню под хедером */
-  
-  transform: translateY(-100%);                            /* ← прячем над экраном, но под хедером */
-  transition: transform .45s cubic-bezier(0.22, 0.9, 0.2, 1);
-  
-  z-index:9000;                                             /* ниже overlay и ниже header */
-  overflow-y: auto;                                         /* если пунктов станет больше — будет скролл */
-  overscroll-behavior: contain;
-  
-  /* display: flex; */
-  /* flex-direction: column; */
-}
-
-/* open state */
-.mobile-menu.open { 
-  transform: translateY(0);
-}
-
-/* Обёртка контента — чтобы он не растягивался на весь экран */
-.mobile-inner { 
-  margin: 0 auto;
-  /* width: 100%; */
-  max-width: 440px;
-  padding-bottom: 20px;
-}
-.mobile-nav { 
-  display:flex; 
-  flex-direction:column; 
-  gap:14px; 
-}
-.mobile-link {
-  color:var(--text);
-  text-decoration:none;
-  padding:10px 12px;
-  border-radius:10px;
-  display:block;
-  font-weight:500;
-}
-.mobile-link:hover { 
-  background: rgba(255,255,255,0.02); 
-  color:var(--accent-cyan); 
-}
-.btn-mobile {
-  margin-top:6px;
-  border:1px solid rgba(255,255,255,0.08);
-  text-align:center;
-  padding:10px 12px;
 }
 
 /* --------------------
@@ -554,7 +485,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav { display:none; }
+  .nav-links { display:none; }
   .hamburger  { display:flex; }
 
   .cards { grid-template-columns: 1fr; }
@@ -588,3 +519,55 @@ body {
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(0,17,125,0.98);
+    backdrop-filter: blur(12px);
+    padding: 0 30px;
+    gap: 20px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0,232,255,0);
+    transform-origin: top;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 30px;
+    border-bottom-color: rgba(0,232,255,0.2);
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 10px 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-links.open a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-links.open a:nth-child(1) { transition-delay: 0.1s; }
+  .nav-links.open a:nth-child(2) { transition-delay: 0.15s; }
+  .nav-links.open a:nth-child(3) { transition-delay: 0.2s; }
+  .nav-links.open a:nth-child(4) { transition-delay: 0.25s; }
+
+  .hamburger {
+    display: block;
+    width: 30px;
+    height: 24px;
+  }
+}
