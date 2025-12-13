@@ -509,13 +509,13 @@ body {
 .footer-social a::before {
   content: "";
   position: absolute;
-  inset: -9px;                                     /* зона свечения */
+  inset: -10px;                                     /* зона свечения */
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(189, 0, 255, 0.75),
-    rgba(189, 0, 255, 0.45),
-    rgba(189, 0, 255, 0.2),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0.2),
     transparent 65%
   );
   opacity: 0;
