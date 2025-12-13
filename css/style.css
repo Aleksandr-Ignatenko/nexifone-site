@@ -468,7 +468,7 @@ body {
 .footer-inner-separator {
   width: 100%;
   max-width: var(--container);   /* desktop / mobile token */
-  height: 1.5px;                 /* тоньше основной линии */
+  height: 1px;                 /* тоньше основной линии */
   margin: 0 auto 22px;           /* центр + отступ до текста */
   background: linear-gradient(
     90deg,
