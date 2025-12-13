@@ -505,6 +505,36 @@ body {
   display: inline-block;
 }
 
+/* glow background */
+.footer-social a::before {
+  content: "";
+  position: absolute;
+  inset: -6px; /* зона свечения */
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(189, 0, 255, 0.45),
+    rgba(189, 0, 255, 0.15),
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+/* поднимаем иконки выше glow */
+.footer-social img {
+  position: absolute;
+  z-index: 1;
+}
+
+/* hover glow */
+.footer-social a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .footer-social img {
   position: absolute;
   top: 0;
@@ -604,6 +634,11 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .footer-social a::before {
+    inset: -4px;
+  }
+}
 
 /* --------------------
    MOBILE TOKEN SWITCH
