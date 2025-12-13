@@ -566,6 +566,16 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .footer-social img {
+    width: 18px;
+  }
+
+  .footer-inner {
+    gap: 12px;
+  }
+}
+
 
 /* --------------------
    MOBILE TOKEN SWITCH
