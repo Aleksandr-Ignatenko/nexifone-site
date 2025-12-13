@@ -464,6 +464,21 @@ body {
   margin-bottom: 40px;                                                              /* отступ перед футером */
 }
 
+/* === footer inner thin separator (container width) === */
+.footer-inner-separator {
+  width: 100%;
+  max-width: var(--container);   /* desktop / mobile token */
+  height: 1.5px;                 /* тоньше основной линии */
+  margin: 0 auto 22px;           /* центр + отступ до текста */
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    var(--accent-magenta)
+  );
+  opacity: 0.85;
+  border-radius: 2px;
+}
+
 /* --------------------
    Animations
 -------------------- */
