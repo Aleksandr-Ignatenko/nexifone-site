@@ -485,7 +485,8 @@ body {
 /* верхняя строка футера (links above line) */
 .footer-top {
   display: flex;
-  justify-content: flex-end;   /* вправо */
+  align-items: center;
+  justify-content: space-between; /* ← магия */
   margin-bottom: 16px;
 }
 
@@ -577,6 +578,18 @@ body {
 .footer-copyright-anim:hover {
   color: var(--accent-cyan);
   transform: translateY(-2px);
+}
+.footer-logo img {
+  height: 22px;       /* аккуратный размер */
+  width: auto;
+  display: block;
+  opacity: 0.9;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.footer-logo img:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 /* --------------------
