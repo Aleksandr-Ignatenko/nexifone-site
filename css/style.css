@@ -479,6 +479,18 @@ body {
   border-radius: 2px;
 }
 
+/* верхняя строка футера (links above line) */
+.footer-top {
+  display: flex;
+  justify-content: flex-end;   /* вправо */
+  margin-bottom: 16px;
+}
+
+/* ссылки остаются фирменными */
+.footer-links a {
+  margin-left: 14px;
+}
+
 /* --------------------
    Animations
 -------------------- */
