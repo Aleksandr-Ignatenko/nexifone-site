@@ -497,6 +497,26 @@ body {
   margin-left: 14px;
 }
 
+/* === footer social icons === */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-social img {
+  width: 22px;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover img {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+
 /* --------------------
    Animations
 -------------------- */
