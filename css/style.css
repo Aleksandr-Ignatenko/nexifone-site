@@ -439,6 +439,7 @@ body {
 .footer { 
   padding:28px 0; 
 }
+
 .footer-inner { 
   display:flex; 
   align-items:center; 
@@ -446,12 +447,15 @@ body {
   gap:20px; 
   flex-wrap:wrap; 
 }
+
+/* ссылки остаются фирменными */
 .footer-links a { 
   color: rgba(255,255,255,0.85); 
   text-decoration:none; 
   margin-left:14px; 
   font-size:14px; 
 }
+
 .footer-links a:hover { 
   color: var(--accent-cyan); 
 }
@@ -462,12 +466,6 @@ body {
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   margin-top: 60px;                                                                 /* отступ сверху */
   margin-bottom: 40px;                                                              /* отступ перед футером */
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 /* === footer inner thin separator (container width) === */
@@ -492,11 +490,6 @@ body {
   margin-bottom: 16px;
 }
 
-/* ссылки остаются фирменными */
-.footer-links a {
-  margin-left: 14px;
-}
-
 /* === footer social icons === */
 .footer-social {
   display: flex;
@@ -504,18 +497,46 @@ body {
   gap: 14px;
 }
 
-.footer-social img {
+/* === social icons swap on hover === */
+.footer-social a {
+  position: relative;
   width: 22px;
-  height: auto;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  height: 22px;
+  display: inline-block;
 }
 
-.footer-social a:hover img {
-  opacity: 1;
+.footer-social img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* default icon */
+.footer-social .icon-default {
+  opacity: 0.85;
+}
+
+/* hover icon */
+.footer-social .icon-hover {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+/* hover state */
+.footer-social a:hover .icon-default {
+  opacity: 0;
   transform: translateY(-2px);
 }
 
+.footer-social a:hover .icon-hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
 
 /* --------------------
    Animations
@@ -573,6 +594,13 @@ body {
 
   .footer-inner {
     gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-social a {
+    width: 18px;
+    height: 18px;
   }
 }
 
