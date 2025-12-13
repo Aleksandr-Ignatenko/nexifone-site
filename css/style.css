@@ -17,6 +17,13 @@
   /* главный токен, который используют стили */
   --container: var(--container-desktop);
 
+  /* --- footer logo size --- */
+  --footer-logo-desktop: 28px;
+  --footer-logo-mobile:  22px;
+
+  /* активный токен */
+  --footer-logo-size: var(--footer-logo-desktop);
+
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -580,7 +587,7 @@ body {
   transform: translateY(-2px);
 }
 .footer-logo img {
-  height: 22px;       /* аккуратный размер */
+  height: var(--footer-logo-size);
   width: auto;
   display: block;
   opacity: 0.9;
@@ -679,6 +686,7 @@ body {
 /* token switch */  
   :root {
     --container: var(--container-mobile);
+    --footer-logo-size: var(--footer-logo-mobile);
   }
 
 /* mobile nav */  
