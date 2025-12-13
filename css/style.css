@@ -464,6 +464,12 @@ body {
   margin-bottom: 40px;                                                              /* отступ перед футером */
 }
 
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* === footer inner thin separator (container width) === */
 .footer-inner-separator {
   width: 100%;
