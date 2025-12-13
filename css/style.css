@@ -534,7 +534,7 @@ body {
 
 @media (max-width: 768px) {
   .copyright {
-    font-size: 12px;        /* уменьшенный размер */
+    font-size: 11px;        /* уменьшенный размер */
     line-height: 1.3;
     white-space: nowrap;   /* чтобы не ломалось в две строки */
   }
