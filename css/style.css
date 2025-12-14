@@ -18,7 +18,7 @@
   --container: var(--container-desktop);
 
     /* --- header logo size --- */
-  --header-logo-desktop: 68px;
+  --header-logo-desktop: 268px;
   --header-logo-mobile:  68px;
 
   /* активный токен */
