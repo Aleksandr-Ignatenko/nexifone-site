@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Moon – Basic</title>
+  <title>Moon Interactive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -11,6 +11,10 @@
       height: 100%;
       background: #000;
       overflow: hidden;
+      cursor: grab;
+    }
+    body:active {
+      cursor: grabbing;
     }
     canvas { display: block; }
   </style>
@@ -20,44 +24,52 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
 <script>
-  // Scene
   const scene = new THREE.Scene();
 
-  // Camera
   const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 100);
   camera.position.z = 3;
 
-  // Renderer
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(innerWidth, innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  // Lights (контрастный свет, чтобы ВРАЩЕНИЕ БЫЛО ВИДНО)
+  // Light
   const light = new THREE.DirectionalLight(0xffffff, 1.5);
   light.position.set(3, 2, 4);
   scene.add(light);
   scene.add(new THREE.AmbientLight(0x222222));
 
-  // Geometry (FULL SPHERE)
+  // Moon
   const geometry = new THREE.SphereGeometry(1, 64, 64);
-
-  // Материал с явной светотенью
   const material = new THREE.MeshPhongMaterial({
     color: 0xbfbfbf,
     shininess: 10
   });
-
   const moon = new THREE.Mesh(geometry, material);
   scene.add(moon);
 
-  // ЯВНОЕ ВРАЩЕНИЕ
-  function animate() {
-    requestAnimationFrame(animate);
-    moon.rotation.y += 0.02; // ← ЗАМЕТНО
-    renderer.render(scene, camera);
-  }
-  animate();
-</script>
+  // Interaction state
+  let isHover = false;
+  let isDragging = false;
+  let prevX = 0;
+  let prevY = 0;
 
-</body>
-</html>
+  // Mouse events
+  window.addEventListener('mouseenter', () => isHover = true);
+  window.addEventListener('mouseleave', () => {
+    isHover = false;
+    isDragging = false;
+  });
+
+  window.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    prevX = e.clientX;
+    prevY = e.clientY;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDra
