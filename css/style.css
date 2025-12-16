@@ -257,14 +257,14 @@ body {
 -------------------- */
 .image-overlay-section {
   width: 100%;
-  min-height: 822px; /* как размер фото */
+  min-height: 822px;                       /* как размер фото */
   background-image:
     linear-gradient(
-      to bottom,
-      rgba(0, 17, 125, 0.0) 0%,
+      to bottom,                           /* направление */
+      rgba(0, 17, 125, 0.1) 10%,           /* ВЕРХ */
       rgba(0, 17, 125, 0.35) 40%,
       rgba(0, 17, 125, 0.7) 70%,
-      rgba(0, 17, 125, 1) 100%
+      rgba(0, 17, 125, 1) 100%             /* НИЗ */
     ),
     url("../assets/home/image12.jpg");
 
