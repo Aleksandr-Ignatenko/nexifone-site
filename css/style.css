@@ -275,6 +275,51 @@ body {
   position: relative;
 }
 
+/* --- TELECOM TEXT OVERLAY --- */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  max-width: 50%;
+  z-index: 4;
+  color: #fff;
+}
+.typing-line {
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+.subtitle {
+  margin-top: 18px;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 400;
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideIn 0.9s ease-out forwards;
+  animation-delay: 0.4s;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
 /* --------------------
    HERO
 -------------------- */
@@ -823,6 +868,20 @@ body {
       ),
       url("../assets/home/image14.jpg");
   }
+    .overlay-text {
+    left: 6%;
+    max-width: 88%;
+  }
+  
+  .typing-line {
+    font-size: 20px;
+    white-space: normal;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+  }
+
 }
 
 /* --------------------
