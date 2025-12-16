@@ -272,6 +272,25 @@ body {
   inset: 0;
   background: rgba(0, 17, 125, 0.6); /* #00117D с прозрачностью */
 }
+.image-overlay-section {
+  width: 100%;
+  min-height: 822px; /* как размер фото */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 17, 125, 0.0) 0%,
+      rgba(0, 17, 125, 0.35) 40%,
+      rgba(0, 17, 125, 0.7) 70%,
+      rgba(0, 17, 125, 1) 100%
+    ),
+    url("../assets/home/image11.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
 
 /* --------------------
    HERO
