@@ -252,6 +252,26 @@ body {
   opacity: 1;
   transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
+/* --------------------
+   TELECOM VISUAL BLOCK
+-------------------- */
+.telecom-visual {
+  position: relative;
+  width: 100%;
+  height: 822px; /* как у картинки */
+  background-image: url("../assets/home/image11.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* полупрозрачная фирменная маска */
+.telecom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 17, 125, 0.6); /* #00117D с прозрачностью */
+}
 
 /* --------------------
    HERO
@@ -784,6 +804,10 @@ body {
   
   .footer-brand {
     align-items: flex-start;
+  }
+
+  .telecom-visual {
+    height: 420px;
   }
 }
 
