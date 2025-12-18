@@ -375,9 +375,8 @@ body {
 .about-image {
   position: absolute;
   top: 46px;                /* совпадает с padding-top карточки */
-  right: 48px;              /* ТОЧНО такой же отступ, как текст слева */
-  width: 50%;
-  height: auto;
+  left: 48px;       /* ТОЧНО как текст */
+  right: 48px;      /* ТОЧНО как текст */
   pointer-events: none;     /* чтобы не мешала ховерам */
   z-index: 1;
 }
