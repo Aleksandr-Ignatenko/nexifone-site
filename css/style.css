@@ -350,11 +350,9 @@ body {
 
 /* layout */
 .about-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
   position: relative;
 }
+
 /* TEXT */
 .about-content {
   position: relative;
@@ -381,15 +379,13 @@ body {
   width: 50%;
   height: auto;
   pointer-events: none;     /* чтобы не мешала ховерам */
-  
-  margin-left: -120px;       /* ← НАХЛЁСТ */
   z-index: 1;
 }
 
 .about-image img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   display: block;
   box-shadow:
     0 18px 60px rgba(0,0,0,0.55),
@@ -409,7 +405,6 @@ body {
     rgba(0, 17, 125, 0.15) 60%,
     rgba(0, 17, 125, 0.0) 100%
   );
-  pointer-events: none;
 }
 
 /* subtle hover lift (same language as cards) */
