@@ -344,7 +344,7 @@ body {
       rgba(10, 20, 60, 0.55) 65%,
       rgba(10, 20, 60, 0.25) 100%
     ),
-    url("assets/home/About.jpg");
+    url("../assets/home/About.jpg");
 
   background-size: cover;
   background-position: right center;
