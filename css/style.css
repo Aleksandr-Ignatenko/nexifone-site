@@ -881,6 +881,9 @@ body {
   .subtitle {
     font-size: 20px;
   }
+    .subtitle span {
+    display: block;
+  }
 
 }
 
