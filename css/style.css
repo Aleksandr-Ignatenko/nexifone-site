@@ -1,5 +1,5 @@
 :root{
-  --bg: #00117D;                                 /* фирменный фон */
+  --bg: #00117D;                                  /* --- BRANDED BACKGROUND --- */
   --glass: rgba(255,255,255,0.06);
   --glass-strong: rgba(255,255,255,0.10);
   --accent-cyan: #00E8FF;
@@ -10,28 +10,36 @@
   --fw-regular: 400;
   --fw-medium: 600;
   
-  /* --- контейнеры (токены) --- */
+    /* --- CONTAINERS (TOKEN) --- */
   --container-desktop: clamp(800px, 80%, 1400px);
   --container-mobile:  clamp(320px, 90%, 1000px);
   
-  /* главный токен, который используют стили */
+    /* --- MAIN TOKEN (which styles use) --- */
   --container: var(--container-desktop);
 
-    /* --- header logo size --- */
+    /* --- HEADER LOGO SIZE --- */
   --header-logo-desktop: 68px;
   --header-logo-mobile:  68px;
 
-  /* активный токен */
+    /* --- ACTIVE TOKEN --- */
   --header-logo-size: var(--header-logo-desktop);
 
-  /* --- footer logo size --- */
+    /* --- HEADER METRICS --- */
+  --header-height: 110px;                         /* --- ACTUAL HEIGHT OF THE HEADER --- */
+  --hero-safe-offset: 110px;                      /* --- FIXED HEADER PADDING --- */
+
+    /* --- HERO TEXT POSITION --- */
+  --hero-offset: 280px;
+  --hero-text-offset: 280px;                      /* --- CURRENT POSITION OF THE TEXT (as it is now) --- */
+
+    /* --- FOOTER LOGO SIZE --- */
   --footer-logo-desktop: 198px;
   --footer-logo-mobile:  198px;
 
-  /* активный токен */
+    /* --- ACTIVE TOKEN --- */
   --footer-logo-size: var(--footer-logo-desktop);
 
-  --hero-offset: 280px;
+
 
 }
 
@@ -160,14 +168,14 @@ body {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
-  /* logo + brand group */
-  .brand-group {
-    display: flex;
-    align-items: center;
-    gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
-    position: relative;
-    padding-left: 95px;                   /* ← ВАЖНО: пространство под логотип */
-  }
+/* logo + brand group */
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
+  position: relative;
+  padding-left: 95px;                   /* ← ВАЖНО: пространство под логотип */
+}
 
 /* BRAND NAME NEXT TO LOGO */
 .brand-name {
@@ -273,7 +281,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 110px;   /* = header offset */
+  padding-top: var(--hero-safe-offset);   /* = header offset */
   position: relative;
 }
 
@@ -290,7 +298,7 @@ body {
 /* текст теперь живёт ВНУТРИ контейнера */
 .overlay-text {
   position: absolute;
-  top: var(--hero-offset);  
+  top: var(--hero-text-offset); 
   left: 0;                  /* больше никаких % */
   transform: translateY(-50%);
   max-width: 640px;         /* или 50%, если хочешь */
@@ -449,11 +457,11 @@ body {
     padding: 34px 26px;
   }
 
-    .about-layout {
+  .about-layout {
     grid-template-columns: 1fr;
   }
 
-    .about-content {
+  .about-content {
     padding-right: 0;
   }
 
@@ -486,9 +494,9 @@ body {
    HERO
 -------------------- */
 .hero {
-  padding-top:110px; /* header offset */ 
+  padding-top: var(--hero-safe-offset); /* header offset */ 
   padding-bottom:80px;
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - var(--hero-safe-offset));
   display:flex;
   align-items:center;
   position:relative;
