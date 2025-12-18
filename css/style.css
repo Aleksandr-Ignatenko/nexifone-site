@@ -31,6 +31,8 @@
   /* активный токен */
   --footer-logo-size: var(--footer-logo-desktop);
 
+  --hero-offset: 140px;
+
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -288,7 +290,7 @@ body {
 /* текст теперь живёт ВНУТРИ контейнера */
 .overlay-text {
   position: absolute;
-  top: 50%;
+  top: var(--hero-offset);  
   left: 0;                  /* больше никаких % */
   transform: translateY(-50%);
   max-width: 640px;         /* или 50%, если хочешь */
