@@ -1042,16 +1042,18 @@ body {
       ),
       url("../assets/home/image14.jpg");
   }
-    .overlay-text {
-    left: 6%;
-    max-width: 88%;
+  .overlay-text {
+    left: 20px;
+    right: 20px;
+    max-width: calc(var(--container) - 40px);
+    transform: translateY(0);                     /* мобильным не нужен центр по высоте */
   }
   
   .typing-line {
     font-size: 22px;
     white-space: normal;
     line-height: 1.25;
-    min-height: calc(1.25em * 2);           /* ← РЕЗЕРВ НА 2 СТРОКИ */
+    min-height: calc(1.25em * 2);                 /* ← РЕЗЕРВ НА 2 СТРОКИ */
   }
   
   .subtitle {
