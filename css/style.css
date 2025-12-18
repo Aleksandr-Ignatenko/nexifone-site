@@ -276,6 +276,26 @@ body {
 }
 
 /* --- TELECOM TEXT OVERLAY --- */
+/* контейнер внутри hero-фона */
+.overlay-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;          /* как у всего сайта */
+  height: 100%;
+  position: relative;
+}
+
+/* текст теперь живёт ВНУТРИ контейнера */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 0;                  /* ❗ больше никаких % */
+  transform: translateY(-50%);
+  max-width: 640px;         /* или 50%, если хочешь */
+  z-index: 4;
+  color: #fff;
+}
+
 .overlay-text {
   position: absolute;
   top: 50%;
