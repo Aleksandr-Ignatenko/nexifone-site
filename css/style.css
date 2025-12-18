@@ -31,6 +31,7 @@
     /* --- HERO TEXT POSITION --- */
   --hero-offset: 280px;
   --hero-text-offset: 280px;                      /* --- CURRENT POSITION OF THE TEXT (as it is now) --- */
+  --hero-text-color: #fff;
 
     /* --- FOOTER LOGO SIZE --- */
   --footer-logo-desktop: 198px;
@@ -299,11 +300,12 @@ body {
 .overlay-text {
   position: absolute;
   top: var(--hero-text-offset); 
-  left: 0;                  /* больше никаких % */
+  left: 20px;                  /* ← ТОЧНО как padding контейнера */
+  right: 20px;
   transform: translateY(-50%);
-  max-width: 640px;         /* или 50%, если хочешь */
+  max-width: calc(var(--container) - 40px);
   z-index: 4;
-  color: #fff;
+  color: var(--hero-text-color);
 }
 
 .typing-line {
@@ -334,6 +336,7 @@ body {
   text-shadow: 
     0 6px 20px rgba(0, 0, 0, 0.9),
     0 10 36px rgba(0, 232, 255, 0.7);
+  white-space: nowrap;
 }
 @keyframes slideIn {
   to {
