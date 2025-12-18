@@ -876,10 +876,13 @@ body {
   .typing-line {
     font-size: 22px;
     white-space: normal;
+    line-height: 1.25;
+    min-height: calc(1.25em * 2);           /* ← РЕЗЕРВ НА 2 СТРОКИ */
   }
   
   .subtitle {
     font-size: 20px;
+    margin-top: 16px;
   }
     .subtitle span {
     display: block;
