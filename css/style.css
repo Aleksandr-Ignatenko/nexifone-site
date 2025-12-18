@@ -271,7 +271,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  padding-top: 110px;   /* = header offset */
   position: relative;
 }
 
@@ -289,22 +289,13 @@ body {
 .overlay-text {
   position: absolute;
   top: 50%;
-  left: 0;                  /* ❗ больше никаких % */
+  left: 0;                  /* больше никаких % */
   transform: translateY(-50%);
   max-width: 640px;         /* или 50%, если хочешь */
   z-index: 4;
   color: #fff;
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-  max-width: 50%;
-  z-index: 4;
-  color: #fff;
-}
 .typing-line {
   font-size: clamp(26px, 3.5vw, 44px);
   font-weight: 700;
