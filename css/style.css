@@ -334,18 +334,27 @@ body {
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.02)
-  );
+  position: relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 20, 60, 0.92) 0%,
+      rgba(10, 20, 60, 0.85) 40%,
+      rgba(10, 20, 60, 0.55) 65%,
+      rgba(10, 20, 60, 0.25) 100%
+    ),
+    url("assets/home/About.jpg");
+
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
   box-shadow:
     0 14px 48px rgba(0,0,0,0.55),
     0 0 60px rgba(0, 232, 255, 0.05);
-  position: relative;
-  overflow: visible;                     /* важно для выхода картинки */
 }
 
 /* layout */
