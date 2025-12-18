@@ -266,6 +266,7 @@ body {
 /* --------------------
    TELECOM VISUAL BLOCK
 -------------------- */
+/* --- Glassmorphism card --- */
 .image-overlay-section {
   width: 100%;
   min-height: 822px;                       /* как размер фото */
