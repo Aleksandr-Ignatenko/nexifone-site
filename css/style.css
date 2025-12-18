@@ -330,7 +330,7 @@ body {
 
 /* стеклянная карта */
 .about-glass {
-  max-width: 960px;
+  max-width: var(--container-desktop);
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
