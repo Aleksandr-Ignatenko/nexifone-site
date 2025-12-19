@@ -303,10 +303,10 @@ body {
   top: var(--hero-text-offset); 
   left: 20px;                  /* ← ТОЧНО как padding контейнера */
   right: 20px;
-  transform: translateY(-50%);
   max-width: calc(var(--container) - 40px);
   z-index: 4;
   color: var(--hero-text-color);
+  transform: none;
 }
 
 .typing-line {
