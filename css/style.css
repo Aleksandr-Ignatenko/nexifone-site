@@ -30,7 +30,8 @@
 
     /* --- HERO TEXT POSITION --- */
   --hero-offset: 280px;
-  --hero-text-offset: 280px;                      /* --- CURRENT POSITION OF THE TEXT (as it is now) --- */
+  --hero-text-offset-desktop: 120px;
+  --hero-text-offset-mobile: 80px;
   --hero-text-color: #fff;
 
     /* --- FOOTER LOGO SIZE --- */
@@ -305,7 +306,7 @@ body {
   color: var(--hero-text-color);
   transform: none;
   margin: 0 auto;
-  padding-top: 120px;
+  padding-top: var(--hero-text-offset-desktop);
 }
 
 .typing-line {
@@ -969,7 +970,7 @@ body {
     max-width: var(--container);
     transform: translateY(0);
     margin: 0 auto;
-    padding-top: 120px;
+    padding-top: var(--hero-text-offset-mobile);
   }
   .typing-line {
     font-size: 22px;
