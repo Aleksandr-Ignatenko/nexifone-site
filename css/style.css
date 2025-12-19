@@ -423,7 +423,7 @@ body {
 -------------------- */
 @media (max-width: 768px) {
   .about {
-    padding: 90px 0 80px;
+    padding: 90px 20px 80px;
   }
 
   .about-glass {
