@@ -1029,6 +1029,8 @@ body {
     --container: var(--container-mobile);
     --header-logo-size: var(--header-logo-mobile);
     --footer-logo-size: var(--footer-logo-mobile);
+
+    --hero-text-offset: 200px;
   }
 
 /* mobile nav */  
