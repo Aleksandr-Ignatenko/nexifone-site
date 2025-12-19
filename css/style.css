@@ -350,7 +350,7 @@ body {
    ABOUT
 -------------------- */
 .about {
-  padding: 90px 20px 90px;
+  padding: 90px 20px 80px;
 }
 
 /* стеклянная карта */
@@ -423,13 +423,13 @@ body {
 -------------------- */
 @media (max-width: 768px) {
   .about {
-    padding: 90px 20px 70px;
+    padding: 90px 20px 80px;
   }
 
   .about-glass {
     padding: 34px 26px;
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 60px;
   }
 
   .about-layout {
@@ -982,7 +982,7 @@ body {
   .telecom-visual {
     height: 420px;
   }
-    .image-overlay-section {
+  .image-overlay-section {
     min-height: 100vh;
     background-image:
       linear-gradient(
