@@ -21,17 +21,17 @@
   --header-logo-desktop: 68px;
   --header-logo-mobile:  68px;
 
-    /* --- ACTIVE TOKEN --- */
-  --header-logo-size: var(--header-logo-desktop);
-
-    /* --- HEADER METRICS --- */
+      /* --- HEADER METRICS --- */
   --header-height: 110px;                         /* --- ACTUAL HEIGHT OF THE HEADER --- */
   --hero-safe-offset: 110px;                      /* --- FIXED HEADER PADDING --- */
 
-    /* --- HERO TEXT POSITION --- */
-  --hero-text-offset-desktop: 100px;
-  --hero-text-offset-mobile: 60px;
+      /* --- HERO TEXT POSITION --- */
+  --hero-text-offset-desktop: 80px;
+  --hero-text-offset-mobile: 40px;
   --hero-text-color: #fff;
+
+    /* --- ACTIVE TOKEN --- */
+  --header-logo-size: var(--header-logo-desktop);
 
     /* --- FOOTER LOGO SIZE --- */
   --footer-logo-desktop: 198px;
