@@ -430,6 +430,7 @@ body {
     padding: 34px 26px;
     margin-left: 20px;
     margin-right: 20px;
+    max-width: calc(var(--container-mobile);
   }
 
   .about-layout {
