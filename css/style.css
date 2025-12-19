@@ -56,16 +56,15 @@ body {
   line-height:1.45;
 }
 
-/* --------------------
+/* =========================================================
    utils
--------------------- */
+========================================================= */
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* visually hidden */
 .visually-hidden { 
   position:absolute!important; 
   height:1px; 
@@ -75,7 +74,6 @@ body {
   white-space:nowrap; 
 }
 
-/* Единый эффект underline для навигации, логотипа и любых ссылок */
 .underline-anim {
   position: relative;
   display: inline-block;
@@ -89,7 +87,6 @@ body {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  /* ← фирменный градиент */
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   transition: width 0.28s ease-out;
   border-radius: 3px;
@@ -99,26 +96,26 @@ body {
   width: 100%;
 }
 
-/* --------------------
+/* =========================================================
    HEADER
--------------------- */
+========================================================= */
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;                                 /* ← всегда на всю ширину */
+  width:100%;
   min-height: 72px;
-  z-index:9999;                               /* выше всего */
+  z-index:9999;
   padding: 14px 0;                            
   backdrop-filter: blur(8px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);     /* ← ТЕНЬ */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
   }
 
 .header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 17, 125, 0.75);       /* твой фирменный цвет, но только как маска */
+  background: rgba(0, 17, 125, 0.75);
   z-index: -1;
   pointer-events: none;
 }
@@ -126,59 +123,54 @@ body {
 .header-inner {
   position: static;
   display:flex;
-  align-items:center;                          /* ← Центрирование по вертикали */
-  justify-content:space-between;               /* ← меню справа */
+  align-items:center;
+  justify-content:space-between;
   gap:20px;                                    
   width:100%;
   max-width: var(--container);                
   margin: 0 auto;
-  padding: 0 20px;                             /* ← место под логотип */
+  padding: 0 20px;
 }
 
-/* logo */
 .logo-img {
   height: var(--header-logo-size);
-  width: auto;                                  /* сохраняет пропорции */
+  width: auto;
   display:block;
 }
 
-/* LOGO BOX — прямоугольник под логотип */
 .logo-box {
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));   /* цвет фона #00117D  #FFE900  */
-  padding: 4px 6px;                                                               /* пространство вокруг логотипа */
-  min-width: 46px;                               /* минимальная ширина прямоугольника */
-  min-height: 90px;                              /* минимальная высота прямоугольника */
-  border-radius: 0 0 14px 14px;                  /* закругление углов */
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  padding: 4px 6px;
+  min-width: 46px;
+  min-height: 90px;
+  border-radius: 0 0 14px 14px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
 
   position: absolute;
-  top: -14px;         /* прижат к верхней границе */
-  left: 0;        /* прижат к левому краю brand-group */
+  top: -14px;
+  left: 0;
   
-  transform: none;               /* чтобы выступал вниз из хедера — подберём точное значение */
+  transform: none;
   transition: transform .25s ease, box-shadow .25s ease;
   z-index: 10000;
 }
 
-/* Hover */
 .logo-box:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
 
-/* logo + brand group */
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 32px;                           /* ← регулируешь расстояние между логотипом и текстом */     
+  gap: 32px;    
   position: relative;
-  padding-left: 95px;                   /* ← ВАЖНО: пространство под логотип */
+  padding-left: 95px;
 }
 
-/* BRAND NAME NEXT TO LOGO */
 .brand-name {
   font-size: 20px;
   font-weight: 600;
@@ -189,13 +181,11 @@ body {
   transition: color .18s ease, transform .18s ease;
 }
 
-/* эффект hover (как меню) */
 .brand-name:hover {
   color: var(--accent-cyan);
   transform: translateY(-2px);
 }
 
-/* desktop nav */
 .nav-links {
   display:flex;
   align-items:center;
@@ -218,7 +208,6 @@ body {
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
-/* === HAMBURGER BUTTON (BLOCK BEAGLE BEHAVIOR) === */
 .hamburger {
   position: relative;
   width: 30px;
@@ -263,10 +252,10 @@ body {
   opacity: 1;
   transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
-/* --------------------
+
+/* =========================================================
    TELECOM VISUAL BLOCK
--------------------- */
-/* --- Glassmorphism card --- */
+========================================================= */
 .image-overlay-section {
   width: 100%;
   min-height: 822px;                       /* как размер фото */
@@ -287,21 +276,18 @@ body {
   position: relative;
 }
 
-/* --- TELECOM TEXT OVERLAY --- */
-/* контейнер внутри hero-фона */
 .overlay-inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 20px;          /* как у всего сайта */
+  padding: 0 20px;
   height: 100%;
   position: relative;
 }
 
-/* текст теперь живёт ВНУТРИ контейнера */
 .overlay-text {
   position: absolute;
   top: var(--hero-text-offset); 
-  left: 20px;                  /* ← ТОЧНО как padding контейнера */
+  left: 20px;
   right: 20px;
   max-width: calc(var(--container) - 40px);
   z-index: 4;
@@ -346,14 +332,12 @@ body {
   }
 }
 
-/* --------------------
+/* =========================================================
    ABOUT
--------------------- */
+========================================================= */
 .about {
   padding: 90px 20px 80px;
 }
-
-/* стеклянная карта */
 .about-glass {
   width: 100%;
   max-width: var(--container);
@@ -386,15 +370,13 @@ body {
   overflow: hidden;
 }
 
-/* layout */
 .about-layout {
   position: relative;
 }
 
-/* TEXT */
 .about-content {
   position: relative;
-  z-index: 3;                           /* текст выше картинки */
+  z-index: 3;
   padding-right: 52%;
 }
 
@@ -409,7 +391,6 @@ body {
   margin-bottom: 0;
 }
 
-/* subtle hover lift (same language as cards) */
 .about-glass:hover {
   transform: translateY(-4px);
   transition: transform .25s ease, box-shadow .25s ease;
@@ -418,37 +399,9 @@ body {
     0 0 70px rgba(189,0,255,0.06);
 }
 
-/* --------------------
-   MOBILE
--------------------- */
-@media (max-width: 768px) {
-  .about {
-    padding: 90px 20px 80px;
-  }
-
-  .about-glass {
-    padding: 34px 26px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-content {
-    padding-right: 0;
-  }
-  
-  .about-content p {
-    font-size: 14.5px;
-  }
-}
-
-
-/* --------------------
+/* =========================================================
    HERO
--------------------- */
+========================================================= */
 .hero {
   padding-top: var(--hero-safe-offset); /* header offset */ 
   padding-bottom:80px;
@@ -469,7 +422,6 @@ body {
   align-items:center;
 }
 
-/* glass card */
 .hero-glass{
   max-width:840px;
   margin: 0 auto;
@@ -485,7 +437,6 @@ body {
   position: relative;
 }
 
-/* title */
 .hero-title {
   font-size: clamp(28px, 5.2vw, 48px);
   line-height:1.05;
@@ -512,7 +463,6 @@ body {
   flex-wrap:wrap; 
 }
 
-/* CTA */
 .cta-btn {
   display:inline-block;
   padding:12px 22px;
@@ -524,7 +474,6 @@ body {
   box-shadow: 0 10px 40px rgba(0, 232, 255, 0.12), 0 4px 18px rgba(189,0,255,0.06);
   transition: transform .18s ease, box-shadow .18s ease;
 }
-/* CTA modifiers */
 .cta-btn.large { 
   padding:14px 28px; 
   font-size:18px; 
@@ -549,7 +498,6 @@ body {
   transform: translateY(-3px); 
 }
 
-/* decorative SVG */
 .hero-decor { 
   position:absolute; 
   left:0; 
@@ -562,24 +510,23 @@ body {
   filter: blur(8px); 
 }
 
-/* Mesh canvas (particles) */
 #mesh {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;                                   /* располагаем внизу hero секции */
+  bottom: 0;
   width: 100%;
-  height: clamp(220px, 30vw, 380px);           /* можно подрегулировать */
-  pointer-events: none;                        /* не мешаем кликам и меню */
+  height: clamp(220px, 30vw, 380px);
+  pointer-events: none;
   opacity: 0.85;
-  z-index: 2;                                  /* поверх декора, но ниже текста */
-  mix-blend-mode: screen;                      /* мягкий светящийся эффект */
+  z-index: 2;
+  mix-blend-mode: screen;
   display: block;
 }
 
-/* --------------------
+/* =========================================================
    SERVICES
--------------------- */
+========================================================= */
 .services { 
   padding:70px 0; 
 }
@@ -597,7 +544,6 @@ body {
   margin-top:18px;
 }
 
-/* card */
 .card {
   padding:22px;
   border-radius:14px;
@@ -625,9 +571,9 @@ body {
   color: rgba(255,255,255,0.92); line-height:1.5; 
 }
 
-/* --------------------
+/* =========================================================
    CONTACT CTA
--------------------- */
+========================================================= */
 .contact-cta {
   padding:48px 0;
   border-top: 1px solid rgba(255,255,255,0.03);
@@ -639,9 +585,10 @@ body {
   color: rgba(255,255,255,0.9); 
 }
 
-/* --------------------
+
+/* =========================================================
    FOOTER
--------------------- */
+========================================================= */
 .footer { 
   padding:28px 0; 
 }
@@ -659,7 +606,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* === footer main layout === */
 .footer-main {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
@@ -667,19 +613,16 @@ body {
   padding-bottom: 32px;
 }
 
-/* columns */
 .footer-col {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* logo column */
 .footer-brand {
   justify-content: flex-start;
 }
 
-/* titles */
 .footer-title {
   font-size: 15px;
   font-weight: 600;
@@ -687,7 +630,6 @@ body {
   margin-bottom: 6px;
 }
 
-/* lists */
 .footer-list {
   list-style: none;
   display: flex;
@@ -707,7 +649,6 @@ body {
   transform: translateX(3px);
 }
 
-/* === footer contact icons === */
 .footer-contact a {
   display: flex;
   align-items: center;
@@ -721,7 +662,6 @@ body {
   transition: opacity .25s ease, transform .25s ease;
 }
 
-/* swap */
 .footer-contact .icon-hover {
   opacity: 0;
   position: absolute;
@@ -746,7 +686,6 @@ body {
   flex-wrap:wrap; 
 }
 
-/* ссылки остаются фирменными */
 .footer-links a { 
   color: rgba(255,255,255,0.85); 
   text-decoration:none; 
@@ -760,18 +699,17 @@ body {
 
 .footer-separator {
   width: 100%;
-  height: 3px;                                                                      /* толщина полоски — можешь менять */
+  height: 3px;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  margin-top: 60px;                                                                 /* отступ сверху */
-  margin-bottom: 40px;                                                              /* отступ перед футером */
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
-/* === footer inner thin separator (container width) === */
 .footer-inner-separator {
   width: 100%;
-  max-width: var(--container);   /* desktop / mobile token */
-  height: 1px;                 /* тоньше основной линии */
-  margin: 0 auto 22px;           /* центр + отступ до текста */
+  max-width: var(--container);
+  height: 1px;
+  margin: 0 auto 22px;
   background: linear-gradient(
     90deg,
     var(--accent-cyan),
@@ -781,22 +719,19 @@ body {
   border-radius: 2px;
 }
 
-/* верхняя строка футера (links above line) */
 .footer-top {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ← магия */
+  justify-content: space-between;
   margin-bottom: 16px;
 }
 
-/* === footer social icons === */
 .footer-social {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* === social icons swap on hover === */
 .footer-social a {
   position: relative;
   width: 22px;
@@ -804,11 +739,10 @@ body {
   display: inline-block;
 }
 
-/* glow background */
 .footer-social a::before {
   content: "";
   position: absolute;
-  inset: -10px;                                     /* зона свечения */
+  inset: -10px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -823,13 +757,11 @@ body {
   z-index: 0;
 }
 
-/* hover glow */
 .footer-social a:hover::before {
   opacity: 1;
   transform: scale(1);
 }
 
-/* поднимаем иконки выше glow */
 .footer-social img {
   position: absolute;
   top: 0;
@@ -891,9 +823,9 @@ body {
   transform: translateY(-1px);
 }
 
-/* --------------------
+/* =========================================================
    Animations
--------------------- */
+========================================================= */
 @keyframes glassPop {
   from { transform: translateY(8px) scale(.995); opacity:0; }
   to { transform: translateY(0) scale(1); opacity:1; }
@@ -903,11 +835,13 @@ body {
   to { transform: translateY(0); opacity:1; }
 }
 
-/* --------------------
-   Responsive
--------------------- */
-/* Планшеты 769–1024px */
+/* =========================================================
+   TABLETS (769–1024px)
+========================================================= */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* -----------------------------------------------------
+     CARDS / SERVICES
+  ----------------------------------------------------- */
   .cards { 
     grid-template-columns: repeat(2, 1fr); 
   }
@@ -916,124 +850,33 @@ body {
   }
 }
 
-/* --------------------
-   Responsive — Layout / Components
--------------------- */
-/* Мобильные <=768px */
+
+/* =========================================================
+   MOBILE (≤768px)
+========================================================= */
 @media (max-width: 768px) {
-/* cards */
-  .cards { 
-    grid-template-columns: 1fr;  
-  }
-  
-/* hero */
-  .hero-glass { 
-    padding: 36px; 
-  }
-  
-/* Адаптив: уменьшить высоту на мобильных */
-  #mesh { 
-    height: 240px; 
-    opacity: 0.75; 
-  }
-  
-/* footer text */
-  .footer-copyright {
-    font-size: 11px;        /* уменьшенный размер */
-    line-height: 1.3;
-    white-space: nowrap;   /* чтобы не ломалось в две строки */
-  }
-  
-/* footer social icons */
-  .footer-social img {
-    width: 18px;
-  }
-  
-  .footer-social a {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .footer-social a::before {
-    inset: -6px;
-  }
-  
-  .footer-inner {
-    gap: 12px;
-  }
 
-/* не скрываем на мобильных */
-  .brand-name {
-    display: block;
-    font-size: 18px;
-  }
-  
-/* footer main mobile */
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: left;
-  }
-  
-  .footer-brand {
-    align-items: flex-start;
-  }
-
-  .telecom-visual {
-    height: 420px;
-  }
-  .image-overlay-section {
-    min-height: 100vh;
-    background-image:
-      linear-gradient(
-        to bottom,
-        rgba(0, 17, 125, 0.35) 0%,
-        rgba(0, 17, 125, 0.55) 45%,
-        rgba(0, 17, 125, 0.75) 75%,
-        rgba(0, 17, 125, 1) 100%
-      ),
-      url("../assets/home/image14.jpg");
-  }
-  .overlay-text {
-    left: 20px;
-    right: 20px;
-    max-width: calc(var(--container) - 40px);
-    transform: translateY(0);                     /* мобильным не нужен центр по высоте */
-  }
-  
-  .typing-line {
-    font-size: 22px;
-    white-space: normal;
-    line-height: 1.25;
-    min-height: calc(1.25em * 2);                 /* ← РЕЗЕРВ НА 2 СТРОКИ */
-  }
-  
-  .subtitle {
-    font-size: 20px;
-    margin-top: 16px;
-  }
-    .subtitle span {
-    display: block;
-  }
-
-}
-
-/* --------------------
-   MOBILE TOKEN SWITCH
--------------------- */
-
-@media (max-width: 768px) {
-  
-/* token switch */  
+  /* -----------------------------------------------------
+     TOKEN SWITCH
+  ----------------------------------------------------- */
   :root {
     --container: var(--container-mobile);
     --header-logo-size: var(--header-logo-mobile);
     --footer-logo-size: var(--footer-logo-mobile);
-
     --hero-text-offset: 200px;
   }
-
-/* mobile nav */  
+  /* -----------------------------------------------------
+     HEADER / NAVIGATION
+  ----------------------------------------------------- */
+  .brand-name {
+    display: block;
+    font-size: 18px;
+  }
+  .hamburger {
+    display: block;
+    width: 30px;
+    height: 24px;
+  }
   .nav-links {
     position: fixed;
     top: 72px;
@@ -1055,14 +898,12 @@ body {
     transform-origin: top;
     z-index: 9998;
   }
-
   .nav-links.open {
     max-height: 400px;
     opacity: 1;
     padding: 30px;
     border-bottom-color: rgba(0,232,255,0.2);
   }
-
   .nav-links a {
     font-size: 1.2rem;
     padding: 10px 0;
@@ -1071,20 +912,115 @@ body {
     transition: opacity 0.3s ease, transform 0.3s ease;
     text-align: left;
   }
-
   .nav-links.open a {
     opacity: 1;
     transform: translateX(0);
   }
-
   .nav-links.open a:nth-child(1) { transition-delay: 0.1s; }
   .nav-links.open a:nth-child(2) { transition-delay: 0.15s; }
   .nav-links.open a:nth-child(3) { transition-delay: 0.2s; }
   .nav-links.open a:nth-child(4) { transition-delay: 0.25s; }
-
-  .hamburger {
+  /* -----------------------------------------------------
+     HERO
+  ----------------------------------------------------- */
+  .hero-glass { 
+    padding: 36px;
+  }
+  .image-overlay-section {
+    min-height: 100vh;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(0, 17, 125, 0.35) 0%,
+        rgba(0, 17, 125, 0.55) 45%,
+        rgba(0, 17, 125, 0.75) 75%,
+        rgba(0, 17, 125, 1) 100%
+      ),
+      url("../assets/home/image14.jpg");
+  }
+  .overlay-text {
+    left: 20px;
+    right: 20px;
+    max-width: calc(var(--container) - 40px);
+    transform: translateY(0);
+  }
+  .typing-line {
+    font-size: 22px;
+    white-space: normal;
+    line-height: 1.25;
+    min-height: calc(1.25em * 2);
+  }
+  .subtitle {
+    font-size: 20px;
+    margin-top: 16px;
+  }
+  .subtitle span {
     display: block;
-    width: 30px;
-    height: 24px;
+  }
+  /* -----------------------------------------------------
+     ABOUT
+  ----------------------------------------------------- */
+  .about {
+    padding: 90px 20px 80px;
+  }
+  .about-glass {
+    padding: 34px 26px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-content {
+    padding-right: 0;
+  }
+  .about-content p {
+    font-size: 14.5px;
+  }
+  /* -----------------------------------------------------
+     CARDS / SERVICES
+  ----------------------------------------------------- */
+  .cards { 
+    grid-template-columns: 1fr;  
+  }
+  /* -----------------------------------------------------
+     VISUAL ELEMENTS
+  ----------------------------------------------------- */
+  #mesh { 
+    height: 240px; 
+    opacity: 0.75; 
+  }
+  .telecom-visual {
+    height: 420px;
+  }
+  /* -----------------------------------------------------
+     FOOTER
+  ----------------------------------------------------- */
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: left;
+  }
+  .footer-brand {
+    align-items: flex-start;
+  }
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-social img {
+    width: 18px;
+  }
+  .footer-social a {
+    width: 18px;
+    height: 18px;
+  }
+  .footer-social a::before {
+    inset: -6px;
+  }
+  .footer-copyright {
+    font-size: 11px;
+    line-height: 1.3;
+    white-space: nowrap;
   }
 }
+
