@@ -350,12 +350,14 @@ body {
    ABOUT
 -------------------- */
 .about {
-  padding: 90px 0 80px;
+  padding: 90px 20px 80px;
 }
 
 /* стеклянная карта */
 .about-glass {
+  width: 100%;
   max-width: var(--container);
+  margin-inline: auto;
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
