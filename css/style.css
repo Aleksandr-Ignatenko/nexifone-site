@@ -294,7 +294,8 @@ body {
 
 .overlay-text {
   position: absolute;
-  top: var(--hero-text-offset-desktop);
+  top: 50%;
+  transform: translateY(-50%);
   left: var(--page-padding);
   right: var(--page-padding);
   max-width: calc(var(--container) - (var(--page-padding) * 2));
