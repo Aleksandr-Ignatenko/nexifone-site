@@ -879,12 +879,7 @@ body {
     --header-logo-size: var(--header-logo-mobile);
     --footer-logo-size: var(--footer-logo-mobile);
     --page-padding: var(--page-padding-mobile);
-    --hero-text-offset: 200px;
   }
-
-
-
-  
   /* -----------------------------------------------------
      HEADER / NAVIGATION
   ----------------------------------------------------- */
