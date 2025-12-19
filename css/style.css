@@ -376,7 +376,7 @@ body {
 .about-content {
   position: relative;
   z-index: 3;
-  padding-right: 52%;
+  padding-right: min(52%, 620px);
 }
 
 .about-content p {
