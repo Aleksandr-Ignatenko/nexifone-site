@@ -311,10 +311,13 @@ body {
 .overlay-text {
   position: absolute;
   top: var(--hero-text-offset-desktop);
-  transform: none;
-  left: var(--page-padding);
-  right: var(--page-padding);
-  max-width: calc(var(--container) - (var(--page-padding) * 2));
+  left: 0;
+  right: 0;
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
   z-index: 4;
   color: var(--hero-text-color);
   text-align: left;
@@ -959,7 +962,6 @@ body {
   }
   .overlay-text {
     top: var(--hero-text-offset-mobile);
-    transform: none;
   }
   .typing-line {
     font-size: 22px;
