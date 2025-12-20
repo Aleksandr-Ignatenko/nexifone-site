@@ -80,4 +80,27 @@
     typeLoop();
   }
 
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const about = document.querySelector(".about-appear");
+
+  if (!about) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        about.classList.add("is-visible");
+        observer.disconnect(); // проигрываем один раз
+      }
+    },
+    {
+      threshold: 0.3, // 30% блока видно — старт
+    }
+  );
+
+  observer.observe(about);
+});
+
+
 })();
