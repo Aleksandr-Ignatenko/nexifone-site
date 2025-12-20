@@ -531,6 +531,20 @@ body {
   color: var(--accent-cyan);
   transform: translateY(-2px);
 }
+  /* -----------------------------------------------------
+     APPEAR | SLIDE UP + FADE (ON LOAD)
+  ----------------------------------------------------- */
+.appear-slide-up {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: appearSlideUp 0.9s ease-out forwards;
+}
+@keyframes appearSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* =========================================================
    SERVICES
