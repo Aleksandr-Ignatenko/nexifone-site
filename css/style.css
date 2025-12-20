@@ -548,25 +548,8 @@ body {
   /* -----------------------------------------------------
      ABOUT | SLIDE UP + FADE (ON LOAD)
   ----------------------------------------------------- */
-.about-appear {
-  opacity: 0;
-  transform: translateY(36px);
-}
-.about-appear.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity .7s ease,
-    transform .7s ease;
-}
 .about-card {
   will-change: transform;
-}
-@keyframes aboutSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =========================================================
