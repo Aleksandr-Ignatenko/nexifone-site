@@ -116,7 +116,6 @@ body {
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);
   }
-
 .header::before {
   content: '';
   position: absolute;
@@ -125,7 +124,6 @@ body {
   z-index: -1;
   pointer-events: none;
 }
-
 .header-inner {
   position: static;
   display:flex;
@@ -137,13 +135,11 @@ body {
 /*  margin: 0 auto; */
   padding: 0;
 }
-
 .logo-img {
   height: var(--header-logo-size);
   width: auto;
   display:block;
 }
-
 .logo-box {
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   padding: 4px 6px;
@@ -163,12 +159,10 @@ body {
   transition: transform .25s ease, box-shadow .25s ease;
   z-index: 10000;
 }
-
 .logo-box:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
-
 .brand-group {
   display: flex;
   align-items: center;
@@ -176,7 +170,6 @@ body {
   position: relative;
   padding-left: 95px;
 }
-
 .brand-name {
   font-size: 20px;
   font-weight: 600;
@@ -186,12 +179,10 @@ body {
   padding-bottom: 2px;
   transition: color .18s ease, transform .18s ease;
 }
-
 .brand-name:hover {
   color: var(--accent-cyan);
   transform: translateY(-2px);
 }
-
 .nav-links {
   display:flex;
   align-items:center;
@@ -260,8 +251,11 @@ body {
 }
 
 /* =========================================================
-   HERO | TELECOM VISUAL BLOCK
+   HERO
 ========================================================= */
+  /* -----------------------------------------------------
+     HERO: background / visual
+  ----------------------------------------------------- */
 .image-overlay-section {
   width: 100%;
   display: flex;
@@ -283,15 +277,30 @@ body {
   padding-top: var(--hero-safe-offset);
   position: relative;
 }
-
-.overlay-inner {
-  max-width: var(--container);
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  display: block;
+  /* -----------------------------------------------------
+     HERO: layout container
+  ----------------------------------------------------- */
+.hero {
+  padding-top: var(--hero-safe-offset); /* header offset */ 
+  padding-bottom:80px;
+  min-height: calc(100vh - var(--hero-safe-offset));
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
 }
-
+.hero-inner {
+  width:100%;
+  max-width: var(--container);
+  margin:0 auto;
+  padding: 40px 0;
+  display:grid;
+  grid-template-columns: 1fr;
+  align-items:center;
+}
+  /* -----------------------------------------------------
+     HERO: overlay text
+  ----------------------------------------------------- */
 .overlay-text {
   position: absolute;
   top: var(--hero-text-offset-desktop);
@@ -303,7 +312,6 @@ body {
   color: var(--hero-text-color);
   text-align: left;
 }
-
 .typing-line {
   font-size: clamp(26px, 3.5vw, 44px);
   font-weight: 700;
@@ -311,16 +319,6 @@ body {
   letter-spacing: 0.04em;
   white-space: nowrap;
   text-align: left;
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 4px;
-  animation: blink 1s infinite;
-}
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
 }
 .subtitle {
   margin-top: 18px;
@@ -336,6 +334,134 @@ body {
   white-space: nowrap;
   text-align: left;
 }
+  /* -----------------------------------------------------
+     HERO: glass card
+  ----------------------------------------------------- */
+.hero-glass{
+  max-width:840px;
+  margin: 0 auto;
+  padding: 44px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 60px rgba(0, 120, 255, 0.06);
+  text-align:center;
+  animation: glassPop .6s cubic-bezier(.2,.9,.2,1);
+  z-index: 3;              /* Чтобы текст оставался над canvas, увеличим z-index hero-glass */
+  position: relative;
+}
+.hero-title {
+  font-size: clamp(28px, 5.2vw, 48px);
+  line-height:1.05;
+  letter-spacing: -0.01em;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:12px;
+  text-wrap:balance;
+  animation: fadeUp .6s .08s both;
+}
+.hero-sub {
+  color: rgba(255,255,255,0.9);
+  margin-bottom:22px;
+  font-size: 16px;
+  animation: fadeUp .6s .12s both;
+}
+  /* -----------------------------------------------------
+     HERO: actions
+  ----------------------------------------------------- */
+.hero-actions { 
+  display:flex; 
+  gap:14px; 
+  justify-content:center; 
+  align-items:center; 
+  flex-wrap:wrap; 
+}
+.cta-btn {
+  display:inline-block;
+  padding:12px 22px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  color: #001117;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 10px 40px rgba(0, 232, 255, 0.12), 0 4px 18px rgba(189,0,255,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.ghost-btn {
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:10px;
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.06);
+  text-decoration:none;
+  background:transparent;
+  transition: color .18s ease, transform .18s ease;
+}
+  /* -----------------------------------------------------
+     HERO: decor / canvas
+  ----------------------------------------------------- */
+.hero-decor { 
+  position:absolute; 
+  left:0; 
+  right:0; 
+  bottom:0; 
+  height:160px; 
+  opacity:0.7; 
+  pointer-events:none; 
+  transform: translateY(20px); 
+  filter: blur(8px); 
+}
+#mesh {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: clamp(220px, 30vw, 380px);
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 2;
+  mix-blend-mode: screen;
+  display: block;
+}
+
+
+/* =========================================================
+   HERO | TELECOM VISUAL BLOCK
+========================================================= */
+.cta-btn.large { 
+  padding:14px 28px; 
+  font-size:18px; 
+  border-radius:14px; 
+}
+.cta-btn:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 18px 60px rgba(0,232,255,0.16); 
+}
+
+.ghost-btn:hover { 
+  color:var(--accent-magenta); 
+  transform: translateY(-3px); 
+}
+
+.overlay-inner {
+  max-width: var(--container);
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
 @keyframes slideIn {
   to {
     opacity: 1;
@@ -409,130 +535,7 @@ body {
     0 0 70px rgba(189,0,255,0.06);
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-.hero {
-  padding-top: var(--hero-safe-offset); /* header offset */ 
-  padding-bottom:80px;
-  min-height: calc(100vh - var(--hero-safe-offset));
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-}
 
-.hero-inner {
-  width:100%;
-  max-width: var(--container);
-  margin:0 auto;
-  padding: 40px 0;
-  display:grid;
-  grid-template-columns: 1fr;
-  align-items:center;
-}
-
-.hero-glass{
-  max-width:840px;
-  margin: 0 auto;
-  padding: 44px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 60px rgba(0, 120, 255, 0.06);
-  text-align:center;
-  animation: glassPop .6s cubic-bezier(.2,.9,.2,1);
-  z-index: 3;              /* Чтобы текст оставался над canvas, увеличим z-index hero-glass */
-  position: relative;
-}
-
-.hero-title {
-  font-size: clamp(28px, 5.2vw, 48px);
-  line-height:1.05;
-  letter-spacing: -0.01em;
-  font-weight:700;
-  color:var(--text);
-  margin-bottom:12px;
-  text-wrap:balance;
-  animation: fadeUp .6s .08s both;
-}
-
-.hero-sub {
-  color: rgba(255,255,255,0.9);
-  margin-bottom:22px;
-  font-size: 16px;
-  animation: fadeUp .6s .12s both;
-}
-
-.hero-actions { 
-  display:flex; 
-  gap:14px; 
-  justify-content:center; 
-  align-items:center; 
-  flex-wrap:wrap; 
-}
-
-.cta-btn {
-  display:inline-block;
-  padding:12px 22px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  color: #001117;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow: 0 10px 40px rgba(0, 232, 255, 0.12), 0 4px 18px rgba(189,0,255,0.06);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.cta-btn.large { 
-  padding:14px 28px; 
-  font-size:18px; 
-  border-radius:14px; 
-}
-.cta-btn:hover { 
-  transform: translateY(-4px); 
-  box-shadow: 0 18px 60px rgba(0,232,255,0.16); 
-}
-.ghost-btn {
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:10px;
-  color:var(--text);
-  border:1px solid rgba(255,255,255,0.06);
-  text-decoration:none;
-  background:transparent;
-  transition: color .18s ease, transform .18s ease;
-}
-.ghost-btn:hover { 
-  color:var(--accent-magenta); 
-  transform: translateY(-3px); 
-}
-
-.hero-decor { 
-  position:absolute; 
-  left:0; 
-  right:0; 
-  bottom:0; 
-  height:160px; 
-  opacity:0.7; 
-  pointer-events:none; 
-  transform: translateY(20px); 
-  filter: blur(8px); 
-}
-
-#mesh {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: clamp(220px, 30vw, 380px);
-  pointer-events: none;
-  opacity: 0.85;
-  z-index: 2;
-  mix-blend-mode: screen;
-  display: block;
-}
 
 /* =========================================================
    SERVICES
