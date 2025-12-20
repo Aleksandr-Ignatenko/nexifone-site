@@ -987,6 +987,12 @@ body {
   .about-glass {
     padding: 34px 26px;
     margin: 0 auto;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(10, 20, 60, 0.95) 0%,
+        rgba(10, 20, 60, 0.9) 100%
+    );
   }
   .about-layout {
     grid-template-columns: 1fr;
