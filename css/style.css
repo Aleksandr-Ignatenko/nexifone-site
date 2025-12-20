@@ -56,8 +56,8 @@
     0 14px 40px rgba(0,0,0,0.45);
 
   --hover-shadow-strong:
-    0 18px 60px rgba(0,0,0,0.65),
-    0 0 60px rgba(189,0,255,0.06);
+    0 18px 40px rgba(0,0,0,0.55),
+    0 0 24px rgba(0,232,255,0.06);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -515,9 +515,6 @@ body {
 
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
-  box-shadow:
-    0 14px 48px rgba(0,0,0,0.55),
-    0 0 60px rgba(0, 232, 255, 0.05);
   box-sizing: border-box;
   overflow: hidden;
 }
