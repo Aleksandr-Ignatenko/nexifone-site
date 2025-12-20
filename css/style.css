@@ -536,7 +536,7 @@ body {
   ----------------------------------------------------- */
 .about-appear {
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(64px);
 }
 .about-appear.is-visible {
   animation: aboutSlideUp 0.9s ease-out forwards;
