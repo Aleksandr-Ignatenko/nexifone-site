@@ -44,6 +44,20 @@
   --page-padding-mobile: 10px;
 
   --page-padding: var(--page-padding-desktop);
+
+    /* --- HOVER MOTION TOKENS --- */
+  --hover-lift-sm: -4px;
+  --hover-lift-md: -8px;
+
+  --hover-ease: cubic-bezier(.2,.9,.2,1);
+  --hover-duration: .25s;
+
+  --hover-shadow-soft:
+    0 14px 40px rgba(0,0,0,0.45);
+
+  --hover-shadow-strong:
+    0 18px 60px rgba(0,0,0,0.65),
+    0 0 60px rgba(189,0,255,0.06);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -93,6 +107,15 @@ body {
 }
 .underline-anim:hover::after {
   width: 100%;
+}
+.hover-lift {
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease);
+}
+.hover-lift:hover {
+  transform: translateY(var(--hover-lift-md));
+  box-shadow: var(--hover-shadow-strong);
 }
 
 /* =========================================================
