@@ -532,14 +532,14 @@ body {
   transform: translateY(-2px);
 }
   /* -----------------------------------------------------
-     APPEAR | SLIDE UP + FADE (ON LOAD)
+     ABOUT | SLIDE UP + FADE (ON LOAD)
   ----------------------------------------------------- */
-.appear-slide-up {
+.about-appear {
   opacity: 0;
-  transform: translateY(28px);
-  animation: appearSlideUp 0.9s ease-out forwards;
+  transform: translateY(36px);
+  animation: aboutSlideUp 0.9s ease-out forwards;
 }
-@keyframes appearSlideUp {
+@keyframes aboutSlideUp {
   to {
     opacity: 1;
     transform: translateY(0);
