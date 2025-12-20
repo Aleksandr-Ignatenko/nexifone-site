@@ -274,7 +274,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: var(--hero-safe-offset);
+  padding-top: 0;
   position: relative;
 }
   /* -----------------------------------------------------
@@ -850,7 +850,7 @@ body {
 ========================================================= */
 @media (min-width: 769px) and (max-width: 1024px) {
   /* -----------------------------------------------------
-     CARDS / SERVICES
+     TABLETS | CARDS / SERVICES
   ----------------------------------------------------- */
   .cards { 
     grid-template-columns: repeat(2, 1fr); 
@@ -867,7 +867,7 @@ body {
 @media (max-width: 768px) {
 
   /* -----------------------------------------------------
-     TOKEN SWITCH
+     MOBILE | TOKEN SWITCH
   ----------------------------------------------------- */
   :root {
     --container: var(--container-mobile);
@@ -876,7 +876,7 @@ body {
     --page-padding: var(--page-padding-mobile);
   }
   /* -----------------------------------------------------
-     HEADER / NAVIGATION
+     MOBILE | HEADER / NAVIGATION
   ----------------------------------------------------- */
   .brand-name {
     display: block;
@@ -931,7 +931,7 @@ body {
   .nav-links.open a:nth-child(3) { transition-delay: 0.2s; }
   .nav-links.open a:nth-child(4) { transition-delay: 0.25s; }
   /* -----------------------------------------------------
-     HERO
+     MOBILE | HERO
   ----------------------------------------------------- */
   .hero-glass { 
     padding: 36px;
@@ -970,7 +970,7 @@ body {
     display: block;
   }
   /* -----------------------------------------------------
-     ABOUT
+     MOBILE | ABOUT
   ----------------------------------------------------- */
   .about {
     padding: 90px 0 80px;
@@ -989,13 +989,13 @@ body {
     font-size: 14.5px;
   }
   /* -----------------------------------------------------
-     CARDS / SERVICES
+     MOBILE | CARDS / SERVICES
   ----------------------------------------------------- */
   .cards { 
     grid-template-columns: 1fr;  
   }
   /* -----------------------------------------------------
-     VISUAL ELEMENTS
+     MOBILE | VISUAL ELEMENTS
   ----------------------------------------------------- */
   #mesh { 
     height: 240px; 
@@ -1005,7 +1005,7 @@ body {
     height: 420px;
   }
   /* -----------------------------------------------------
-     FOOTER
+     MOBILE | FOOTER
   ----------------------------------------------------- */
   .footer-main {
     grid-template-columns: 1fr;
