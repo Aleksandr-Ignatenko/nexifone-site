@@ -115,6 +115,7 @@ body {
 }
 .hover-lift:hover {
   transform: translateY(calc(var(--appear-offset) + var(--hover-lift-md)));
+  box-shadow: var(--hover-shadow-strong);
 }
 
 /* =========================================================
