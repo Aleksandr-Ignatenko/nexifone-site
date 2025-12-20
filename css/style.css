@@ -114,8 +114,7 @@ body {
     box-shadow var(--hover-duration) var(--hover-ease);
 }
 .hover-lift:hover {
-  transform: translateY(var(--hover-lift-md));
-  box-shadow: var(--hover-shadow-strong);
+  transform: translateY(calc(var(--appear-offset) + var(--hover-lift-md)));
 }
 
 /* =========================================================
@@ -549,11 +548,12 @@ body {
   ----------------------------------------------------- */
 .about-appear {
   opacity: 0;
-  transform: translateY(36px);
+  --appear-offset: 36px;
+  transform: translateY(var(--appear-offset));
 }
 .about-appear.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  --appear-offset: 0px;
   transition:
     opacity .7s ease,
     transform .7s ease;
