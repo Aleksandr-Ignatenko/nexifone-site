@@ -433,6 +433,13 @@ body {
   color:var(--accent-magenta); 
   transform: translateY(-3px); 
 }
+.hero-actions-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
   /* -----------------------------------------------------
      HERO: decor / canvas
   ----------------------------------------------------- */
