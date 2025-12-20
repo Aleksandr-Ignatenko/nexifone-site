@@ -27,7 +27,7 @@
 
       /* --- HERO TEXT POSITION --- */
   --hero-text-offset-desktop: 320px;
-  --hero-text-offset-mobile: 280px;
+  --hero-text-offset-mobile: 320px;
   --hero-text-color: #fff;
 
     /* --- ACTIVE TOKEN --- */
