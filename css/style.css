@@ -26,8 +26,8 @@
   --hero-safe-offset: 110px;                      /* --- FIXED HEADER PADDING --- */
 
       /* --- HERO TEXT POSITION --- */
-  --hero-text-offset-desktop: 0;
-  --hero-text-offset-mobile: 0;
+  --hero-text-offset-desktop: 120px;
+  --hero-text-offset-mobile: 80px;
   --hero-text-color: #fff;
 
     /* --- ACTIVE TOKEN --- */
@@ -295,7 +295,7 @@ body {
 .overlay-text {
   position: absolute;
   top: var(--hero-text-offset-desktop);
-  transform: translateY(-50%);
+  transform: none;
   left: var(--page-padding);
   right: var(--page-padding);
   max-width: calc(var(--container) - (var(--page-padding) * 2));
@@ -958,6 +958,7 @@ body {
   }
   .overlay-text {
     top: var(--hero-text-offset-mobile);
+    transform: none;
   }
   .typing-line {
     font-size: 22px;
