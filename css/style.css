@@ -108,13 +108,14 @@ body {
 .underline-anim:hover::after {
   width: 100%;
 }
+/* utils */
 .hover-lift {
   transition:
     transform var(--hover-duration) var(--hover-ease),
     box-shadow var(--hover-duration) var(--hover-ease);
 }
 .hover-lift:hover {
-  transform: translateY(calc(var(--appear-offset) + var(--hover-lift-md)));
+  transform: translateY(var(--hover-lift-md));
   box-shadow: var(--hover-shadow-strong);
 }
 
@@ -549,12 +550,11 @@ body {
   ----------------------------------------------------- */
 .about-appear {
   opacity: 0;
-  --appear-offset: 36px;
-  transform: translateY(var(--appear-offset));
+  transform: translateY(36px);
 }
 .about-appear.is-visible {
   opacity: 1;
-  --appear-offset: 0px;
+  transform: translateY(0);
   transition:
     opacity .7s ease,
     transform .7s ease;
