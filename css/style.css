@@ -26,8 +26,8 @@
   --hero-safe-offset: 110px;                      /* --- FIXED HEADER PADDING --- */
 
       /* --- HERO TEXT POSITION --- */
-  --hero-text-offset-desktop: 120px;
-  --hero-text-offset-mobile: 80px;
+  --hero-text-offset-desktop: 320px;
+  --hero-text-offset-mobile: 280px;
   --hero-text-color: #fff;
 
     /* --- ACTIVE TOKEN --- */
