@@ -549,10 +549,17 @@ body {
   ----------------------------------------------------- */
 .about-appear {
   opacity: 0;
-  transform: translateY(64px);
+  transform: translateY(36px);
 }
 .about-appear.is-visible {
-  animation: aboutSlideUp 0.9s ease-out forwards;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+.about-card {
+  will-change: transform;
 }
 @keyframes aboutSlideUp {
   to {
