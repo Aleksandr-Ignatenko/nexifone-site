@@ -27,7 +27,7 @@
 
       /* --- HERO TEXT POSITION --- */
   --hero-text-offset-desktop: 320px;
-  --hero-text-offset-mobile: 320px;
+  --hero-text-offset-mobile: 300px;
   --hero-text-color: #fff;
 
     /* --- ACTIVE TOKEN --- */
@@ -399,6 +399,13 @@ body {
   align-items:center; 
   flex-wrap:wrap; 
 }
+.hero-actions-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
 .cta-btn {
   display:inline-block;
   padding:12px 22px;
@@ -432,13 +439,6 @@ body {
 .ghost-btn:hover { 
   color:var(--accent-magenta); 
   transform: translateY(-3px); 
-}
-.hero-actions-left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 14px;
-  margin-top: 28px;
 }
   /* -----------------------------------------------------
      HERO: decor / canvas
