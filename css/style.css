@@ -5,6 +5,7 @@
   --accent-cyan: #00E8FF;
   --accent-magenta: #BD00FF;
   --text: #ffffff;
+  --card: #091341;
   --radius-lg: 16px;
   --radius-md: 12px;
   --fw-regular: 400;
@@ -593,7 +594,7 @@ body {
   margin-top:18px;
 }
 .card {
-  background: rgba(10, 20, 60, 0.92);
+  background: var(--card);
   padding:22px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,0.06);
@@ -641,11 +642,7 @@ body {
   padding: 44px 48px;
   border-radius: 18px;
 
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.06),
-    rgba(255,255,255,0.03)
-  );
+  background: var(--card);
 
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
