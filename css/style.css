@@ -629,6 +629,32 @@ body {
 .content-section .section-title {
   color: var(--text);
 }
+.section-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+}
+.section-box {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 44px 48px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.03)
+  );
+
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.45),
+    0 0 60px rgba(0,120,255,0.06);
+
+  text-align: center;
+}
 
 /* =========================================================
    CONTACT CTA
