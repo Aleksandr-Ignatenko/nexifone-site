@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<!-- =========================================================
-     HEAD / META / ASSETS
-========================================================= -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,214 +7,334 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Nexifone – Telecom Solutions" />
-  <meta property="og:description" content="Voice Termination, DID, TTS, GSM Gateway Services." />
+  <meta property="og:description" content="Voice Termination for Call Centers, DID Number Services, Text-to-Speech, GSM Gateway Services and other telecom services." />
   <meta property="og:image" content="https://www.nexifone.42web.io/assets/preview.jpg" />
-  <meta property="og:type" content="website" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://www.nexifone.42web.io/" />
+  <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon -->
+  <meta name="twitter:title" content="Nexifone – Telecom Solutions" />
+  <meta name="twitter:description" content="Voice Termination for Call Centers, DID Number Services, Text-to-Speech, GSM Gateway Services and other telecom services." />
+  <meta name="twitter:image" content="https://www.nexifone.42web.io/assets/preview.jpg" />
+  
+  <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-  <!-- Fonts -->
+  <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-
-<!-- =========================================================
-     HEADER / NAVIGATION
-========================================================= -->
-<header class="header">
-  <div class="container header-inner">
-
-    <!-- BRAND -->
-    <div class="brand-group">
-      <a class="logo-link" href="#" aria-label="Nexifone home">
-        <div class="logo-box">
-          <img src="assets/logo.png" alt="Nexifone logo" class="logo-img" />
-        </div>
-        <span class="visually-hidden">Nexifone</span>
-      </a>
+  
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+        <!-- ГРУППА ЛОГОТИП + ТЕКСТ -->
+      <div class="brand-group">  
+        <a class="logo-link" href="#" aria-label="Nexifone home">
+          <div class="logo-box">
+            <img src="assets/logo.png" alt="Nexifone logo" class="logo-img" />
+          </div>
+          <span class="visually-hidden">Nexifone</span>
+        </a>
       <span class="brand-name underline-anim">Nexifone</span>
     </div>
+      
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a href="#" class="underline-anim">Home</a>
+          <a href="#services" class="underline-anim">Services</a>
+          <a href="#faq" class="underline-anim">FAQ</a>
+          <a href="#contact" class="underline-anim">Contact</a>
+        </nav>
 
-    <!-- NAV -->
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#" class="underline-anim">Home</a>
-      <a href="#services" class="underline-anim">Services</a>
-      <a href="#faq" class="underline-anim">FAQ</a>
-      <a href="#contact" class="underline-anim">Contact</a>
-    </nav>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-      <span class="hamburger-icon">☰</span>
-      <span class="close-icon">✖</span>
-    </button>
-
+          <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✖</span>
+          </button>
+ 
   </div>
-</header>
-
-<!-- =========================================================
-     HERO / IMAGE + OVERLAY TEXT
-========================================================= -->
+  </header>
+  
+<!-- HERO -->
 <section class="image-overlay-section">
-
-  <!-- HERO TEXT -->
-  <div class="overlay-text">
-
-    <div class="typing-line">
-      <span id="typing-text"></span><span class="cursor">|</span>
-    </div>
-
-    <div class="subtitle">
-      <span>Cloud Voice</span>
-      <span>Communication Platform</span>
-    </div>
-
-    <div class="hero-actions hero-actions-left">
-      <a href="#contact" class="cta-btn">Get Started</a>
-      <a href="#services" class="cta-btn">Our Services</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- =========================================================
-     ABOUT / COMPANY
-========================================================= -->
-<section class="about" id="company" aria-labelledby="about-title">
-
-  <div class="about-glass hover-lift">
-
-    <h2 id="about-title" class="section-title underline-anim">About Us</h2>
-
-    <div class="about-layout">
-
-      <!-- ABOUT TEXT -->
-      <div class="about-content">
-        <p>Nexifone is a telecommunications solutions provider focused on reliable voice and messaging services.</p>
-        <p>We specialize in voice termination, DID numbers, text-to-speech and GSM gateway services.</p>
-        <p>Our infrastructure ensures high availability, stable call quality and seamless integration.</p>
-        <p>We continuously expand our portfolio to support modern businesses and digital platforms.</p>
+    <div class="overlay-text">
+  
+      <div class="typing-line">
+        <span id="typing-text"></span><span class="cursor">|</span>
+      </div>
+  
+      <div class="subtitle slide-in">
+        <span>Cloud Voice</span>
+        <span>Communication Platform</span>
       </div>
 
+      <div class="hero-actions hero-actions-left">
+        <a href="#contact" class="cta-btn">Get Started</a>
+        <a href="#services" class="cta-btn">Our Services</a>
+      </div>
     </div>
-  </div>
-
 </section>
 
-<!-- =========================================================
-     SERVICES
-========================================================= -->
-<section class="services" id="services" aria-labelledby="services-title">
-  <div class="container">
+<!-- ABOUT NEXIFONE -->
+<section class="about" id="company" aria-labelledby="about-title">
 
-    <h2 id="services-title" class="section-title">Our Services</h2>
-
-    <div class="cards" role="list">
-
-      <article class="card" role="listitem">
-        <div class="card-icon">🔀</div>
-        <h3>Voice Termination</h3>
-        <p>Direct routes with low latency and high stability.</p>
-      </article>
-
-      <article class="card" role="listitem">
-        <div class="card-icon">📞</div>
-        <h3>DID Numbers</h3>
-        <p>Worldwide DID coverage with fast provisioning.</p>
-      </article>
-
-      <article class="card" role="listitem">
-        <div class="card-icon">🔐</div>
-        <h3>Text-to-Speech</h3>
-        <p>Secure voice PIN validation for IVR.</p>
-      </article>
-
-      <article class="card" role="listitem">
-        <div class="card-icon">🔌</div>
-        <h3>GSM Gateways</h3>
-        <p>Reliable GSM & VoIP gateway infrastructure.</p>
-      </article>
-
+    <div class="about-glass hover-lift">
+        <h2 id="about-title" class="section-title underline-anim">About Us</h2>
+                  
+          <div class="about-layout">
+    
+            <!-- TEXT -->
+            <div class="about-content">
+              <p>
+                Nexifone is a telecommunications solutions provider focused on delivering reliable and scalable
+                voice and messaging services for businesses.
+              </p>
+    
+              <p>
+                We specialize in core telecom products such as voice termination for call centers, DID number
+                services, text-to-speech solutions, and GSM gateway services. Our infrastructure is designed
+                to support high availability, stable call quality, and seamless integration with existing systems.
+              </p>
+    
+              <p>
+                Beyond our current offerings, Nexifone is continuously expanding its portfolio. We develop
+                and integrate new telecom products to meet the evolving needs of modern businesses, contact
+                centers, and digital platforms.
+              </p>
+    
+              <p>
+                Our approach combines technical expertise, flexible architecture, and a strong focus on
+                performance, allowing our partners to build and scale their communication workflows with confidence.
+              </p>
+            </div>
+    
+          </div>
     </div>
-  </div>
+
 </section>
 
-<!-- =========================================================
-     CONTACT / CTA
-========================================================= -->
-<section class="contact-cta" id="contact" aria-labelledby="contact-title">
-  <div class="container">
-    <h2 id="contact-title">Ready to work with Nexifone?</h2>
-    <p>Contact us to get pricing or technical consultation.</p>
-    <a href="mailto:info@nexifone.com" class="cta-btn large">Contact</a>
-  </div>
-</section>
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="section-title">Our Services</h2>
+
+        <div class="cards" role="list">
+          <article class="card" role="listitem" aria-label="Voice Termination for Call Centers">
+            <div class="card-icon">🔀</div>
+            <h3>Voice Termination for Call Centers</h3>
+            <p>Direct voice routes with best prices, low latency and high stability — optimized for large call flows.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-label="DID Number Services">
+            <div class="card-icon">📞</div>
+            <h3>DID Number Services</h3>
+            <p>Worldwide DID coverage with quick provisioning and SIP delivery from multiple trusted suppliers.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Text-to-Speech">
+            <div class="card-icon">🔐</div>
+            <h3>Text-to-Speech</h3>
+            <p>Secure voice PIN validation for IVR and call centers — fraud-resistant voice confirmation flow.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-label="GSM Gateway Services">
+            <div class="card-icon">🔌</div>
+            <h3>GSM Gateway Services</h3>
+            <p>Reliable GSM and VoIP gateways with setup, monitoring and full technical support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  
+
+    <!-- Solutions -->
+  <main>
+    <section class="hero" id="home" aria-label="Hero section">
+      <div class="hero-inner">
+        <div class="hero-glass" role="region" aria-labelledby="hero-title">
+          <h1 id="hero-title" class="hero-title">Next-Gen Telecom Solutions</h1>
+          <p class="hero-sub">Routes • DID Numbers • PIN-2-Speech • Gateways Rental</p>
+          <div class="hero-actions">
+            <a href="#contact" class="cta-btn">Get Pricing</a>
+            <a href="#services" class="ghost-btn">Explore Services</a>
+          </div>
+        </div>
+
+        <!-- subtle animated accent lines (decorative) -->
+        <svg class="hero-decor" width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#00E8FF" stop-opacity="0.18"/>
+              <stop offset="1" stop-color="#BD00FF" stop-opacity="0.12"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,120 C200,60 400,180 600,120 C800,60 1000,180 1200,120 L1200,400 L0,400 Z" fill="url(#g1)"></path>
+        </svg>
+      </div>
+    </section>
+    
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Ready to work with Nexifone?</h2>
+        <p>Contact us to get pricing, test routes or arrange a technical consultation.</p>
+        <a href="mailto:info@nexifone.com" class="cta-btn large">Contact</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-separator"></div>
+  
+  
+  <!-- FOOTER -->
 <footer class="footer" role="contentinfo">
 
-  <!-- FOOTER MAIN -->
+  <!-- ===== FOOTER MAIN (логотип + колонки) ===== -->
   <div class="container footer-main">
 
-    <!-- FOOTER LOGO -->
+    <!-- LOGO -->
     <div class="footer-col footer-brand">
       <a href="#" class="footer-logo">
         <img src="assets/frame22.png" alt="Nexifone">
       </a>
     </div>
 
-    <!-- FOOTER COMPANY -->
+    <!-- COMPANY -->
     <div class="footer-col">
-      <h4 class="footer-title">Company</h4>
+      
+      <h4 class="footer-title">
+        <a href="https://www.nexifone.42web.io/#company" class="underline-anim">
+          Company
+        </a>
+      </h4>
+      
       <ul class="footer-list">
-        <li><a href="#company">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Support</a></li>
       </ul>
     </div>
 
-    <!-- FOOTER SERVICES -->
+    <!-- SERVICES -->
     <div class="footer-col">
-      <h4 class="footer-title">Services</h4>
+      
+      <h4 class="footer-title">
+        <a href="https://www.nexifone.42web.io/#services" class="underline-anim">
+          Services
+        </a>
+      </h4>
+      
       <ul class="footer-list">
-        <li><a href="#services">Voice Termination</a></li>
-        <li><a href="#services">DID Numbers</a></li>
+        <li><a href="#">Voice Termination for Call Centers</a></li>
+        <li><a href="#">DID Number Services</a></li>
+        <li><a href="#">Text-to-Speech</a></li>
+        <li><a href="#">GSM Gateway Services</a></li>
       </ul>
     </div>
 
-    <!-- FOOTER CONTACT -->
+        <!-- CONTACT -->
     <div class="footer-col">
-      <h4 class="footer-title">Contact</h4>
-      <ul class="footer-list">
-        <li><a href="mailto:nexifone@gmail.com">nexifone@gmail.com</a></li>
+      
+      <h4 class="footer-title">
+        <a href="https://www.nexifone.42web.io/#contact" class="underline-anim">
+          Contact Us
+        </a>
+      </h4>
+
+      <ul class="footer-list footer-contact">
+
+        <!-- EMAIL -->
+        <li>
+          <a href="mailto:nexifone@gmail.com">
+            <img src="assets/footer/png-email-1.png" class="icon-default" alt="Email">
+            <img src="assets/footer/png-email-5.png" class="icon-hover" alt="">
+            <span>nexifone@gmail.com</span>
+          </a>
+        </li>
+
+        <!-- WHATSAPP -->
+        <li>
+          <a href="https://wa.me/59897675555" target="_blank">
+            <img src="assets/footer/png-whatsapp-1.png" class="icon-default" alt="WhatsApp">
+            <img src="assets/footer/png-whatsapp-5.png" class="icon-hover" alt="">
+            <span>+598-9767-5555</span>
+          </a>
+        </li>
+
+        <!-- LOCATION -->
+        <li>
+          <a href="https://maps.google.com/?q=World+Trade+Center+Montevideo" target="_blank">
+            <img src="assets/footer/png-local-1.png" class="icon-default" alt="Location">
+            <img src="assets/footer/png-local-5.png" class="icon-hover" alt="">
+            <span>World Trade Center Montevideo</span>
+          </a>
+        </li>
+
       </ul>
     </div>
 
   </div>
 
-  <!-- FOOTER BOTTOM -->
+  <!-- ===== SEPARATOR ===== -->
+  <div class="footer-inner-separator"></div>
+
+  <!-- ===== FOOTER BOTTOM ===== -->
   <div class="container footer-inner">
-    <span>© <span id="year"></span> Nexifone</span>
+
+    <div class="footer-copyright">
+      <span class="footer-copyright-anim">
+        © <span id="year"></span> | Nexifone
+      </span>
+    </div>
+
+    <div class="footer-social">
+
+      <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+        <img src="assets/footer/png-linkedin-1.png" class="icon-default" alt="LinkedIn">
+        <img src="assets/footer/png-linkedin-5.png" class="icon-hover" alt="">
+      </a>
+
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <img src="assets/footer/png-facebook-1.png" class="icon-default" alt="Facebook">
+        <img src="assets/footer/png-facebook-5.png" class="icon-hover" alt="">
+      </a>
+
+      <a href="https://x.com/" target="_blank" aria-label="X">
+        <img src="assets/footer/png-x-1.png" class="icon-default" alt="X">
+        <img src="assets/footer/png-x-5.png" class="icon-hover" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <img src="assets/footer/png-instagram-1.png" class="icon-default" alt="Instagram">
+        <img src="assets/footer/png-instagram-5.png" class="icon-hover" alt="">
+      </a>
+
+      <a href="https://t.me/" target="_blank" aria-label="Telegram">
+        <img src="assets/footer/png-telegram-1.png" class="icon-default" alt="Telegram">
+        <img src="assets/footer/png-telegram-5.png" class="icon-hover" alt="">
+      </a>
+
+    </div>
+
   </div>
 
 </footer>
 
-<!-- =========================================================
-     SCRIPTS
-========================================================= -->
-<script src="js/main.js" defer></script>
 
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
