@@ -499,9 +499,6 @@ body {
     #ffffff 100%
   );
 }
-.about .section-title {
-  color: var(--text);
-}
 .about-glass {
   width: 100%;
   max-width: var(--container);
@@ -550,6 +547,7 @@ body {
   display: inline-block;
   cursor: default;
   transition: color 0.18s ease, transform 0.18s ease;
+  color: var(--text);
 }
 .about .section-title:hover {
   color: var(--accent-cyan);
