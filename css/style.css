@@ -491,7 +491,7 @@ body {
 ========================================================= */
 .about {
   padding: 90px 0 80px;
-    background: linear-gradient(
+  background: linear-gradient(
     to bottom,
     #00117D 0%,
     #00117D 60%,
@@ -563,8 +563,8 @@ body {
    SERVICES
 ========================================================= */
 .services { 
-  padding:70px 0;
-      background: linear-gradient(
+  padding: 90px 0 80px;
+  background: linear-gradient(
     to bottom,
     #ffffff 0%,
     #ffffff 60%,
