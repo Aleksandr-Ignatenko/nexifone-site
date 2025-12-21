@@ -499,6 +499,9 @@ body {
     #ffffff 100%
   );
 }
+.about-title {
+  color: var(--text);
+}
 .about-glass {
   width: 100%;
   max-width: var(--container);
