@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
+  
+<!-- =========================================================
+     HEAD / META / ASSETS
+========================================================= -->
+  
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,23 +26,27 @@
   <meta name="twitter:description" content="Voice Termination for Call Centers, DID Number Services, Text-to-Speech, GSM Gateway Services and other telecom services." />
   <meta name="twitter:image" content="https://www.nexifone.42web.io/assets/preview.jpg" />
   
-  <!-- favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-  <!-- font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
+  
 <body>
   
-  <!-- HEADER -->
+<!-- =========================================================
+     HEADER / NAVIGATION
+========================================================= -->
   <header class="header">
     <div class="container header-inner">
-        <!-- ГРУППА ЛОГОТИП + ТЕКСТ -->
+      
+      <!-- BRAND -->
       <div class="brand-group">  
         <a class="logo-link" href="#" aria-label="Nexifone home">
           <div class="logo-box">
@@ -48,6 +57,7 @@
       <span class="brand-name underline-anim">Nexifone</span>
     </div>
       
+        <!-- NAV -->
         <nav class="nav-links" id="navLinks" aria-label="Main navigation">
           <a href="#" class="underline-anim">Home</a>
           <a href="#services" class="underline-anim">Services</a>
@@ -55,6 +65,7 @@
           <a href="#contact" class="underline-anim">Contact</a>
         </nav>
 
+          <!-- MOBILE MENU BUTTON -->
           <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
             <span class="hamburger-icon">☰</span>
             <span class="close-icon">✖</span>
@@ -63,8 +74,12 @@
   </div>
   </header>
   
-<!-- HERO -->
+<!-- =========================================================
+     HERO / IMAGE + OVERLAY TEXT
+========================================================= -->
 <section class="image-overlay-section">
+
+    <!-- HERO TEXT -->
     <div class="overlay-text">
   
       <div class="typing-line">
@@ -80,40 +95,33 @@
         <a href="#contact" class="cta-btn">Get Started</a>
         <a href="#services" class="cta-btn">Our Services</a>
       </div>
+      
     </div>
 </section>
 
-<!-- ABOUT NEXIFONE -->
-<section class="about" id="company" aria-labelledby="about-title">
+<!-- =========================================================
+     ABOUT / COMPANY
+========================================================= -->
+  <section class="about" id="company" aria-labelledby="about-title">
 
     <div class="about-glass hover-lift">
+      
         <h2 id="about-title" class="section-title underline-anim">About Us</h2>
                   
           <div class="about-layout">
     
-            <!-- TEXT -->
+            <!-- ABOUT TEXT -->
             <div class="about-content">
-              <p>
-                Nexifone is a telecommunications solutions provider focused on delivering reliable and scalable
-                voice and messaging services for businesses.
-              </p>
-    
-              <p>
-                We specialize in core telecom products such as voice termination for call centers, DID number
-                services, text-to-speech solutions, and GSM gateway services. Our infrastructure is designed
-                to support high availability, stable call quality, and seamless integration with existing systems.
-              </p>
-    
-              <p>
-                Beyond our current offerings, Nexifone is continuously expanding its portfolio. We develop
-                and integrate new telecom products to meet the evolving needs of modern businesses, contact
-                centers, and digital platforms.
-              </p>
-    
-              <p>
-                Our approach combines technical expertise, flexible architecture, and a strong focus on
-                performance, allowing our partners to build and scale their communication workflows with confidence.
-              </p>
+              <p>Nexifone is a telecommunications solutions provider focused on delivering reliable and scalable 
+                 voice and messaging services for businesses.</p>    
+              <p>We specialize in core telecom products such as voice termination for call centers, DID number 
+                 services, text-to-speech solutions, and GSM gateway services. Our infrastructure is designed
+                 to support high availability, stable call quality, and seamless integration with existing systems.</p>    
+              <p>Beyond our current offerings, Nexifone is continuously expanding its portfolio. We develop
+                 and integrate new telecom products to meet the evolving needs of modern businesses, contact
+                 centers, and digital platforms.</p>    
+              <p>Our approach combines technical expertise, flexible architecture, and a strong focus on
+                 performance, allowing our partners to build and scale their communication workflows with confidence.</p>
             </div>
     
           </div>
@@ -121,14 +129,16 @@
 
 </section>
 
-
-
-    <!-- SERVICES -->
-    <section class="services" id="services" aria-labelledby="services-title">
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+  <section class="services" id="services" aria-labelledby="services-title">
       <div class="container">
+        
         <h2 id="services-title" class="section-title">Our Services</h2>
 
         <div class="cards" role="list">
+          
           <article class="card" role="listitem" aria-label="Voice Termination for Call Centers">
             <div class="card-icon">🔀</div>
             <h3>Voice Termination for Call Centers</h3>
@@ -152,12 +162,14 @@
             <h3>GSM Gateway Services</h3>
             <p>Reliable GSM and VoIP gateways with setup, monitoring and full technical support.</p>
           </article>
+          
         </div>
       </div>
     </section>
   
-
-    <!-- Solutions -->
+<!-- =========================================================
+     SOLUTIONS
+========================================================= -->  
   <main>
     <section class="hero" id="home" aria-label="Hero section">
       <div class="hero-inner">
@@ -184,7 +196,9 @@
     </section>
     
 
-    <!-- CONTACT CTA -->
+<!-- =========================================================
+     CONTACT / CTA
+========================================================= -->
     <section class="contact-cta" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 id="contact-title">Ready to work with Nexifone?</h2>
@@ -195,22 +209,23 @@
   </main>
 
   <div class="footer-separator"></div>
-  
-  
-  <!-- FOOTER -->
+    
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 <footer class="footer" role="contentinfo">
 
-  <!-- ===== FOOTER MAIN (логотип + колонки) ===== -->
+  <!-- FOOTER MAIN -->
   <div class="container footer-main">
 
-    <!-- LOGO -->
+    <!-- FOOTER LOGO -->
     <div class="footer-col footer-brand">
       <a href="#" class="footer-logo">
         <img src="assets/frame22.png" alt="Nexifone">
       </a>
     </div>
 
-    <!-- COMPANY -->
+    <!-- FOOTER COMPANY -->
     <div class="footer-col">
       
       <h4 class="footer-title">
@@ -226,9 +241,10 @@
         <li><a href="#">Terms of Service</a></li>
         <li><a href="#">Support</a></li>
       </ul>
+      
     </div>
 
-    <!-- SERVICES -->
+    <!-- FOOTER SERVICES -->
     <div class="footer-col">
       
       <h4 class="footer-title">
@@ -243,9 +259,10 @@
         <li><a href="#">Text-to-Speech</a></li>
         <li><a href="#">GSM Gateway Services</a></li>
       </ul>
+      
     </div>
 
-        <!-- CONTACT -->
+    <!-- FOOTER CONTACT -->
     <div class="footer-col">
       
       <h4 class="footer-title">
@@ -288,10 +305,10 @@
 
   </div>
 
-  <!-- ===== SEPARATOR ===== -->
+  <!-- SEPARATOR -->
   <div class="footer-inner-separator"></div>
 
-  <!-- ===== FOOTER BOTTOM ===== -->
+  <!-- FOOTER BOTTOM -->
   <div class="container footer-inner">
 
     <div class="footer-copyright">
@@ -333,8 +350,9 @@
 
 </footer>
 
-
-
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
 <script src="js/main.js" defer></script>
 </body>
 </html>
