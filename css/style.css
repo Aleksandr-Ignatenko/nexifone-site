@@ -566,10 +566,10 @@ body {
   padding:70px 0;
       background: linear-gradient(
     to bottom,
-    #00117D 0%,
-    #00117D 60%,
+    #ffffff 0%,
     #ffffff 60%,
-    #ffffff 100%
+    #00117D 60%,
+    #00117D 100%
   );
 }
 .services .container {
