@@ -491,6 +491,13 @@ body {
 ========================================================= */
 .about {
   padding: 90px 0 80px;
+    background: linear-gradient(
+    to bottom,
+    #00117D 0%,
+    #00117D 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
 .about-glass {
   width: 100%;
