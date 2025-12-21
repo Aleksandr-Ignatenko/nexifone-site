@@ -499,7 +499,7 @@ body {
     #ffffff 100%
   );
 }
-.about-title {
+.about .section-title {
   color: var(--text);
 }
 .about-glass {
