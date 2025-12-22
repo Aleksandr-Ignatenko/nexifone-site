@@ -501,12 +501,24 @@ body {
   );
 }
 .about-glass {
+  position: relative;
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
-  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background: rgba(10, 20, 60, 0.95); /* fallback */
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+.about-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 
   background:
     linear-gradient(
@@ -517,16 +529,14 @@ body {
       rgba(10, 20, 60, 0.90) 75%,
       rgba(10, 20, 60, 0.90) 100%
     ),
-    url("../assets/home/about2.jpg");
+    url("../assets/home/about2.jpg") right center / cover no-repeat;
 
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  box-sizing: border-box;
-  overflow: hidden;
+  z-index: 1;
+}
+.about-content,
+.about .section-title {
+  position: relative;
+  z-index: 2;
 }
 .about-layout {
   position: relative;
