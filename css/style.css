@@ -577,7 +577,7 @@ body {
   align-items: center;
 }
 .section-title {
-  color: var(--bg);
+  color: var(--text);
   font-size:28px; 
   text-align:center; 
   margin-bottom:32px; 
