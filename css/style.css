@@ -570,13 +570,6 @@ body {
 ========================================================= */
 .services { 
   padding: 90px 0 80px;
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #ffffff 60%,
-    #00117D 60%,
-    #00117D 100%
-  );
 }
 .services .container {
   display: flex;
