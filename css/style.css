@@ -119,6 +119,9 @@ body {
   transform: translateY(var(--hover-lift-md));
   box-shadow: var(--hover-shadow-strong);
 }
+.section-title.underline-anim:hover {
+  color: var(--accent-cyan);
+}
 
 /* =========================================================
    HEADER
