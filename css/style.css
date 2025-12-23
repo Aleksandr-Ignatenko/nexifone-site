@@ -376,6 +376,11 @@ body {
   margin-left: 4px;
   animation: blink 1s infinite;
 }
+.slide-in {
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideIn 0.9s ease-out forwards;
+}
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
