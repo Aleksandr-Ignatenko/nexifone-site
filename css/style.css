@@ -504,6 +504,43 @@ body {
 }
 
 /* =========================================================
+   METRICS
+========================================================= */
+.metrics {
+  background: #00117D;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.metrics-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.metric {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+}
+.metric-value {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.metric-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* =========================================================
    ABOUT
 ========================================================= */
 .about {
@@ -1031,6 +1068,23 @@ body {
   .subtitle span {
     display: block;
   }
+
+  /* -----------------------------------------------------
+     MOBILE | METRICS
+  ----------------------------------------------------- */
+  .metrics {
+    padding: 20px 0;
+  }
+  .metric-value {
+    font-size: 16px;
+  }
+  .metric-label {
+    font-size: 10.5px;
+  }
+  .metric-desktop-only {
+    display: none;
+  }
+  
   /* -----------------------------------------------------
      MOBILE | ABOUT
   ----------------------------------------------------- */
