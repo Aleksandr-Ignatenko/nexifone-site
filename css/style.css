@@ -587,16 +587,17 @@ body {
 }
 .about-glass {
   position: relative;
-  display: inline-block;
-  max-width: 820px;
+  display: block;
+  width: 100%;
+  max-width: var(--container-desktop);
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-sizing: border-box;
-  background: rgba(0, 17, 125, 0.78);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
+  background: rgba(0, 17, 125, 0.38);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px);
 }
 .about-glass::before {
   content: none;
@@ -612,7 +613,8 @@ body {
 .about-content {
   position: relative;
   z-index: 3;
-  padding-right: min(52%, 620px);
+  padding-right: 0;
+  max-width: 100%;
 }
 .about-content p {
   font-size: 15.5px;
@@ -1114,14 +1116,11 @@ body {
      MOBILE | ABOUT
   ----------------------------------------------------- */
   .about {
-    padding: 90px 0 80px;
     background: url("../assets/home/about4.jpg") center / cover no-repeat;
   }
   .about-glass {
     padding: 34px 26px;
-    display: block;
-    max-width: 100%;
-    padding: 34px 26px;
+    max-width: var(--container-mobile);
   }
   .about-layout {
     grid-template-columns: 1fr;
