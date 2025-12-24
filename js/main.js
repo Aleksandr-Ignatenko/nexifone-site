@@ -117,7 +117,7 @@ if (metrics.length) {
       ? parseInt(el.dataset.decimals, 10)
       : 0;
 
-    const duration = 1600;
+    const duration = 2000;
     const start = performance.now();
 
     const step = (now) => {
