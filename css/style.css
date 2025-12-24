@@ -590,8 +590,8 @@ body {
   display: block;
   width: 100%;
   max-width: min(var(--container-desktop), 50vw);
-  margin-left: 0;
-  margin-right: auto;
+  margin-left: calc((100vw - var(--container-desktop)) / 2);
+  margin-right: 0;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
   overflow: hidden;
