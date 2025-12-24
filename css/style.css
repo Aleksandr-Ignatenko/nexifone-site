@@ -585,7 +585,7 @@ body {
   z-index: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 17, 125, 0.1) 0%,
+    rgba(0, 17, 125, 1) 0%,
     rgba(0, 17, 125, 0.75) 35%,
     rgba(0, 17, 125, 0.65) 50%,
     rgba(0, 17, 125, 0.75) 65%,
