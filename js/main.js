@@ -117,12 +117,13 @@ if (metrics.length) {
       ? parseInt(el.dataset.decimals, 10)
       : 0;
 
-    const duration = 800;
+    const duration = 1600;
     const start = performance.now();
 
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      const value = target * progress;
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const value = target * eased;
 
       el.textContent = value.toFixed(decimals) + suffix;
 
