@@ -102,5 +102,59 @@
   observer.observe(about);
 });
 
+/* ============================
+   METRICS ANIMATION
+============================ */
+
+const metrics = document.querySelectorAll(".metric");
+
+if (metrics.length) {
+
+  const animateCounter = (el) => {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || "";
+    const decimals = el.dataset.decimals
+      ? parseInt(el.dataset.decimals, 10)
+      : 0;
+
+    const duration = 800;
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const value = target * progress;
+
+      el.textContent = value.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+          entry.target.dataset.animated = "true";
+          entry.target.classList.add("visible");
+
+          const counter = entry.target.querySelector(
+            ".metric-value[data-target]"
+          );
+
+          if (counter) {
+            animateCounter(counter);
+          }
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  metrics.forEach(metric => observer.observe(metric));
+}
 
 })();
