@@ -587,15 +587,14 @@ body {
 }
 .about-glass {
   position: relative;
-  width: 100%;
-  max-width: var(--container);
+  display: inline-block;
+  max-width: 820px;
   margin: 0 auto;
   padding: 46px 48px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-sizing: border-box;
-
-  background: rgba(10, 20, 60, 0.95); /* fallback */
+  background: rgba(0, 17, 125, 0.78);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
 }
@@ -1119,6 +1118,9 @@ body {
     background: url("../assets/home/about4.jpg") center / cover no-repeat;
   }
   .about-glass {
+    padding: 34px 26px;
+    display: block;
+    max-width: 100%;
     padding: 34px 26px;
   }
   .about-layout {
