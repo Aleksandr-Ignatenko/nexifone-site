@@ -570,7 +570,20 @@ body {
    ABOUT
 ========================================================= */
 .about {
+  position: relative;
   padding: 90px 0 80px;
+  background: url("../assets/home/about3.jpg") center / cover no-repeat;
+}
+.about > * {
+  position: relative;
+  z-index: 1;
+}
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 17, 125, 0.65); /* ← ЗАТЕМНЕНИЕ */
+  z-index: 0;
 }
 .about-glass {
   position: relative;
@@ -587,23 +600,7 @@ body {
   backdrop-filter: blur(12px);
 }
 .about-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 20, 60, 0.98) 0%,
-      rgba(10, 20, 60, 0.95) 30%,
-      rgba(10, 20, 60, 0.93) 55%,
-      rgba(10, 20, 60, 0.90) 75%,
-      rgba(10, 20, 60, 0.90) 100%
-    ),
-    url("../assets/home/about2.jpg") right center / cover no-repeat;
-
-  z-index: 1;
+  content: none;
 }
 .about-content,
 .about .section-title {
@@ -1119,16 +1116,10 @@ body {
   ----------------------------------------------------- */
   .about {
     padding: 90px 0 80px;
+    background: url("../assets/home/about4.jpg") center / cover no-repeat;
   }
   .about-glass {
     padding: 34px 26px;
-    margin: 0 auto;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(10, 20, 60, 0.95) 0%,
-        rgba(10, 20, 60, 0.9) 100%
-    );
   }
   .about-layout {
     grid-template-columns: 1fr;
