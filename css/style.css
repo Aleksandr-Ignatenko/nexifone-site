@@ -1110,6 +1110,9 @@ body {
   .metric-desktop-only {
     display: none;
   }
+    .metric:not(:last-child)::after {
+    display: none;
+  }
   
   /* -----------------------------------------------------
      MOBILE | ABOUT
