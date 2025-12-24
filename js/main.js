@@ -122,7 +122,7 @@ if (metrics.length) {
 
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 4); // easeOutCubic
       const value = target * eased;
 
       el.textContent = value.toFixed(decimals) + suffix;
