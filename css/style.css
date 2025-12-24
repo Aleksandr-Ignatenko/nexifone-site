@@ -1122,6 +1122,8 @@ body {
   .about-glass {
     padding: 34px 26px;
     max-width: var(--container-mobile);
+    margin-left: auto;
+    margin-right: auto;
   }
   .about-layout {
     grid-template-columns: 1fr;
