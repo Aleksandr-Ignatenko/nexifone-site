@@ -97,10 +97,9 @@
   /* =========================================================
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
-const aboutSection = document.querySelector(".about");
-const aboutGlass = document.querySelector(".about-glass");
+const aboutGlass = document.querySelector(".about-appear");
 
-if (aboutSection && aboutGlass) {
+if (aboutGlass) {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -109,11 +108,11 @@ if (aboutSection && aboutGlass) {
       }
     },
     {
-      threshold: 0.35
+      threshold: 0.25
     }
   );
 
-  observer.observe(aboutSection);
+  observer.observe(aboutGlass);
 }
 
   /* =========================================================
