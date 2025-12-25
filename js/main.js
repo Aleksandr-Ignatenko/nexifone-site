@@ -83,23 +83,23 @@
 
 
   document.addEventListener("DOMContentLoaded", () => {
-  const about = document.querySelector(".about-appear");
+  const aboutGlass = document.querySelector(".about-appear");
 
-  if (!about) return;
+  if (!aboutGlass) return;
 
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
-        about.classList.add("is-visible");
-        observer.disconnect(); // проигрываем один раз
+        aboutGlass.classList.add("is-visible");
+        observer.disconnect(); // один раз
       }
     },
     {
-      threshold: 0.3, // 30% блока видно — старт
+      threshold: 0.25,
     }
   );
 
-  observer.observe(about);
+  observer.observe(aboutGlass);
 });
 
 /* ============================
