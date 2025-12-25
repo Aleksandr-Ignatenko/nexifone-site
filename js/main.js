@@ -109,10 +109,10 @@ if (aboutSection && aboutGlass) {
       }
     },
     {
-      threshold: 0,
-      rootMargin: "0px 0px -20% 0px"
+      threshold: 0.25
     }
   );
+
   observer.observe(aboutSection);
 }
 
