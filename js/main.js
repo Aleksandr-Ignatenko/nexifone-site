@@ -1,16 +1,25 @@
 (() => {
+
+  /* =========================================================
+     NAVIGATION / MOBILE MENU
+  ========================================================= */
   function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     const hamburger = document.querySelector('.hamburger');
     const isOpen = navLinks.classList.toggle('open');
+    
     hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
+  /* -----------------------------------------------------
+     Close menu on outside click
+  ----------------------------------------------------- */
   document.addEventListener('click', (e) => {
     const navLinks = document.getElementById('navLinks');
     const hamburger = document.querySelector('.hamburger');
+    
     if (navLinks.classList.contains('open') &&
         !navLinks.contains(e.target) &&
         !hamburger.contains(e.target)) {
@@ -18,29 +27,34 @@
     }
   });
 
+  /* -----------------------------------------------------
+     Close menu on link click
+  ----------------------------------------------------- */
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', toggleMenu);
   });
 
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // → export to global so inline onclick works
+  
+  /* -----------------------------------------------------
+     Export for inline onclick
+  ----------------------------------------------------- */
   window.toggleMenu = toggleMenu;
 
-    /* ============================
-     TELECOM TYPING TEXT
-  ============================ */
-
-  const texts = [
-    "Voice Termination for Call Centers",
-    "DID Number Services",
-    "Text-to-Speech",
-    "GSM Gateway Services"
-  ];
-
+  /* =========================================================
+     HERO | TELECOM TYPING TEXT
+  ========================================================= */
   const typingEl = document.getElementById("typing-text");
+  
   if (typingEl) {
+    const texts = [
+      "Voice Termination for Call Centers",
+      "DID Number Services",
+      "Text-to-Speech",
+      "GSM Gateway Services"
+    ];
+    
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -48,7 +62,9 @@
     function typeLoop() {
       const current = texts[textIndex];
 
-      // ПЕЧАТЬ
+  /* -----------------------------------------------------
+     Print
+  ----------------------------------------------------- */
       if (!isDeleting) {
         typingEl.textContent = current.slice(0, charIndex + 1);
         charIndex++;
@@ -59,7 +75,10 @@
           }, 1600);
         }
       }
-      // УДАЛЕНИЕ
+        
+  /* -----------------------------------------------------
+     Delete
+  ----------------------------------------------------- */
       else {
         typingEl.textContent = current.slice(0, charIndex - 1);
         charIndex--;
@@ -67,8 +86,6 @@
         if (charIndex === 0) {
           isDeleting = false;
           textIndex = (textIndex + 1) % texts.length;
-
-          // 🔑 КРИТИЧЕСКИ ВАЖНО
           typingEl.textContent = "";
         }
       }
@@ -76,12 +93,12 @@
       setTimeout(typeLoop, isDeleting ? 45 : 70);
     }
 
-
     typeLoop();
   }
 
-
-
+  /* =========================================================
+     ABOUT | SLIDE IN FROM LEFT
+  ========================================================= */
   document.addEventListener("DOMContentLoaded", () => {
   const aboutGlass = document.querySelector(".about-appear");
 
@@ -91,7 +108,7 @@
     ([entry]) => {
       if (entry.isIntersecting) {
         aboutGlass.classList.add("is-visible");
-        observer.disconnect(); // один раз
+        observer.disconnect();
       }
     },
     {
@@ -102,9 +119,9 @@
   observer.observe(aboutGlass);
 });
 
-/* ============================
-   METRICS ANIMATION
-============================ */
+  /* =========================================================
+     METRICS | COUNTER + FADE IN
+  ========================================================= */
 
 const metrics = document.querySelectorAll(".metric");
 
