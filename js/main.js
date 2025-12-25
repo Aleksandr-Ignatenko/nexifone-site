@@ -97,21 +97,24 @@
   /* =========================================================
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
-  const aboutSection = document.querySelector(".about");
-  const aboutGlass = document.querySelector(".about-glass");
-  
-  if (aboutSection && aboutGlass) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          aboutGlass.classList.add("is-visible");
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 }
-    );
-    observer.observe(aboutSection);
-  }
+const aboutSection = document.querySelector(".about");
+const aboutGlass = document.querySelector(".about-glass");
+
+if (aboutSection && aboutGlass) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        aboutGlass.classList.add("is-visible");
+        observer.disconnect();
+      }
+    },
+    {
+      threshold: 0,
+      rootMargin: "0px 0px -20% 0px"
+    }
+  );
+  observer.observe(aboutSection);
+}
 
   /* =========================================================
      METRICS | COUNTER + FADE IN
