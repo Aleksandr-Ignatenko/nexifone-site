@@ -99,9 +99,10 @@
   /* =========================================================
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
-  const aboutGlass = document.querySelector(".about-appear");
+  const aboutSection = document.querySelector(".about");
+  const aboutGlass = document.querySelector(".about-glass");
   
-  if (aboutGlass) {
+  if (aboutSection && aboutGlass) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -112,63 +113,63 @@
       { threshold: 0.25 }
     );
   
-    observer.observe(aboutGlass);
+    observer.observe(aboutSection);
   }
+
 
   /* =========================================================
      METRICS | COUNTER + FADE IN
   ========================================================= */
-
-const metrics = document.querySelectorAll(".metric");
-
-if (metrics.length) {
-
-  const animateCounter = (el) => {
-    const target = parseFloat(el.dataset.target);
-    const suffix = el.dataset.suffix || "";
-    const decimals = el.dataset.decimals
-      ? parseInt(el.dataset.decimals, 10)
-      : 0;
-
-    const duration = 2000;
-    const start = performance.now();
-
-    const step = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4); // easeOutCubic
-      const value = target * eased;
-
-      el.textContent = value.toFixed(decimals) + suffix;
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    requestAnimationFrame(step);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.animated) {
-          entry.target.dataset.animated = "true";
-          entry.target.classList.add("visible");
-
-          const counter = entry.target.querySelector(
-            ".metric-value[data-target]"
-          );
-
-          if (counter) {
-            animateCounter(counter);
-          }
+  const metrics = document.querySelectorAll(".metric");
+  
+  if (metrics.length) {
+  
+    const animateCounter = (el) => {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || "";
+      const decimals = el.dataset.decimals
+        ? parseInt(el.dataset.decimals, 10)
+        : 0;
+  
+      const duration = 2000;
+      const start = performance.now();
+  
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4); // easeOutCubic
+        const value = target * eased;
+  
+        el.textContent = value.toFixed(decimals) + suffix;
+  
+        if (progress < 1) {
+          requestAnimationFrame(step);
         }
-      });
-    },
-    { threshold: 0.6 }
-  );
-
-  metrics.forEach(metric => observer.observe(metric));
-}
+      };
+  
+      requestAnimationFrame(step);
+    };
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !entry.target.dataset.animated) {
+            entry.target.dataset.animated = "true";
+            entry.target.classList.add("visible");
+  
+            const counter = entry.target.querySelector(
+              ".metric-value[data-target]"
+            );
+  
+            if (counter) {
+              animateCounter(counter);
+            }
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+  
+    metrics.forEach(metric => observer.observe(metric));
+  }
 
 })();
