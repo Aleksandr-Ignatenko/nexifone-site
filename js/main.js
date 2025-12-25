@@ -89,10 +89,8 @@
           typingEl.textContent = "";
         }
       }
-
       setTimeout(typeLoop, isDeleting ? 45 : 70);
     }
-
     typeLoop();
   }
 
@@ -112,10 +110,8 @@
       },
       { threshold: 0.25 }
     );
-  
     observer.observe(aboutSection);
   }
-
 
   /* =========================================================
      METRICS | COUNTER + FADE IN
@@ -145,7 +141,6 @@
           requestAnimationFrame(step);
         }
       };
-  
       requestAnimationFrame(step);
     };
   
@@ -168,7 +163,6 @@
       },
       { threshold: 0.6 }
     );
-  
     metrics.forEach(metric => observer.observe(metric));
   }
 
