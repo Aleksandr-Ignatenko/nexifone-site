@@ -352,7 +352,7 @@ body {
   animation-delay: 0.4s;
   text-shadow: 
     0 6px 20px rgba(0, 0, 0, 0.9),
-    0 10 36px rgba(0, 232, 255, 0.7);
+    0 10px 36px rgba(0, 232, 255, 0.7);
   white-space: nowrap;
   text-align: left;
 }
