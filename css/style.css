@@ -1141,7 +1141,6 @@ body {
   .subtitle span {
     display: block;
   }
-
   /* -----------------------------------------------------
      MOBILE | METRICS
   ----------------------------------------------------- */
@@ -1160,7 +1159,6 @@ body {
     .metric:not(:last-child)::after {
     display: none;
   }
-  
   /* -----------------------------------------------------
      MOBILE | ABOUT
   ----------------------------------------------------- */
@@ -1189,6 +1187,27 @@ body {
     font-size: 14.5px;
     line-height: 1.7;
   }
+/* -----------------------------------------------------
+   MOBILE | WHY US
+----------------------------------------------------- */
+.why-us-animate {
+  max-width: var(--container-mobile);
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(40px);
+  opacity: 0;
+}
+.why-us-animate.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.why-card h3 {
+  font-size: 16.5px;
+}
+.why-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+}
   /* -----------------------------------------------------
      MOBILE | CARDS / SERVICES
   ----------------------------------------------------- */
