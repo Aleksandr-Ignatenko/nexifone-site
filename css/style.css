@@ -626,6 +626,45 @@ body {
 }
 
 /* =========================================================
+   WHY US
+========================================================= */
+.why-us {
+  position: relative;
+  padding: 90px 0 80px;
+  background: var(--bg);
+}
+.why-us-animate {
+  max-width: min(var(--container-desktop), 50vw);
+  margin-left: calc((100vw - var(--container-desktop)) / 2);
+  transform: translateX(-110vw);
+  opacity: 0;
+  transition:
+    transform 1.6s cubic-bezier(.16,.84,.44,1),
+    opacity 1s ease-out;
+}
+.why-us-animate.is-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 32px;
+}
+.why-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.why-card p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+}
+
+/* =========================================================
    SERVICES
 ========================================================= */
 .services { 
