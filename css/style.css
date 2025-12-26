@@ -646,16 +646,35 @@ body {
    SERVICES
 ========================================================= */
 .services { 
+  position: relative;
   padding: 90px 0 80px;
   background-image: url("../assets/home/service3.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
+}
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 17, 125, 1) 0%,
+    rgba(0, 17, 125, 0.75) 35%,
+    rgba(0, 17, 125, 0.65) 50%,
+    rgba(0, 17, 125, 0.75) 65%,
+    rgba(0, 17, 125, 1) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 .services .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .section-title {
   color: var(--text);
