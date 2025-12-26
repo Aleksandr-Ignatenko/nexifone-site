@@ -95,28 +95,6 @@
   }
 
   /* =========================================================
-     ABOUT | SLIDE IN FROM LEFT
-  ========================================================= */
-const aboutSection = document.querySelector(".about");
-const aboutGlass = document.querySelector(".about-animate");
-
-if (aboutSection && aboutGlass) {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        aboutGlass.classList.add("is-visible");
-        observer.disconnect();
-      }
-    },
-    {
-      threshold: 0.35
-    }
-  );
-
-  observer.observe(aboutSection);
-}
-
-  /* =========================================================
      METRICS | COUNTER + FADE IN
   ========================================================= */
   const metrics = document.querySelectorAll(".metric");
@@ -168,5 +146,47 @@ if (aboutSection && aboutGlass) {
     );
     metrics.forEach(metric => observer.observe(metric));
   }
+
+  /* =========================================================
+     ABOUT | SLIDE IN FROM LEFT
+  ========================================================= */
+const aboutSection = document.querySelector(".about");
+const aboutGlass = document.querySelector(".about-animate");
+
+if (aboutSection && aboutGlass) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        aboutGlass.classList.add("is-visible");
+        observer.disconnect();
+      }
+    },
+    {
+      threshold: 0.35
+    }
+  );
+
+  observer.observe(aboutSection);
+}
+
+/* =========================================================
+   WHY US | SLIDE IN FROM LEFT
+========================================================= */
+const whySection = document.querySelector(".why-us");
+const whyAnimate = document.querySelector(".why-us-animate");
+
+if (whySection && whyAnimate) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        whyAnimate.classList.add("is-visible");
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.35 }
+  );
+
+  observer.observe(whySection);
+}
 
 })();
