@@ -97,11 +97,10 @@
   /* =========================================================
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const aboutGlass = document.querySelector(".about-appear");
+const aboutSection = document.querySelector(".about");
+const aboutGlass = document.querySelector(".about-glass");
 
-  if (!aboutGlass) return;
-
+if (aboutSection && aboutGlass) {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -109,11 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.disconnect();
       }
     },
-    { threshold: 0.25 }
+    {
+      threshold: 0.35
+    }
   );
 
-  observer.observe(aboutGlass);
-});
+  observer.observe(aboutSection);
+}
 
   /* =========================================================
      METRICS | COUNTER + FADE IN
