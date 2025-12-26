@@ -1128,14 +1128,17 @@ body {
   .about {
     background: url("../assets/home/about4.jpg") center / cover no-repeat;
   }
-  .about-glass {
-    padding: 0;
+  .about-animate {
     max-width: var(--container-mobile);
     margin-left: auto;
     margin-right: auto;
+
+    transform: translateY(40px);
+    opacity: 0;
   }
-  .about-glass-inner {
-    padding: 34px 26px;
+  .about-animate.is-visible {
+    transform: translateY(0);
+    opacity: 1;
   }
   .about-layout {
     grid-template-columns: 1fr;
@@ -1145,6 +1148,7 @@ body {
   }
   .about-content p {
     font-size: 14.5px;
+    line-height: 1.7;
   }
   /* -----------------------------------------------------
      MOBILE | CARDS / SERVICES
