@@ -608,7 +608,8 @@ body {
   transform: translateX(var(--tx));
   opacity: 0;
   transition:
-    transform 1.6s cubic-bezier(.16,.84,.44,1),
+    transform .25s cubic-bezier(.2,.9,.2,1),
+    box-shadow .25s cubic-bezier(.2,.9,.2,1),
     opacity 1s ease-out;
 }
 .about-glass.is-visible {
@@ -623,7 +624,6 @@ body {
     box-shadow .25s cubic-bezier(.2,.9,.2,1);
 }
 .about-glass:hover .about-glass-inner {
-  transform: translateY(-8px);
   box-shadow:
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0, 232, 255, 0.06);
@@ -642,7 +642,7 @@ body {
     opacity 1s ease-out;
 }
 .about-glass:hover {
-  --ty: -8px;
+  transform: translateX(var(--tx)) translateY(-8px);
   box-shadow:
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0, 232, 255, 0.06);
