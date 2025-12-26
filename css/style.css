@@ -605,14 +605,13 @@ body {
   overflow: hidden;
   transform: translateX(-110vw);
   opacity: 0;
-  transition:
-    transform 1.6s cubic-bezier(.16,.84,.44,1),
-    opacity 1s ease-out,
-    box-shadow .25s cubic-bezier(.2,.9,.2,1);
 }
 .about-glass.is-visible {
   transform: translateX(0);
   opacity: 1;
+  transition:
+    transform 1.6s cubic-bezier(.16,.84,.44,1),
+    opacity 1s ease-out;
 }
 .about-glass-inner {
   padding: 46px 48px;
