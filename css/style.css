@@ -647,6 +647,10 @@ body {
 ========================================================= */
 .services { 
   padding: 90px 0 80px;
+  background-image: url("../assets/home/service3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .services .container {
   display: flex;
