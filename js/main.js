@@ -97,9 +97,11 @@
   /* =========================================================
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
-const aboutGlass = document.querySelector(".about-appear");
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutGlass = document.querySelector(".about-appear");
 
-if (aboutGlass) {
+  if (!aboutGlass) return;
+
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -107,13 +109,11 @@ if (aboutGlass) {
         observer.disconnect();
       }
     },
-    {
-      threshold: 0.25
-    }
+    { threshold: 0.25 }
   );
 
   observer.observe(aboutGlass);
-}
+});
 
   /* =========================================================
      METRICS | COUNTER + FADE IN
