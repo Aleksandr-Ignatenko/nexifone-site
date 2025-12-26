@@ -572,6 +572,8 @@ body {
     rgba(0, 17, 125, 1) 100%
   );
 }
+
+/* Контейнер без анимации входа */
 .about-glass {
   position: relative;
   width: 100%;
@@ -583,9 +585,9 @@ body {
   border: 1px solid rgba(255,255,255,0.16);
   backdrop-filter: blur(14px);
   overflow: hidden;
-  transform: translateX(-110vw);
-  opacity: 0;
 }
+
+/* Только wrapper анимирует вход с левого края */
 .about-glass-wrapper {
   transform: translateX(-110vw);
   opacity: 0;
@@ -593,45 +595,32 @@ body {
     transform 1.6s cubic-bezier(.16,.84,.44,1),
     opacity 1s ease-out;
 }
+
 .about-glass.is-visible .about-glass-wrapper {
   transform: translateX(0);
   opacity: 1;
 }
-.about-glass.is-visible {
-  transform: translateX(0);
-  opacity: 1;
-  transition:
-    transform 1.6s cubic-bezier(.16,.84,.44,1),
-    opacity 1s ease-out;
-}
+
+/* Внутренний блок — hover lift как у карточек */
 .about-glass-inner {
+  padding: 46px 48px;  /* твой оригинальный паддинг */
   transition: 
     transform 0.25s cubic-bezier(.2,.9,.2,1),
     box-shadow 0.25s cubic-bezier(.2,.9,.2,1);
   will-change: transform, box-shadow;
 }
+
 .about-glass:hover .about-glass-inner {
   transform: translateY(-8px);
   box-shadow:
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0,232,255,0.06);
 }
-.about-glass::before {
-  content: none;
-}
+
 .about-content,
 .about .section-title {
   position: relative;
   z-index: 2;
-}
-.about-layout {
-  position: relative;
-}
-.about-content {
-  position: relative;
-  z-index: 3;
-  padding-right: 0;
-  max-width: 100%;
 }
 .about-content p {
   font-size: 15.5px;
@@ -641,12 +630,6 @@ body {
 }
 .about-content p:last-child {
   margin-bottom: 0;
-}
-.about .section-title {
-  display: inline-block;
-  cursor: default;
-  transition: color 0.18s ease, transform 0.18s ease;
-  color: var(--text);
 }
   /* -----------------------------------------------------
      ABOUT | SLIDE UP + FADE (ON LOAD)
