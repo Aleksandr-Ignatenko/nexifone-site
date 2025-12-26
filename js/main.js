@@ -98,7 +98,7 @@
      ABOUT | SLIDE IN FROM LEFT
   ========================================================= */
 const aboutSection = document.querySelector(".about");
-const aboutGlass = document.querySelector(".about-glass");
+const aboutGlass = document.querySelector(".about-animate");
 
 if (aboutSection && aboutGlass) {
   const observer = new IntersectionObserver(
