@@ -549,9 +549,6 @@ body {
 /* =========================================================
    ABOUT
 ========================================================= */
-  /* -----------------------------------------------------
-     ABOUT | container
-  ----------------------------------------------------- */
 .about {
   position: relative;
   padding: 90px 0 80px;
@@ -650,6 +647,9 @@ body {
   padding: 90px 0 80px;
   background: var(--bg);
 }
+/* -----------------------------------------------------
+   WHY US | animation
+----------------------------------------------------- */
 .why-animate {
   max-width: min(var(--container-desktop), 50vw);
   margin-left: calc((100vw - var(--container-desktop)) / 2);
@@ -663,20 +663,26 @@ body {
   transform: translateX(0);
   opacity: 1;
 }
-  /* -----------------------------------------------------
-     ABOUT | layout
-  ----------------------------------------------------- */
+/* -----------------------------------------------------
+   WHY US | layout
+----------------------------------------------------- */
 .why-layout {
   max-width: min(var(--container-desktop), 50vw);
   margin-left: calc((100vw - var(--container-desktop)) / 2);
   position: relative;
 }
+/* -----------------------------------------------------
+   WHY US | grid
+----------------------------------------------------- */
 .why-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
   margin-top: 32px;
 }
+/* -----------------------------------------------------
+   WHY US | card structure
+----------------------------------------------------- */
 .why-card h3 {
   font-size: 18px;
   font-weight: 600;
