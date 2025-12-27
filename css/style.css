@@ -549,15 +549,17 @@ body {
 /* =========================================================
    ABOUT
 ========================================================= */
+  /* -----------------------------------------------------
+     ABOUT | container
+  ----------------------------------------------------- */
 .about {
   position: relative;
   padding: 90px 0 80px;
   background: url("../assets/home/about3.jpg") center / cover no-repeat;
 }
-.about > * {
-  position: relative;
-  z-index: 1;
-}
+  /* -----------------------------------------------------
+     ABOUT | overlay
+  ----------------------------------------------------- */
 .about::before {
   content: "";
   position: absolute;
@@ -572,38 +574,12 @@ body {
     rgba(0, 17, 125, 1) 100%
   );
 }
-.about-content,
-.about .section-title {
+.about > * {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
-.about-layout {
-  position: relative;
-}
-.about-content {
-  position: relative;
-  z-index: 3;
-  padding-right: 0;
-  max-width: 100%;
-}
-.about-content p {
-  font-size: 15.5px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 18px;
-}
-.about-content p:last-child {
-  margin-bottom: 0;
-}
-.about .section-title {
-  display: inline-block;
-  cursor: default;
-  transition: color 0.18s ease, transform 0.18s ease;
-  color: var(--text);
-}
-
   /* -----------------------------------------------------
-     ABOUT | TEXT SLIDE IN FROM LEFT
+     ABOUT | animation
   ----------------------------------------------------- */
 .about-animate {
   max-width: min(var(--container-desktop), 50vw);
@@ -619,7 +595,48 @@ body {
   opacity: 1;
 }
   /* -----------------------------------------------------
-     ABOUT | SLIDE UP + FADE (ON LOAD)
+     ABOUT | animation
+  ----------------------------------------------------- */
+.about-layout {
+  position: relative;
+}
+  /* -----------------------------------------------------
+     ABOUT | content
+  ----------------------------------------------------- */
+.about-content {
+  position: relative;
+  z-index: 3;
+  padding-right: 0;
+  max-width: 100%;
+}
+  /* -----------------------------------------------------
+     ABOUT | typography
+  ----------------------------------------------------- */
+.about-content p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 18px;
+}
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+  /* -----------------------------------------------------
+     ABOUT | title
+  ----------------------------------------------------- */
+.about-content,
+.about .section-title {
+  position: relative;
+  z-index: 2;
+}
+.about .section-title {
+  display: inline-block;
+  cursor: default;
+  transition: color 0.18s ease, transform 0.18s ease;
+  color: var(--text);
+}
+  /* -----------------------------------------------------
+     ABOUT | optional components
   ----------------------------------------------------- */
 .about-card {
   will-change: transform;
