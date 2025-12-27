@@ -854,6 +854,34 @@ body {
   flex-wrap: wrap;
 }
 
+/* -----------------------------------------------------
+   SOLUTIONS | GRID
+----------------------------------------------------- */
+.solutions-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.solution-item {
+  padding: 22px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+}
+.solution-item h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+}
+.solution-item p {
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
 /* =========================================================
    CONTACT CTA
 ========================================================= */
@@ -1285,6 +1313,15 @@ body {
   ----------------------------------------------------- */
   .cards { 
     grid-template-columns: 1fr;  
+  }
+  /* -----------------------------------------------------
+     SOLUTIONS | GRID
+  ----------------------------------------------------- */
+    .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .solution-item {
+    text-align: center;
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
