@@ -172,8 +172,8 @@ if (aboutSection && aboutGlass) {
 /* =========================================================
    WHY US | SLIDE IN FROM LEFT
 ========================================================= */
-const whySection = document.querySelector(".why-us");
-const whyAnimate = document.querySelector(".why-us-animate");
+const whySection = document.querySelector(".why");
+const whyAnimate = document.querySelector(".why-animate");
 
 if (whySection && whyAnimate) {
   const observer = new IntersectionObserver(
