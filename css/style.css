@@ -645,12 +645,12 @@ body {
 /* =========================================================
    WHY US
 ========================================================= */
-.why-us {
+.why {
   position: relative;
   padding: 90px 0 80px;
   background: var(--bg);
 }
-.why-us-animate {
+.why-animate {
   max-width: min(var(--container-desktop), 50vw);
   margin-left: calc((100vw - var(--container-desktop)) / 2);
   transform: translateX(-110vw);
@@ -659,11 +659,11 @@ body {
     transform 1.6s cubic-bezier(.16,.84,.44,1),
     opacity 1s ease-out;
 }
-.why-us-animate.is-visible {
+.why-animate.is-visible {
   transform: translateX(0);
   opacity: 1;
 }
-.why-us-grid {
+.why-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
@@ -1207,14 +1207,14 @@ body {
 /* -----------------------------------------------------
    MOBILE | WHY US
 ----------------------------------------------------- */
-.why-us-animate {
+.why-animate {
   max-width: var(--container-mobile);
   margin-left: auto;
   margin-right: auto;
   transform: translateY(40px);
   opacity: 0;
 }
-.why-us-animate.is-visible {
+.why-animate.is-visible {
   transform: translateY(0);
   opacity: 1;
 }
