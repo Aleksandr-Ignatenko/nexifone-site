@@ -595,7 +595,7 @@ body {
   opacity: 1;
 }
   /* -----------------------------------------------------
-     ABOUT | animation
+     ABOUT | layout
   ----------------------------------------------------- */
 .about-layout {
   position: relative;
@@ -662,6 +662,14 @@ body {
 .why-animate.is-visible {
   transform: translateX(0);
   opacity: 1;
+}
+  /* -----------------------------------------------------
+     ABOUT | layout
+  ----------------------------------------------------- */
+.why-layout {
+  max-width: min(var(--container-desktop), 50vw);
+  margin-left: calc((100vw - var(--container-desktop)) / 2);
+  position: relative;
 }
 .why-grid {
   display: grid;
