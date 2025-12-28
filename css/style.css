@@ -820,7 +820,7 @@ body {
   padding: 90px 0 80px;
   background: var(--bg);
 }
-.solutions-title {
+.solutions .section-title {
   text-align: center;
   margin-bottom: 10px;
 }
