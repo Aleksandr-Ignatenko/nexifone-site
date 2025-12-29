@@ -840,6 +840,15 @@ body {
   align-items: center;
 }
 /* -----------------------------------------------------
+   SOLUTIONS | layout
+----------------------------------------------------- */
+.solutions-layout {
+  max-width: min(var(--container-desktop), 100%);
+  margin-left: calc((100vw - var(--container-desktop)) / 2);
+  margin-right: auto;
+  padding-right: var(--page-padding);
+}
+/* -----------------------------------------------------
    SOLUTIONS | GRID
 ----------------------------------------------------- */
 .solutions-grid {
@@ -1322,6 +1331,12 @@ body {
   }
   .solution-item {
     text-align: center;
+  }
+  .solutions-layout {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
