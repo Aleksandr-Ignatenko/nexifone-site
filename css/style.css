@@ -733,16 +733,6 @@ body {
 }
 
 /* =========================================================
-   WHY US | desktop offset (33%)
-========================================================= */
-@media (min-width: 769px) {
-  .why-animate,
-  .why-layout {
-    margin-left: 38vw;
-  }
-}
-
-/* =========================================================
    SERVICES
 ========================================================= */
 .services { 
@@ -870,6 +860,7 @@ body {
   transition:
     transform .25s var(--hover-ease),
     box-shadow .25s var(--hover-ease);
+  position: relative;
 }
 .solution-item:hover {
   transform: translateY(var(--hover-lift-sm));
@@ -884,6 +875,16 @@ body {
   font-size: 14px;
   line-height: 1.5;
   opacity: 0.85;
+}
+.solution-more {
+  display: none;
+  margin-top: 14px;
+}
+.solution-item.is-open .solution-more {
+  display: block;
+}
+.solution-item.is-open .solution-toggle.more {
+  display: none;
 }
 /* -----------------------------------------------------
    SOLUTIONS | ACTIONS
@@ -1131,6 +1132,34 @@ body {
 }
 
 /* =========================================================
+   Desktop | desktop
+========================================================= */
+@media (min-width: 769px) {
+  /* -----------------------------------------------------
+     WHY US | desktop offset (33%)
+  ----------------------------------------------------- */
+  .why-animate,
+  .why-layout {
+    margin-left: 38vw;
+  }
+  /* -----------------------------------------------------
+     SOLUTION | desktop
+  ----------------------------------------------------- */ 
+  .solution-item.is-open {
+    z-index: 10;
+  }
+  .solution-item.is-open .solution-more {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+}
+/* =========================================================
    TABLETS (769–1024px)
 ========================================================= */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1343,6 +1372,9 @@ body {
     margin-right: auto;
     padding-left: 0;
     padding-right: 0;
+  }
+  .solution-item.is-open .solution-more {
+    position: static;
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
