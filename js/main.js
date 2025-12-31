@@ -189,9 +189,31 @@ if (whySection && whyAnimate) {
   observer.observe(whySection);
 }
 
-/* =========================================================
-   WHY US | SLIDE IN FROM LEFT
-========================================================= */
-  
+  /* =========================================================
+     SOLUTIONS | CARD EXPAND (MORE / LESS)
+  ========================================================= */
+  document.addEventListener("click", (e) => {
+    const moreBtn = e.target.closest(".solution-toggle.more");
+    const lessBtn = e.target.closest(".solution-toggle.less");
+
+    if (!moreBtn && !lessBtn) return;
+
+    const card = e.target.closest(".solution-item");
+    if (!card) return;
+
+    // Close other opened cards
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
+      if (item !== card) item.classList.remove("is-open");
+    });
+
+    // Open / close current card
+    if (moreBtn) {
+      card.classList.add("is-open");
+    }
+
+    if (lessBtn) {
+      card.classList.remove("is-open");
+    }
+  });
 
 })();
