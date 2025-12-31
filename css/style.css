@@ -1333,10 +1333,11 @@ body {
     text-align: center;
   }
   .solutions-layout {
+    max-width: var(--container);
     margin-left: auto;
     margin-right: auto;
-   padding-left: var(--page-padding);
-   padding-right: var(--page-padding);
+    padding-left: 0;
+    padding-right: 0;
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
