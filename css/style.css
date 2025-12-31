@@ -825,6 +825,9 @@ body {
   background: var(--bg);
 }
 .solutions .section-title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   margin-bottom: 10px;
 }
