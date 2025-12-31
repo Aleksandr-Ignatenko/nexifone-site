@@ -1324,7 +1324,7 @@ body {
     grid-template-columns: 1fr;
   }
   /* -----------------------------------------------------
-     SOLUTIONS | GRID
+     MOBILE | SOLUTIONS GRID
   ----------------------------------------------------- */
   .solutions-grid {
     grid-template-columns: 1fr;
@@ -1335,8 +1335,8 @@ body {
   .solutions-layout {
     margin-left: 0;
     margin-right: 0;
-    padding-left: var(--page-padding);
-    padding-right: var(--page-padding);
+   /* padding-left: var(--page-padding); */
+   /* padding-right: var(--page-padding); */
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
