@@ -1335,8 +1335,8 @@ body {
   .solutions-layout {
     margin-left: auto;
     margin-right: auto;
-   /* padding-left: var(--page-padding); */
-   /* padding-right: var(--page-padding); */
+   padding-left: var(--page-padding);
+   padding-right: var(--page-padding);
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
