@@ -189,4 +189,9 @@ if (whySection && whyAnimate) {
   observer.observe(whySection);
 }
 
+/* =========================================================
+   WHY US | SLIDE IN FROM LEFT
+========================================================= */
+  
+
 })();
