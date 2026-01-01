@@ -1162,12 +1162,12 @@ body {
     left: 0;
     width: 100%;
     background: var(--surface-glass-strong);
-    padding: 18px 0 0;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 18px 20px 20px;
     border-radius: 0 0 14px 14px;
     z-index: 5;
-    pointer-events: auto;
     box-shadow: none;
-    margin-top: 6px;
   }
   .solution-item.is-open {
     z-index: 10;
