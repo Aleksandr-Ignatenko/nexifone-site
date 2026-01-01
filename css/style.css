@@ -881,19 +881,28 @@ body {
   line-height: 1.5;
   opacity: 0.85;
 }
+/* -----------------------------------------------------
+   SOLUTIONS | accordion base (mobile + default)
+----------------------------------------------------- */
 .solution-more {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.25s ease;
   margin-top: 14px;
+}
+.solution-item.is-open .solution-more {
+  max-height: 600px; /* гарантированно больше контента */
+  opacity: 1;
+}
+.solution-item.is-open .solution-toggle.more {
+  display: none;
 }
 .solution-item.is-open {
   background: var(--surface-glass);
   box-shadow: var(--hover-shadow-soft);
-}
-.solution-item.is-open .solution-more {
-  display: block;
-}
-.solution-item.is-open .solution-toggle.more {
-  display: none;
 }
 /* -----------------------------------------------------
    SOLUTIONS | ACTIONS
@@ -1154,38 +1163,39 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
-    .solution-item {
+  .solution-item {
     position: relative;
   }
-.solution-more {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: var(--surface-glass-overlay);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 18px 20px 20px;
-  border-radius: 0 0 14px 14px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition:
-    opacity .25s ease,
-    transform .25s ease;
-  pointer-events: none;
-  z-index: 5;
-}
+  .solution-more {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--surface-glass-overlay);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 18px 20px 20px;
+    border-radius: 0 0 14px 14px;
+    max-height: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+      opacity .25s ease,
+      transform .25s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
   .solution-item.is-open {
     z-index: 10;
   }
-.solution-item.is-open .solution-more {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-  box-shadow: 0 22px 55px rgba(0,0,0,0.55);
-}
+  .solution-item.is-open .solution-more {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+  }
   .solutions-grid {
     overflow: visible;
   }
