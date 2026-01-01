@@ -14,7 +14,7 @@
   --surface-glass: rgba(0, 17, 125, 0.55);
   --surface-glass-soft: rgba(0, 17, 125, 0.45);
   --surface-glass-strong: rgba(0, 17, 125, 0.65);
-  --surface-glass-overlay: rgba(0, 17, 125, 0.82);
+  --surface-glass-overlay: rgba(0, 17, 125, 0.88);
   
     /* --- CONTAINERS (TOKEN) --- */
   --container-desktop: clamp(800px, 80%, 1400px);
