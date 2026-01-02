@@ -189,9 +189,9 @@ if (whySection && whyAnimate) {
   observer.observe(whySection);
 }
 
-  /* =========================================================
-     SOLUTIONS | CARD ACCORDION (MORE / LESS)
-  ========================================================= */
+/* =========================================================
+   SOLUTIONS | DESKTOP OVERLAY + MOBILE EXPAND ACCORDION
+========================================================= */
 document.addEventListener("click", (e) => {
   const toggle = e.target.closest(".solution-toggle");
   if (!toggle) return;
@@ -199,7 +199,6 @@ document.addEventListener("click", (e) => {
   const card = toggle.closest(".solution-item");
   if (!card) return;
 
-  // закрываем остальные
   document.querySelectorAll(".solution-item.is-open").forEach(item => {
     if (item !== card) {
       item.classList.remove("is-open");
