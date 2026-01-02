@@ -882,12 +882,39 @@ body {
   line-height: 1.5;
   opacity: 0.85;
 }
+/* -----------------------------------------------------
+   SOLUTIONS | TOGGLE BUTTON
+----------------------------------------------------- */
+.solution-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+.solution-toggle:hover {
+  color: var(--accent-magenta);
+  transform: translateY(-2px);
+}
+.solution-toggle:focus {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+/* Улучшение анимации для .solution-body (общее) */
 .solution-body {
   opacity: 0;
   transform: translateY(-6px);
+  transition: 
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    max-height 0.45s ease; /* Для мобильной */
 }
 .solution-item.is-open .solution-body {
-  max-height: 500px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1157,34 +1184,20 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
-    .solution-item {
+  .solution-item {
     position: relative;
   }
   .solution-body {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--surface-glass-overlay);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 18px 20px 20px;
-    border-radius: 0 0 14px 14px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-6px);
-    z-index: 5;
+    transition: 
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
   }
   .solution-item.is-open {
     z-index: 10;
   }
   .solution-item.is-open .solution-body {
-    opacity: 1;
     visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
   }
   .solutions-grid {
     overflow: visible;
