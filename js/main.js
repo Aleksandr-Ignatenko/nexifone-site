@@ -190,30 +190,27 @@ if (whySection && whyAnimate) {
 }
 
   /* =========================================================
-     SOLUTIONS | CARD EXPAND (MORE / LESS)
+     SOLUTIONS | CARD ACCORDION (MORE / LESS)
   ========================================================= */
-  document.addEventListener("click", (e) => {
-    const moreBtn = e.target.closest(".solution-toggle.more");
-    const lessBtn = e.target.closest(".solution-toggle.less");
+document.addEventListener("click", (e) => {
+  const toggle = e.target.closest(".solution-toggle");
+  if (!toggle) return;
 
-    if (!moreBtn && !lessBtn) return;
+  const card = toggle.closest(".solution-item");
+  if (!card) return;
 
-    const card = e.target.closest(".solution-item");
-    if (!card) return;
-
-    // Close other opened cards
-    document.querySelectorAll(".solution-item.is-open").forEach(item => {
-      if (item !== card) item.classList.remove("is-open");
-    });
-
-    // Open / close current card
-    if (moreBtn) {
-      card.classList.add("is-open");
-    }
-
-    if (lessBtn) {
-      card.classList.remove("is-open");
+  // закрываем остальные
+  document.querySelectorAll(".solution-item.is-open").forEach(item => {
+    if (item !== card) {
+      item.classList.remove("is-open");
+      const btn = item.querySelector(".solution-toggle");
+      if (btn) btn.textContent = "More";
     }
   });
+
+  const isOpen = card.classList.toggle("is-open");
+  toggle.textContent = isOpen ? "Less" : "More";
+});
+
 
 })();
