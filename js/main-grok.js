@@ -210,6 +210,7 @@ document.addEventListener("click", (e) => {
 
   const isOpen = card.classList.toggle("is-open");
   toggle.textContent = isOpen ? "Less" : "More";
+  toggle.setAttribute('aria-expanded', isOpen);  // Добавь это
 });
 
 
