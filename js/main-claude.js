@@ -189,9 +189,9 @@ if (whySection && whyAnimate) {
   observer.observe(whySection);
 }
 
-  /* =========================================================
-     SOLUTIONS | CARD ACCORDION (MORE / LESS)
-  ========================================================= */
+/* =========================================================
+   SOLUTIONS | CARD ACCORDION (MORE / LESS)
+========================================================= */
 document.addEventListener("click", (e) => {
   const toggle = e.target.closest(".solution-toggle");
   if (!toggle) return;
@@ -199,17 +199,30 @@ document.addEventListener("click", (e) => {
   const card = toggle.closest(".solution-item");
   if (!card) return;
 
-  // закрываем остальные
-  document.querySelectorAll(".solution-item.is-open").forEach(item => {
-    if (item !== card) {
-      item.classList.remove("is-open");
-      const btn = item.querySelector(".solution-toggle");
-      if (btn) btn.textContent = "More";
-    }
-  });
+  const isCurrentlyOpen = card.classList.contains("is-open");
 
-  const isOpen = card.classList.toggle("is-open");
-  toggle.textContent = isOpen ? "Less" : "More";
+  // Проверяем ширину экрана
+  const isDesktop = window.innerWidth > 768;
+
+  // На десктопе закрываем другие карточки
+  if (isDesktop) {
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
+      if (item !== card) {
+        item.classList.remove("is-open");
+        const btn = item.querySelector(".solution-toggle");
+        if (btn) btn.textContent = "More";
+      }
+    });
+  }
+
+  // Переключаем текущую карточку
+  if (isCurrentlyOpen) {
+    card.classList.remove("is-open");
+    toggle.textContent = "More";
+  } else {
+    card.classList.add("is-open");
+    toggle.textContent = "Less";
+  }
 });
 
 
