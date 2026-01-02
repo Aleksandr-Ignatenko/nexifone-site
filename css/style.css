@@ -1176,21 +1176,21 @@ body {
     -webkit-backdrop-filter: blur(16px);
     padding: 18px 20px 20px;
     border-radius: 0 0 14px 14px;
-    max-height: none;
+    max-height: unset;
     overflow: visible;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
-    transition:
-      opacity .25s ease,
-      transform .25s ease;
+    transition: none;
     pointer-events: none;
     z-index: 5;
+    margin-top: 0;
   }
   .solution-item.is-open {
     z-index: 10;
   }
   .solution-item.is-open .solution-more {
+    max-height: unset;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
