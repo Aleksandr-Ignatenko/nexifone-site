@@ -199,7 +199,7 @@ document.addEventListener("click", (e) => {
   const card = toggle.closest(".solution-item");
   if (!card) return;
 
-  // закрываем остальные
+  // Закрываем все открытые карточки, кроме текущей
   document.querySelectorAll(".solution-item.is-open").forEach(item => {
     if (item !== card) {
       item.classList.remove("is-open");
@@ -208,6 +208,7 @@ document.addEventListener("click", (e) => {
     }
   });
 
+  // Переключаем состояние текущей карточки
   const isOpen = card.classList.toggle("is-open");
   toggle.textContent = isOpen ? "Less" : "More";
 });
