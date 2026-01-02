@@ -812,13 +812,15 @@ body {
   color: rgba(255,255,255,0.92); line-height:1.5; 
 }
 
+
 /* =========================================================
-   SOLUTIONS
+   SOLUTIONS - ИСПРАВЛЕННАЯ ВЕРСИЯ
 ========================================================= */
 .solutions {
   padding: 90px 0 80px;
   background: var(--bg);
 }
+
 .solutions .section-title {
   display: block;
   margin-left: auto;
@@ -826,17 +828,20 @@ body {
   text-align: center;
   margin-bottom: 10px;
 }
+
 .solutions-sub {
   text-align: center;
   font-size: 14.5px;
   opacity: 0.85;
   margin-bottom: 36px;
 }
+
 .solutions .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 /* -----------------------------------------------------
    SOLUTIONS | layout
 ----------------------------------------------------- */
@@ -847,6 +852,7 @@ body {
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
 }
+
 /* -----------------------------------------------------
    SOLUTIONS | GRID
 ----------------------------------------------------- */
@@ -855,7 +861,12 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  overflow: visible; /* Важно для десктопа */
 }
+
+/* -----------------------------------------------------
+   SOLUTIONS | CARD ITEM
+----------------------------------------------------- */
 .solution-item {
   padding: 22px 20px;
   border-radius: 14px;
@@ -864,40 +875,92 @@ body {
   backdrop-filter: blur(10px);
   transition:
     transform .25s var(--hover-ease),
-    box-shadow .25s var(--hover-ease);
+    box-shadow .25s var(--hover-ease),
+    background .25s ease;
   position: relative;
-  overflow: visible;
 }
+
 .solution-item:hover {
   transform: translateY(var(--hover-lift-sm));
   box-shadow: var(--hover-shadow-soft);
 }
-.solution-item h3 {
+
+/* -----------------------------------------------------
+   SOLUTIONS | HEADER & SHORT TEXT
+----------------------------------------------------- */
+.solution-header h3 {
   margin-bottom: 8px;
   font-size: 17px;
   font-weight: 600;
 }
-.solution-item p {
+
+.solution-short {
   font-size: 14px;
   line-height: 1.5;
   opacity: 0.85;
+  margin-bottom: 12px;
 }
+
+/* -----------------------------------------------------
+   SOLUTIONS | TOGGLE BUTTON
+----------------------------------------------------- */
+.solution-toggle {
+  margin-top: 8px;
+  padding: 6px 16px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solution-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 232, 255, 0.3);
+}
+
+/* -----------------------------------------------------
+   SOLUTIONS | BODY (expandable content)
+----------------------------------------------------- */
 .solution-body {
   opacity: 0;
-  transform: translateY(-6px);
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity .3s ease,
+    visibility .3s ease,
+    max-height .45s ease;
 }
-.solution-item.is-open .solution-body {
-  max-height: 500px;
-  opacity: 1;
-  transform: translateY(0);
+
+.solution-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 12px;
 }
+
+.solution-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* -----------------------------------------------------
-   SOLUTIONS | accordion base (mobile + default)
+   SOLUTIONS | OPEN STATE (для всех карточек по умолчанию)
 ----------------------------------------------------- */
 .solution-item.is-open {
   background: var(--surface-glass);
-  box-shadow: var(--hover-shadow-soft);
 }
+
+.solution-item.is-open .solution-body {
+  opacity: 1;
+  visibility: visible;
+  max-height: 600px;
+  margin-top: 12px;
+}
+
 /* -----------------------------------------------------
    SOLUTIONS | ACTIONS
 ----------------------------------------------------- */
@@ -1157,9 +1220,12 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
-    .solution-item {
-    position: relative;
+  /* Карточка становится относительной для позиционирования overlay */
+  .solution-item {
+    overflow: visible;
   }
+  
+  /* Body становится абсолютным overlay */
   .solution-body {
     position: absolute;
     top: 100%;
@@ -1170,24 +1236,42 @@ body {
     -webkit-backdrop-filter: blur(16px);
     padding: 18px 20px 20px;
     border-radius: 0 0 14px 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: none;
+    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+    z-index: 1;
+    
+    /* Скрыт по умолчанию */
     opacity: 0;
     visibility: hidden;
+    max-height: none; /* убираем ограничение высоты */
     pointer-events: none;
     transform: translateY(-6px);
-    z-index: 5;
+    transition:
+      opacity .3s ease,
+      visibility .3s ease,
+      transform .3s ease;
   }
+  
+  /* Открытая карточка получает высокий z-index */
   .solution-item.is-open {
     z-index: 10;
+    background: var(--surface-glass);
   }
+  
+  /* Body открытой карточки */
   .solution-item.is-open .solution-body {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
-    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+    margin-top: 0; /* убираем отступ для overlay */
   }
+  
+  /* Убеждаемся что grid не схлопывается */
   .solutions-grid {
     overflow: visible;
+    position: relative;
   }
 }
 /* =========================================================
@@ -1394,27 +1478,33 @@ body {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+  
   .solution-item {
     text-align: center;
+    overflow: hidden; /* для мобилки нужен overflow hidden */
   }
-  .solutions-layout {
-    max-width: var(--container);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
-  }
+  
+  /* На мобилке body - обычный блок внутри карточки */
   .solution-body {
     position: static;
     max-height: 0;
     overflow: hidden;
+    margin-top: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     transition:
       max-height .45s ease,
       opacity .25s ease,
-      transform .25s ease;
+      padding .25s ease,
+      margin-top .25s ease;
   }
+  
   .solution-item.is-open .solution-body {
     max-height: 600px;
+    padding-top: 12px;
+    margin-top: 12px;
     opacity: 1;
     transform: translateY(0);
   }
