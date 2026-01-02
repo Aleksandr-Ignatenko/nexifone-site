@@ -1157,36 +1157,39 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
-    .solution-item {
+  .solution-item {
     position: relative;
   }
   .solution-body {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
+    right: 0;
     background: var(--surface-glass-overlay);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     padding: 18px 20px 20px;
     border-radius: 0 0 14px 14px;
+    box-shadow: 0 22px 55px rgba(0,0,0,.55);
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
     transform: translateY(-6px);
-    z-index: 5;
+    transition: max-height .45s ease,
+                opacity   .25s ease,
+                transform .25s ease;
+    pointer-events: none;
   }
   .solution-item.is-open {
     z-index: 10;
   }
   .solution-item.is-open .solution-body {
+    max-height: 500px;   /* достаточно для любого текста */
     opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
     transform: translateY(0);
-    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+    pointer-events: auto;
   }
   .solutions-grid {
+    position: relative;
     overflow: visible;
   }
 }
