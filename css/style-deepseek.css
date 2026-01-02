@@ -857,16 +857,18 @@ body {
   gap: 22px;
 }
 .solution-item {
+  position: relative;
   padding: 22px 20px;
   border-radius: 14px;
   background: var(--surface-glass-soft);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
-  transition:
-    transform .25s var(--hover-ease),
-    box-shadow .25s var(--hover-ease);
+  transition: all .25s var(--hover-ease);
+  overflow: hidden;
+}
+.solution-header {
   position: relative;
-  overflow: visible;
+  z-index: 2;
 }
 .solution-item:hover {
   transform: translateY(var(--hover-lift-sm));
@@ -883,13 +885,31 @@ body {
   opacity: 0.85;
 }
 .solution-body {
+  max-height: 0;
   opacity: 0;
-  transform: translateY(-6px);
+  overflow: hidden;
+  transition: max-height .45s ease, opacity .3s ease;
+  margin-top: 0;
 }
 .solution-item.is-open .solution-body {
   max-height: 500px;
   opacity: 1;
   transform: translateY(0);
+}
+.solution-toggle {
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  color: var(--bg);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease;
+}
+
+.solution-toggle:hover {
+  transform: translateY(-2px);
 }
 /* -----------------------------------------------------
    SOLUTIONS | accordion base (mobile + default)
@@ -1157,8 +1177,9 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
-    .solution-item {
+  .solution-item {
     position: relative;
+    overflow: visible;
   }
   .solution-body {
     position: absolute;
@@ -1166,28 +1187,57 @@ body {
     left: 0;
     width: 100%;
     background: var(--surface-glass-overlay);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 18px 20px 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0;
     border-radius: 0 0 14px 14px;
-    opacity: 0;
-    visibility: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-top: none;
+    box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    z-index: 100;
     pointer-events: none;
-    transform: translateY(-6px);
-    z-index: 5;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .3s ease, transform .3s ease;
+    max-height: none !important;
+    margin-top: 0 !important;
   }
+  .solution-body p {
+    padding: 18px 20px;
+    margin: 0;
+  }
+  
+  .solution-body p:first-child {
+    padding-top: 20px;
+  }
+  
+  .solution-body p:last-child {
+    padding-bottom: 22px;
+  }
+  
   .solution-item.is-open {
-    z-index: 10;
+    z-index: 101;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: var(--surface-glass);
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
     transform: translateY(0);
-    box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+    pointer-events: auto;
+  }
+    .solutions-grid:hover .solution-item:not(.is-open) {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .solution-item:not(.is-open):hover {
+    transform: translateY(var(--hover-lift-sm));
+    box-shadow: var(--hover-shadow-soft);
   }
   .solutions-grid {
-    overflow: visible;
+    position: relative;
+    overflow: visible !important;
   }
 }
 /* =========================================================
@@ -1413,10 +1463,14 @@ body {
       opacity .25s ease,
       transform .25s ease;
   }
+  .solution-item.is-open {
+    background: var(--surface-glass);
+  }
+  
   .solution-item.is-open .solution-body {
     max-height: 600px;
     opacity: 1;
-    transform: translateY(0);
+    margin-top: 16px;
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
