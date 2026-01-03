@@ -1203,34 +1203,27 @@ body {
     padding: 18px 20px;
     margin: 0;
   }
-  
   .solution-body p:first-child {
     padding-top: 20px;
   }
-  
   .solution-body p:last-child {
     padding-bottom: 22px;
   }
-  
   .solution-item.is-open {
     z-index: 101;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background: var(--surface-glass);
-
-    box-shadow: none;
-    border-bottom-color: transparent;
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
-    .solutions-grid:hover .solution-item:not(.is-open) {
+  .solutions-grid:hover .solution-item:not(.is-open) {
     transform: none;
     box-shadow: none;
   }
-  
   .solution-item:not(.is-open):hover {
     transform: translateY(var(--hover-lift-sm));
     box-shadow: var(--hover-shadow-soft);
