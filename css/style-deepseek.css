@@ -885,10 +885,8 @@ body {
   opacity: 0.85;
 }
 .solution-body {
-  max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height .45s ease, opacity .3s ease;
   margin-top: 0;
 }
 .solution-item.is-open .solution-body {
@@ -1199,22 +1197,18 @@ body {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity .3s ease, transform .3s ease;
-    max-height: none !important;
     margin-top: 0 !important;
   }
   .solution-body p {
     padding: 18px 20px;
     margin: 0;
   }
-  
   .solution-body p:first-child {
     padding-top: 20px;
   }
-  
   .solution-body p:last-child {
     padding-bottom: 22px;
   }
-  
   .solution-item.is-open {
     z-index: 101;
     border-bottom-left-radius: 0;
@@ -1226,11 +1220,10 @@ body {
     transform: translateY(0);
     pointer-events: auto;
   }
-    .solutions-grid:hover .solution-item:not(.is-open) {
+  .solutions-grid:hover .solution-item:not(.is-open) {
     transform: none;
     box-shadow: none;
   }
-  
   .solution-item:not(.is-open):hover {
     transform: translateY(var(--hover-lift-sm));
     box-shadow: var(--hover-shadow-soft);
@@ -1457,11 +1450,11 @@ body {
   .solution-body {
     position: static;
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
     transition:
       max-height .45s ease,
       opacity .25s ease,
-      transform .25s ease;
   }
   .solution-item.is-open {
     background: var(--surface-glass);
