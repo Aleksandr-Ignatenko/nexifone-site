@@ -1217,6 +1217,9 @@ body {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background: var(--surface-glass);
+
+    box-shadow: none;
+    border-bottom-color: transparent;
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
