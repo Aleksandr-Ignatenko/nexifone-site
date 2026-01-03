@@ -189,28 +189,80 @@ if (whySection && whyAnimate) {
   observer.observe(whySection);
 }
 
-  /* =========================================================
-     SOLUTIONS | CARD ACCORDION (MORE / LESS)
-  ========================================================= */
+/* =========================================================
+   SOLUTIONS | CARD ACCORDION (MORE / LESS)
+========================================================= */
+
 document.addEventListener("click", (e) => {
+  const isDesktop = window.matchMedia("(min-width: 769px)").matches;
+
   const toggle = e.target.closest(".solution-toggle");
-  if (!toggle) return;
+  const card = e.target.closest(".solution-item");
 
-  const card = toggle.closest(".solution-item");
-  if (!card) return;
+  /* ===== КЛИК ПО КНОПКЕ MORE / LESS ===== */
+  if (toggle && card) {
+    const currentlyOpen = card.classList.contains("is-open");
 
-  // закрываем остальные
-  document.querySelectorAll(".solution-item.is-open").forEach(item => {
-    if (item !== card) {
+    if (isDesktop) {
+      // Закрываем все остальные карточки
+      document.querySelectorAll(".solution-item.is-open").forEach(item => {
+        if (item !== card) {
+          item.classList.remove("is-open");
+          const btn = item.querySelector(".solution-toggle");
+          if (btn) {
+            btn.textContent = "More";
+            btn.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+
+      // Переключаем текущую
+      if (!currentlyOpen) {
+        card.classList.add("is-open");
+        toggle.textContent = "Less";
+        toggle.setAttribute("aria-expanded", "true");
+      } else {
+        card.classList.remove("is-open");
+        toggle.textContent = "More";
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    } else {
+      // Мобилка — обычный аккордеон
+      const isOpen = card.classList.toggle("is-open");
+      toggle.textContent = isOpen ? "Less" : "More";
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    return; // важно: дальше не идём
+  }
+
+  /* ===== КЛИК ВНЕ КАРТОЧЕК (ТОЛЬКО DESKTOP) ===== */
+  if (isDesktop && !card) {
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
       item.classList.remove("is-open");
       const btn = item.querySelector(".solution-toggle");
-      if (btn) btn.textContent = "More";
-    }
-  });
-
-  const isOpen = card.classList.toggle("is-open");
-  toggle.textContent = isOpen ? "Less" : "More";
+      if (btn) {
+        btn.textContent = "More";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 });
+
+/* ===== RESET ПРИ RESIZE ===== */
+window.addEventListener("resize", () => {
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
+      item.classList.remove("is-open");
+      const btn = item.querySelector(".solution-toggle");
+      if (btn) {
+        btn.textContent = "More";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+});
+
 
 
 })();
