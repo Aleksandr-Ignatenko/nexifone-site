@@ -1191,7 +1191,13 @@ body {
     border-radius: 0 0 14px 14px;
     border: 1px solid rgba(255,255,255,0.15);
     border-top: none;
-    box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    /* box-shadow: 0 22px 60px rgba(0,0,0,0.65); */
+
+
+    box-shadow:
+      0 22px 60px rgba(0,0,0,0.65),   /* вниз */
+      18px 0 40px rgba(0,0,0,0.45),  /* вправо */
+      -18px 0 40px rgba(0,0,0,0.45); /* влево */
     z-index: 100;
     pointer-events: none;
     opacity: 0;
@@ -1214,6 +1220,13 @@ body {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background: var(--surface-glass);
+
+
+
+    box-shadow:
+      0 -14px 40px rgba(0,0,0,0.45), /* вверх */
+      14px 0 40px rgba(0,0,0,0.45),  /* вправо */
+      -14px 0 40px rgba(0,0,0,0.45); /* влево */
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
