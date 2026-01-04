@@ -816,8 +816,21 @@ body {
    SOLUTIONS
 ========================================================= */
 .solutions {
+  position: relative;
   padding: 90px 0 80px;
-  background: var(--bg);
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 17, 125, 1) 0%,
+      rgba(0, 17, 125, 0.75) 35%,
+      rgba(0, 17, 125, 0.55) 55%,
+      rgba(0, 17, 125, 0.75) 75%,
+      rgba(0, 17, 125, 1) 100%
+    ),
+    url("../assets/home/sol501.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .solutions .section-title {
   display: block;
@@ -1434,6 +1447,17 @@ body {
   /* -----------------------------------------------------
      MOBILE | SOLUTIONS GRID
   ----------------------------------------------------- */
+  .solutions {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 17, 125, 1) 0%,
+      rgba(0, 17, 125, 0.80) 40%,
+      rgba(0, 17, 125, 0.65) 65%,
+      rgba(0, 17, 125, 1) 100%
+    ),
+    url("../assets/home/sol502.jpg");
+  }
   .solutions-grid {
     grid-template-columns: 1fr;
   }
