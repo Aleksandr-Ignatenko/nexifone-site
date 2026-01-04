@@ -677,6 +677,17 @@ body {
   color: var(--text);
   white-space: nowrap; /* одна строка */
 }
+.process-title {
+  text-align: left;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.process-title:hover {
+  color: var(--text);
+  transform: none;
+}
 
 /* =========================================================
    WHY US
