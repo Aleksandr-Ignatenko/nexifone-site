@@ -40,8 +40,8 @@
   --header-logo-size: var(--header-logo-desktop);
 
     /* --- FOOTER LOGO SIZE --- */
-  --footer-logo-desktop: 198px;
-  --footer-logo-mobile:  198px;
+  --footer-logo-desktop: 98px;
+  --footer-logo-mobile:  98px;
 
     /* --- ACTIVE TOKEN --- */
   --footer-logo-size: var(--footer-logo-desktop);
