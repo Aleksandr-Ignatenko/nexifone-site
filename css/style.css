@@ -664,18 +664,19 @@ body {
    PROCESS STRIP
 ========================================================= */
 .process-strip {
-  width: 100%;
+  max-width: var(--container-desktop);
+  margin: 0 auto;
 }
 .process-strip .container {
   max-width: var(--container-desktop);
   margin: 0 auto;
 }
 .process-typing {
-  margin-top: 16px;
+  min-height: 1.4em;
   font-size: 20px;
   font-weight: 500;
-  color: var(--text);
-  white-space: nowrap; /* одна строка */
+  line-height: 1.4;
+  white-space: nowrap;
 }
 .process-title {
   text-align: left;
@@ -1446,12 +1447,15 @@ body {
   /* -----------------------------------------------------
      MOBILE | PROCESS STRIP
   ----------------------------------------------------- */
+  .process-strip {
+    max-width: var(--container-mobile);
+  }
   .process-strip .container {
     max-width: var(--container-mobile);
   }
   .process-typing {
-    font-size: 16px;
-    white-space: nowrap; /* тоже одна строка */
+    font-size: 18px;
+    white-space: nowrap;
   }
   /* -----------------------------------------------------
      MOBILE | WHY US
