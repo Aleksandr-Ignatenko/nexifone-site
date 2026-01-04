@@ -661,6 +661,24 @@ body {
 }
 
 /* =========================================================
+   PROCESS STRIP
+========================================================= */
+.process-strip {
+  width: 100%;
+}
+.process-strip .container {
+  max-width: var(--container-desktop);
+  margin: 0 auto;
+}
+.process-typing {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap; /* одна строка */
+}
+
+/* =========================================================
    WHY US
 ========================================================= */
 .why {
@@ -1413,6 +1431,16 @@ body {
   .about-content p {
     font-size: 14.5px;
     line-height: 1.7;
+  }
+  /* -----------------------------------------------------
+     MOBILE | PROCESS STRIP
+  ----------------------------------------------------- */
+  .process-strip .container {
+    max-width: var(--container-mobile);
+  }
+  .process-typing {
+    font-size: 16px;
+    white-space: nowrap; /* тоже одна строка */
   }
   /* -----------------------------------------------------
      MOBILE | WHY US
