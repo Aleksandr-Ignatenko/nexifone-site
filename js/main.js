@@ -171,12 +171,13 @@ if (aboutSection && aboutGlass) {
 /* =========================================================
    PROCESS STRIP | TYPE SEQUENCE
 ========================================================= */
+(() => {
   const el = document.getElementById("processText");
   if (!el) return;
 
   const steps = ["Connect", "Route", "Monitor", "Scale"];
   const arrow = " → ";
-  const typeSpeed = 70;      // скорость печати
+  const typeSpeed = 70;
   const pauseAfterWord = 2800;
   const pauseAfterFull = 3000;
   const eraseSpeed = 40;
@@ -186,49 +187,45 @@ if (aboutSection && aboutGlass) {
   let text = "";
   let isErasing = false;
 
-  function typeLoop() {
+  function processTypeLoop() {
     if (!isErasing) {
-      // Печать слова
       if (charIndex < steps[stepIndex].length) {
         text += steps[stepIndex][charIndex];
         el.textContent = text;
         charIndex++;
-        setTimeout(typeLoop, typeSpeed);
+        setTimeout(processTypeLoop, typeSpeed);
       } else {
-        // Слово напечатано
         setTimeout(() => {
           if (stepIndex < steps.length - 1) {
             text += arrow;
             el.textContent = text;
             stepIndex++;
             charIndex = 0;
-            setTimeout(typeLoop, typeSpeed);
+            setTimeout(processTypeLoop, typeSpeed);
           } else {
-            // Вся цепочка готова
             setTimeout(() => {
               isErasing = true;
-              typeLoop();
+              processTypeLoop();
             }, pauseAfterFull);
           }
         }, pauseAfterWord);
       }
     } else {
-      // Стирание
       if (text.length > 0) {
         text = text.slice(0, -1);
         el.textContent = text;
-        setTimeout(typeLoop, eraseSpeed);
+        setTimeout(processTypeLoop, eraseSpeed);
       } else {
-        // Перезапуск цикла
         isErasing = false;
         stepIndex = 0;
         charIndex = 0;
-        setTimeout(typeLoop, typeSpeed);
+        setTimeout(processTypeLoop, typeSpeed);
       }
     }
   }
 
-  typeLoop();  
+  processTypeLoop();
+})();
 
 /* =========================================================
    WHY US | SLIDE IN FROM LEFT
