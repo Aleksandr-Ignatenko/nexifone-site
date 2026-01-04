@@ -177,54 +177,75 @@ if (aboutSection && aboutGlass) {
 
   const steps = ["Connect", "Route", "Monitor", "Scale"];
   const arrow = " → ";
+  const dots = "...";
+
   const typeSpeed = 70;
-  const pauseAfterWord = 2800;
-  const pauseAfterFull = 3000;
+  const pauseBetween = 2000;
+  const pauseAfterFull = 2500;
   const eraseSpeed = 40;
 
   let stepIndex = 0;
   let charIndex = 0;
   let text = "";
   let isErasing = false;
+  let blinkInterval = null;
 
-  function processTypeLoop() {
+  function startBlink(char) {
+    let visible = true;
+    blinkInterval = setInterval(() => {
+      el.textContent = text + (visible ? char : "   ");
+      visible = !visible;
+    }, 450);
+  }
+
+  function stopBlink() {
+    clearInterval(blinkInterval);
+    blinkInterval = null;
+    el.textContent = text;
+  }
+
+  function loop() {
     if (!isErasing) {
       if (charIndex < steps[stepIndex].length) {
-        text += steps[stepIndex][charIndex];
+        stopBlink();
+        text += steps[stepIndex][charIndex++];
         el.textContent = text;
-        charIndex++;
-        setTimeout(processTypeLoop, typeSpeed);
+        setTimeout(loop, typeSpeed);
       } else {
-        setTimeout(() => {
-          if (stepIndex < steps.length - 1) {
-            text += arrow;
-            el.textContent = text;
+        if (stepIndex < steps.length - 1) {
+          text += arrow;
+          el.textContent = text;
+          startBlink("→");
+          setTimeout(() => {
+            stopBlink();
             stepIndex++;
             charIndex = 0;
-            setTimeout(processTypeLoop, typeSpeed);
-          } else {
-            setTimeout(() => {
-              isErasing = true;
-              processTypeLoop();
-            }, pauseAfterFull);
-          }
-        }, pauseAfterWord);
+            loop();
+          }, pauseBetween);
+        } else {
+          startBlink(dots);
+          setTimeout(() => {
+            stopBlink();
+            isErasing = true;
+            loop();
+          }, pauseAfterFull);
+        }
       }
     } else {
-      if (text.length > 0) {
+      if (text.length) {
         text = text.slice(0, -1);
         el.textContent = text;
-        setTimeout(processTypeLoop, eraseSpeed);
+        setTimeout(loop, eraseSpeed);
       } else {
         isErasing = false;
         stepIndex = 0;
         charIndex = 0;
-        setTimeout(processTypeLoop, typeSpeed);
+        loop();
       }
     }
   }
 
-  processTypeLoop();
+  loop();
 })();
 
 /* =========================================================
