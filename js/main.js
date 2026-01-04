@@ -169,25 +169,6 @@ if (aboutSection && aboutGlass) {
 }
 
 /* =========================================================
-   WHY US | SLIDE IN FROM LEFT
-========================================================= */
-const whySection = document.querySelector(".why");
-const whyAnimate = document.querySelector(".why-animate");
-
-if (whySection && whyAnimate) {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        whyAnimate.classList.add("is-visible");
-        observer.disconnect();
-      }
-    },
-    { threshold: 0.35 }
-  );
-  observer.observe(whySection);
-}
-
-/* =========================================================
    PROCESS STRIP | TYPE SEQUENCE
 ========================================================= */
   const el = document.getElementById("processText");
@@ -247,7 +228,26 @@ if (whySection && whyAnimate) {
     }
   }
 
-  typeLoop();
+  typeLoop();  
+
+/* =========================================================
+   WHY US | SLIDE IN FROM LEFT
+========================================================= */
+const whySection = document.querySelector(".why");
+const whyAnimate = document.querySelector(".why-animate");
+
+if (whySection && whyAnimate) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        whyAnimate.classList.add("is-visible");
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.35 }
+  );
+  observer.observe(whySection);
+}
   
 /* =========================================================
    SOLUTIONS | CARD ACCORDION (FIXED)
