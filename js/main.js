@@ -216,47 +216,50 @@ if (aboutSection && aboutGlass) {
 
   function loop() {
     if (!isErasing) {
-      if (charIndex < steps[stepIndex].length) {
-        text += steps[stepIndex][charIndex++];
-        el.textContent = text;
-        setTimeout(loop, typeSpeed);
-      }
 
-      } else {
-        if (stepIndex < steps.length - 1) {
-          text += arrow;
-          el.textContent = text;
-          
-          blink(3, 450, 700, () => {
-            stepIndex++;
-            charIndex = 0;
-            loop();
-          });
+    if (charIndex < steps[stepIndex].length) {
+      text += steps[stepIndex][charIndex++];
+      el.textContent = text;
+      setTimeout(loop, typeSpeed);
+      return;
+    }
 
-        } else {
-          text += dots;
-          el.textContent = text;
-          
-          blink(3, 450, 800, () => {
-            isErasing = true;
-            loop();
-          });
+    if (stepIndex < steps.length - 1) {
+      text += arrow;
+      el.textContent = text;
 
-        }
-      }
-    } else {
-      if (text.length) {
-        text = text.slice(0, -1);
-        el.textContent = text;
-        setTimeout(loop, eraseSpeed);
-      } else {
-        isErasing = false;
-        stepIndex = 0;
+      blink(3, 450, 700, () => {
+        stepIndex++;
         charIndex = 0;
         loop();
-      }
+      });
+
+    } else {
+      text += dots;
+      el.textContent = text;
+
+      blink(3, 450, 800, () => {
+        isErasing = true;
+        loop();
+      });
     }
+
+  } else {
+
+    if (text.length) {
+      text = text.slice(0, -1);
+      el.textContent = text;
+      setTimeout(loop, eraseSpeed);
+    } else {
+      isErasing = false;
+      stepIndex = 0;
+      charIndex = 0;
+      loop();
+    }
+
   }
+}
+
 
   loop();
 })();
