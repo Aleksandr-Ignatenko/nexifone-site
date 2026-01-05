@@ -169,15 +169,15 @@ if (aboutSection && aboutGlass) {
 }
 
 /* =========================================================
-   PROCESS STRIP | TYPE SEQUENCE
+   PROCESS STRIP | TYPE SEQUENCE (FIXED)
 ========================================================= */
 (() => {
   const el = document.getElementById("processText");
   if (!el) return;
 
   const steps = ["Connect", "Route", "Monitor", "Scale"];
-  const arrow = " → ";
-  const dots = "...";
+  const arrow = " →";
+  const dots = " ...";
 
   const typeSpeed = 70;
   const pauseBetween = 2000;
@@ -190,10 +190,12 @@ if (aboutSection && aboutGlass) {
   let isErasing = false;
   let blinkInterval = null;
 
-  function startBlink(char) {
+  function startBlink() {
     let visible = true;
     blinkInterval = setInterval(() => {
-      el.textContent = text + (visible ? char : "   ");
+      el.textContent = visible
+        ? text
+        : text.slice(0, -1) + " ";
       visible = !visible;
     }, 450);
   }
@@ -215,7 +217,7 @@ if (aboutSection && aboutGlass) {
         if (stepIndex < steps.length - 1) {
           text += arrow;
           el.textContent = text;
-          startBlink("→");
+          startBlink();
           setTimeout(() => {
             stopBlink();
             stepIndex++;
@@ -223,7 +225,9 @@ if (aboutSection && aboutGlass) {
             loop();
           }, pauseBetween);
         } else {
-          startBlink(dots);
+          text += dots;
+          el.textContent = text;
+          startBlink();
           setTimeout(() => {
             stopBlink();
             isErasing = true;
