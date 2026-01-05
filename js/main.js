@@ -180,7 +180,8 @@ if (aboutSection && aboutGlass) {
   const dots = " ...";
 
   const typeSpeed = 70;
-  const pauseBetween = 2000;
+  const pauseAfterArrow = 700;
+  const pauseAfterDots = 800;
   const pauseAfterFull = 2500;
   const eraseSpeed = 40;
 
@@ -188,78 +189,77 @@ if (aboutSection && aboutGlass) {
   let charIndex = 0;
   let text = "";
   let isErasing = false;
-  let blinkInterval = null;
 
-  function blink(times, interval, afterPause, done) {
+  function blinkChunk(chunk, times, interval, afterPause, done) {
     let count = 0;
     let visible = true;
-  
+
     function tick() {
       if (count >= times * 2) {
         el.textContent = text;
         setTimeout(done, afterPause);
         return;
       }
-  
+
       el.textContent = visible
         ? text
-        : text.slice(0, -1) + " ";
-  
+        : text.slice(0, -chunk.length);
+
       visible = !visible;
       count++;
-  
       setTimeout(tick, interval);
     }
-  
+
     tick();
   }
 
   function loop() {
     if (!isErasing) {
 
-    if (charIndex < steps[stepIndex].length) {
-      text += steps[stepIndex][charIndex++];
-      el.textContent = text;
-      setTimeout(loop, typeSpeed);
-      return;
-    }
+      if (charIndex < steps[stepIndex].length) {
+        text += steps[stepIndex][charIndex++];
+        el.textContent = text;
+        setTimeout(loop, typeSpeed);
+        return;
+      }
 
-    if (stepIndex < steps.length - 1) {
-      text += arrow;
-      el.textContent = text;
+      if (stepIndex < steps.length - 1) {
+        text += arrow;
+        el.textContent = text;
 
-      blink(3, 450, 700, () => {
-        stepIndex++;
+        blinkChunk(arrow, 3, 450, pauseAfterArrow, () => {
+          stepIndex++;
+          charIndex = 0;
+          loop();
+        });
+
+      } else {
+        text += dots;
+        el.textContent = text;
+
+        blinkChunk(dots, 3, 450, pauseAfterDots, () => {
+          setTimeout(() => {
+            isErasing = true;
+            loop();
+          }, pauseAfterFull);
+        });
+      }
+
+    } else {
+
+      if (text.length) {
+        text = text.slice(0, -1);
+        el.textContent = text;
+        setTimeout(loop, eraseSpeed);
+      } else {
+        isErasing = false;
+        stepIndex = 0;
         charIndex = 0;
         loop();
-      });
+      }
 
-    } else {
-      text += dots;
-      el.textContent = text;
-
-      blink(3, 450, 800, () => {
-        isErasing = true;
-        loop();
-      });
     }
-
-  } else {
-
-    if (text.length) {
-      text = text.slice(0, -1);
-      el.textContent = text;
-      setTimeout(loop, eraseSpeed);
-    } else {
-      isErasing = false;
-      stepIndex = 0;
-      charIndex = 0;
-      loop();
-    }
-
   }
-}
-
 
   loop();
 })();
