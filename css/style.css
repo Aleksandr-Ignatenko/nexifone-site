@@ -664,12 +664,7 @@ body {
    PROCESS STRIP
 ========================================================= */
 .process-strip {
-  max-width: var(--container-desktop);
-  margin: 0 auto;
-}
-.process-strip .container {
-  max-width: var(--container-desktop);
-  margin: 0 auto;
+  padding: 60px 0;
 }
 .process-typing {
   min-height: 1.4em;
@@ -1447,12 +1442,6 @@ body {
   /* -----------------------------------------------------
      MOBILE | PROCESS STRIP
   ----------------------------------------------------- */
-  .process-strip {
-    max-width: var(--container-mobile);
-  }
-  .process-strip .container {
-    max-width: var(--container-mobile);
-  }
   .process-typing {
     font-size: 18px;
     white-space: nowrap;
