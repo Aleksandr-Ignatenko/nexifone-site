@@ -217,10 +217,11 @@ if (aboutSection && aboutGlass) {
   function loop() {
     if (!isErasing) {
       if (charIndex < steps[stepIndex].length) {
-        stopBlink();
         text += steps[stepIndex][charIndex++];
         el.textContent = text;
         setTimeout(loop, typeSpeed);
+      }
+
       } else {
         if (stepIndex < steps.length - 1) {
           text += arrow;
