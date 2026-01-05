@@ -190,20 +190,28 @@ if (aboutSection && aboutGlass) {
   let isErasing = false;
   let blinkInterval = null;
 
-  function startBlink() {
+  function blink(times, interval, afterPause, done) {
+    let count = 0;
     let visible = true;
-    blinkInterval = setInterval(() => {
+  
+    function tick() {
+      if (count >= times * 2) {
+        el.textContent = text;
+        setTimeout(done, afterPause);
+        return;
+      }
+  
       el.textContent = visible
         ? text
         : text.slice(0, -1) + " ";
+  
       visible = !visible;
-    }, 450);
-  }
-
-  function stopBlink() {
-    clearInterval(blinkInterval);
-    blinkInterval = null;
-    el.textContent = text;
+      count++;
+  
+      setTimeout(tick, interval);
+    }
+  
+    tick();
   }
 
   function loop() {
@@ -217,22 +225,22 @@ if (aboutSection && aboutGlass) {
         if (stepIndex < steps.length - 1) {
           text += arrow;
           el.textContent = text;
-          startBlink();
-          setTimeout(() => {
-            stopBlink();
+          
+          blink(3, 450, 700, () => {
             stepIndex++;
             charIndex = 0;
             loop();
-          }, pauseBetween);
+          });
+
         } else {
           text += dots;
           el.textContent = text;
-          startBlink();
-          setTimeout(() => {
-            stopBlink();
+          
+          blink(3, 450, 800, () => {
             isErasing = true;
             loop();
-          }, pauseAfterFull);
+          });
+
         }
       }
     } else {
