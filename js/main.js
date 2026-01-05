@@ -176,7 +176,7 @@ if (aboutSection && aboutGlass) {
   if (!el) return;
 
   const steps = ["Connect", "Route", "Monitor", "Scale"];
-  const arrow = " →";
+  const arrow = " → ";
   const dots = " ...";
 
   const typeSpeed = 70;
