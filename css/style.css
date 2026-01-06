@@ -684,10 +684,6 @@ body {
   font-weight: 700;
   margin-bottom: 16px;
 }
-.process-title:hover {
-  color: var(--text);
-  transform: none;
-}
 
 /* =========================================================
    WHY US
