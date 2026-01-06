@@ -666,7 +666,8 @@ body {
 .process-strip {
   padding: 60px 0;
 }
-.process-strip .container {
+.process-animate {
+  max-width: min(var(--container-desktop), 50vw);
   margin-left: calc((100vw - var(--container-desktop)) / 2);
 }
 .process-typing {
@@ -1449,7 +1450,8 @@ body {
     font-size: 18px;
     white-space: nowrap;
   }
-  .process-strip .container {
+  .process-animate {
+    max-width: var(--container-mobile);
     margin-left: auto;
     margin-right: auto;
   }
