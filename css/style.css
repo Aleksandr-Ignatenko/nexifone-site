@@ -883,6 +883,7 @@ body {
   margin-right: auto;
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
+  text-align: center;
 }
 /* -----------------------------------------------------
    SOLUTIONS | GRID
