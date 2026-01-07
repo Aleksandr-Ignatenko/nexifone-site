@@ -771,26 +771,8 @@ body {
 .services { 
   position: relative;
   padding: 90px 0 80px;
-  background-image: url("../assets/home/service3.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg);
   overflow: hidden;
-}
-.services::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 17, 125, 1) 0%,
-    rgba(0, 17, 125, 0.70) 35%,
-    rgba(0, 17, 125, 0.50) 50%,
-    rgba(0, 17, 125, 0.70) 65%,
-    rgba(0, 17, 125, 1) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
 }
 .services .container {
   display: flex;
@@ -846,19 +828,7 @@ body {
 .solutions {
   position: relative;
   padding: 90px 0 80px;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 17, 125, 1) 0%,
-      rgba(0, 17, 125, 0.75) 35%,
-      rgba(0, 17, 125, 0.55) 55%,
-      rgba(0, 17, 125, 0.75) 75%,
-      rgba(0, 17, 125, 1) 100%
-    ),
-    url("../assets/home/sol501.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg);
 }
 .solutions-sub {
   text-align: center;
@@ -1484,17 +1454,6 @@ body {
   /* -----------------------------------------------------
      MOBILE | SOLUTIONS GRID
   ----------------------------------------------------- */
-  .solutions {
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 17, 125, 1) 0%,
-      rgba(0, 17, 125, 0.80) 40%,
-      rgba(0, 17, 125, 0.65) 65%,
-      rgba(0, 17, 125, 1) 100%
-    ),
-    url("../assets/home/sol502.jpg");
-  }
   .solutions-grid {
     grid-template-columns: 1fr;
   }
