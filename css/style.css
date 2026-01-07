@@ -143,6 +143,9 @@ body {
   color: var(--accent-cyan);
   transform: translateY(-2px);
 }
+.section-title.underline-anim {
+  display: inline-block;
+}
 
 /* =========================================================
    HEADER
