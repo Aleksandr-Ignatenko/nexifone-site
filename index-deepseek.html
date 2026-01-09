@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/style-deepseek.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
   
 <body>
@@ -171,14 +171,29 @@
 </section>
 
 <!-- =========================================================
+     PROCESS STRIP
+========================================================= -->
+<section class="process-strip" aria-labelledby="process-title">
+  <div class="process-animate">
+
+    <h2 id="process-title" class="section-title underline-anim process-title">
+      Voice Delivery Process
+    </h2>
+
+    <div class="process-typing" aria-live="polite">
+      <span id="processText"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
      WHY US
 ========================================================= -->
 <section class="why" id="why" aria-labelledby="why-title">
   <div class="why-layout why-animate">
 
-    <h2 id="why-title" class="section-title underline-anim">
-      Why us
-    </h2>
+    <h2 id="why-title" class="section-title underline-anim">Why us</h2>
 
     <div class="why-grid">
 
@@ -259,8 +274,8 @@
 <section class="solutions" id="solutions" aria-labelledby="solutions-title">
   <div class="solutions-layout">
 
-    <h2 id="solutions-title" class="section-title">
-      <span class="underline-anim">Our Solutions</span>
+    <h2 id="solutions-title" class="section-title underline-anim">
+      Our Solutions
     </h2>
 
     <p class="solutions-sub">
@@ -270,29 +285,32 @@
     <div class="solutions-grid">
 
           <div class="solution-item">
+            <div class="solution-card">
           
-            <div class="solution-header">
-              <h3>Cloud Voice Infrastructure</h3>
-              <p class="solution-short">
-                Fully managed cloud-based voice platforms with high availability and global reach.
-              </p>
-          
-              <button class="solution-toggle" aria-expanded="false">More</button>
+              <div class="solution-header">
+                <h3>Cloud Voice Infrastructure</h3>
+                <p class="solution-short">
+                  Fully managed cloud-based voice platforms with high availability and global reach.
+                </p>
+            
+                <button class="solution-toggle" aria-expanded="false">More</button>
+              </div>
+            
+              <div class="solution-body">
+                <p>
+                  Our cloud voice infrastructure is built for mission-critical communication.
+                  We operate redundant core nodes, carrier-grade SBCs, and intelligent routing
+                  to ensure stable call delivery even during peak traffic.
+                </p>
+            
+                <p>
+                  The platform supports rapid scaling, seamless geographic expansion,
+                  real-time monitoring, and automatic failover — allowing your business
+                  to grow without technical limitations or downtime risks.
+                </p>
+              </div>
             </div>
-          
-            <div class="solution-body">
-              <p>
-                Our cloud voice infrastructure is built for mission-critical communication.
-                We operate redundant core nodes, carrier-grade SBCs, and intelligent routing
-                to ensure stable call delivery even during peak traffic.
-              </p>
-          
-              <p>
-                The platform supports rapid scaling, seamless geographic expansion,
-                real-time monitoring, and automatic failover — allowing your business
-                to grow without technical limitations or downtime risks.
-              </p>
-            </div>
+
           
           </div>
 
@@ -364,11 +382,6 @@
 
     </div>
 
-    <div class="section-actions">
-      <a href="#contact" class="cta-btn">Get Started</a>
-      <a href="#services" class="cta-btn">Our Services</a>
-    </div>
-
   </div>
 </section>
     
@@ -398,7 +411,7 @@
     <!-- FOOTER LOGO -->
     <div class="footer-col footer-brand">
       <a href="#" class="footer-logo">
-        <img src="assets/frame22.png" alt="Nexifone">
+        <img src="assets/frame23.jpg" alt="Nexifone">
       </a>
     </div>
 
@@ -530,6 +543,6 @@
 <!-- =========================================================
      SCRIPTS
 ========================================================= -->
-<script src="js/main-deepseek.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
