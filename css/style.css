@@ -797,7 +797,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   transition: 
     transform .25s cubic-bezier(.2,.9,.2,1), 
-    box-shadow .25s;
+    box-shadow .25s,
     background .25s;
   min-height:160px;
 }
