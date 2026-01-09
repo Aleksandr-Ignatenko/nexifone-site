@@ -908,16 +908,20 @@ body {
 .solution-item.is-open .solution-body {
   max-height: 500px;
   opacity: 1;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .solution-item.is-open .solution-card {
   background: var(--surface-glass-strong);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .solution-item.is-open .solution-card:hover {
   transform: none;
   box-shadow: none;
 }
 .solution-item.is-open {
-  z-index: 50;
+  z-index: 100;
 }
 .solution-toggle {
   margin-top: 12px;
@@ -946,10 +950,30 @@ body {
     background var(--hover-duration) var(--hover-ease);
   transform-origin: center;
   will-change: transform;
+  position: relative;
+  overflow: hidden;
 }
 .solution-card:hover {
-  transform: translateY(var(--hover-lift-sm));
   background: var(--surface-glass-strong);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    0 0 24px rgba(0,232,255,0.08);
+}
+.solution-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  z-index: -1;
+
+  transform: translateY(0);
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease);
+}
+.solution-card:hover::before {
+  transform: translateY(var(--hover-lift-sm));
   box-shadow:
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0,232,255,0.08);
