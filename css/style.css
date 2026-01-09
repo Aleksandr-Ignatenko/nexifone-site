@@ -800,6 +800,7 @@ body {
     box-shadow .25s,
     background .25s;
   min-height:160px;
+  position: relative;
 }
 .card:hover {
   transform: translateY(-8px);
