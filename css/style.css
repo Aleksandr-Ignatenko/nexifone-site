@@ -973,6 +973,8 @@ body {
   border-top: 1px solid rgba(255,255,255,0.03);
   border-bottom: 1px solid rgba(255,255,255,0.03);
   text-align:center;
+  position: relative;
+  z-index: 0;
 }
 .contact-cta p { 
   margin:12px 0 18px; 
