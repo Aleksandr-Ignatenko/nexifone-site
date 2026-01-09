@@ -165,9 +165,104 @@ if (aboutSection && aboutGlass) {
       threshold: 0.35
     }
   );
-
   observer.observe(aboutSection);
 }
+
+/* =========================================================
+   PROCESS STRIP | TYPE SEQUENCE (FIXED)
+========================================================= */
+(() => {
+  const el = document.getElementById("processText");
+  if (!el) return;
+
+  const steps = ["Connect", "Route", "Monitor", "Scale"];
+  const arrow = " → ";
+  const dots = " ...";
+
+  const typeSpeed = 70;
+  const pauseAfterArrow = 700;
+  const pauseAfterDots = 800;
+  const pauseAfterFull = 2500;
+  const eraseSpeed = 40;
+
+  let stepIndex = 0;
+  let charIndex = 0;
+  let text = "";
+  let isErasing = false;
+
+  function blinkChunk(chunk, times, interval, afterPause, done) {
+    let count = 0;
+    let visible = true;
+
+    function tick() {
+      if (count >= times * 2) {
+        el.textContent = text;
+        setTimeout(done, afterPause);
+        return;
+      }
+
+      el.textContent = visible
+        ? text
+        : text.slice(0, -chunk.length);
+
+      visible = !visible;
+      count++;
+      setTimeout(tick, interval);
+    }
+
+    tick();
+  }
+
+  function loop() {
+    if (!isErasing) {
+
+      if (charIndex < steps[stepIndex].length) {
+        text += steps[stepIndex][charIndex++];
+        el.textContent = text;
+        setTimeout(loop, typeSpeed);
+        return;
+      }
+
+      if (stepIndex < steps.length - 1) {
+        text += arrow;
+        el.textContent = text;
+
+        blinkChunk(arrow, 3, 450, pauseAfterArrow, () => {
+          stepIndex++;
+          charIndex = 0;
+          loop();
+        });
+
+      } else {
+        text += dots;
+        el.textContent = text;
+
+        blinkChunk(dots, 3, 450, pauseAfterDots, () => {
+          setTimeout(() => {
+            isErasing = true;
+            loop();
+          }, pauseAfterFull);
+        });
+      }
+
+    } else {
+
+      if (text.length) {
+        text = text.slice(0, -1);
+        el.textContent = text;
+        setTimeout(loop, eraseSpeed);
+      } else {
+        isErasing = false;
+        stepIndex = 0;
+        charIndex = 0;
+        loop();
+      }
+
+    }
+  }
+
+  loop();
+})();
 
 /* =========================================================
    WHY US | SLIDE IN FROM LEFT
@@ -185,59 +280,44 @@ if (whySection && whyAnimate) {
     },
     { threshold: 0.35 }
   );
-
   observer.observe(whySection);
 }
-
+  
 /* =========================================================
-   SOLUTIONS | CARD ACCORDION (MORE / LESS)
+   SOLUTIONS | CARD ACCORDION (FIXED)
 ========================================================= */
-
 document.addEventListener("click", (e) => {
   const isDesktop = window.matchMedia("(min-width: 769px)").matches;
 
   const toggle = e.target.closest(".solution-toggle");
-  const card = e.target.closest(".solution-item");
+  const card   = e.target.closest(".solution-item");
 
-  /* ===== КЛИК ПО КНОПКЕ MORE / LESS ===== */
+  /* ===== CLICK ON TOGGLE ===== */
   if (toggle && card) {
-    const currentlyOpen = card.classList.contains("is-open");
+    const isOpen = card.classList.contains("is-open");
 
-    if (isDesktop) {
-      // Закрываем все остальные карточки
-      document.querySelectorAll(".solution-item.is-open").forEach(item => {
-        if (item !== card) {
-          item.classList.remove("is-open");
-          const btn = item.querySelector(".solution-toggle");
-          if (btn) {
-            btn.textContent = "More";
-            btn.setAttribute("aria-expanded", "false");
-          }
-        }
-      });
-
-      // Переключаем текущую
-      if (!currentlyOpen) {
-        card.classList.add("is-open");
-        toggle.textContent = "Less";
-        toggle.setAttribute("aria-expanded", "true");
-      } else {
-        card.classList.remove("is-open");
-        toggle.textContent = "More";
-        toggle.setAttribute("aria-expanded", "false");
+    // we close EVERYTHING
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
+      item.classList.remove("is-open");
+      const btn = item.querySelector(".solution-toggle");
+      if (btn) {
+        btn.textContent = "More";
+        btn.setAttribute("aria-expanded", "false");
       }
-    } else {
-      // Мобилка — обычный аккордеон
-      const isOpen = card.classList.toggle("is-open");
-      toggle.textContent = isOpen ? "Less" : "More";
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // If it was closed, open it.
+    if (!isOpen) {
+      card.classList.add("is-open");
+      toggle.textContent = "Less";
+      toggle.setAttribute("aria-expanded", "true");
     }
 
-    return; // важно: дальше не идём
+    return;
   }
 
-  /* ===== КЛИК ВНЕ КАРТОЧЕК (ТОЛЬКО DESKTOP) ===== */
-  if (isDesktop && !card) {
+  /* ===== CLICK OUTSIDE (MOBILE + DESKTOP) ===== */
+  if (!card) {
     document.querySelectorAll(".solution-item.is-open").forEach(item => {
       item.classList.remove("is-open");
       const btn = item.querySelector(".solution-toggle");
@@ -248,21 +328,6 @@ document.addEventListener("click", (e) => {
     });
   }
 });
-
-/* ===== RESET ПРИ RESIZE ===== */
-window.addEventListener("resize", () => {
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    document.querySelectorAll(".solution-item.is-open").forEach(item => {
-      item.classList.remove("is-open");
-      const btn = item.querySelector(".solution-toggle");
-      if (btn) {
-        btn.textContent = "More";
-        btn.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-});
-
 
 
 })();
