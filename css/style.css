@@ -1234,10 +1234,6 @@ body {
     transform: translateY(0);
     pointer-events: auto;
   }
-  .solutions-grid:hover .solution-item:not(.is-open) {
-    transform: none;
-    box-shadow: none;
-  }
   .solution-item:not(.is-open):hover {
     transform: translateY(var(--hover-lift-sm));
     box-shadow: var(--hover-shadow-soft);
