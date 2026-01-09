@@ -1223,12 +1223,12 @@ body {
   .solution-body p:last-child {
     padding-bottom: 22px;
   }
-  .solution-item.is-open {
+ /* .solution-item.is-open {
     z-index: 101;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background: var(--surface-glass);
-  }
+  } */
   .solution-item.is-open .solution-body {
     opacity: 1;
     transform: translateY(0);
