@@ -1482,10 +1482,6 @@ body {
       max-height .45s ease,
       opacity .25s ease,
   }
-  .solution-item.is-open {
-    background: var(--surface-glass);
-  }
-  
   .solution-item.is-open .solution-body {
     max-height: 600px;
     opacity: 1;
