@@ -40,8 +40,8 @@
   --header-logo-size: var(--header-logo-desktop);
 
     /* --- FOOTER LOGO SIZE --- */
-  --footer-logo-desktop: 198px;
-  --footer-logo-mobile:  198px;
+  --footer-logo-desktop: 78px;
+  --footer-logo-mobile:  78px;
 
     /* --- ACTIVE TOKEN --- */
   --footer-logo-size: var(--footer-logo-desktop);
@@ -142,6 +142,9 @@ body {
 .section-title:hover {
   color: var(--accent-cyan);
   transform: translateY(-2px);
+}
+.section-title.underline-anim {
+  display: inline-block;
 }
 
 /* =========================================================
@@ -661,6 +664,31 @@ body {
 }
 
 /* =========================================================
+   PROCESS STRIP
+========================================================= */
+.process-strip {
+  padding: 60px 0;
+}
+.process-animate {
+  max-width: min(var(--container-desktop), 50vw);
+  margin-left: calc((100vw - var(--container-desktop)) / 2);
+}
+.process-typing {
+  min-height: 1.4em;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.process-title {
+  text-align: left;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* =========================================================
    WHY US
 ========================================================= */
 .why {
@@ -743,26 +771,8 @@ body {
 .services { 
   position: relative;
   padding: 90px 0 80px;
-  background-image: url("../assets/home/service3.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg);
   overflow: hidden;
-}
-.services::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 17, 125, 1) 0%,
-    rgba(0, 17, 125, 0.70) 35%,
-    rgba(0, 17, 125, 0.50) 50%,
-    rgba(0, 17, 125, 0.70) 65%,
-    rgba(0, 17, 125, 1) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
 }
 .services .container {
   display: flex;
@@ -816,15 +826,9 @@ body {
    SOLUTIONS
 ========================================================= */
 .solutions {
+  position: relative;
   padding: 90px 0 80px;
   background: var(--bg);
-}
-.solutions .section-title {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-bottom: 10px;
 }
 .solutions-sub {
   text-align: center;
@@ -832,10 +836,13 @@ body {
   opacity: 0.85;
   margin-bottom: 36px;
 }
+.solutions .section-title {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+}
 .solutions .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 /* -----------------------------------------------------
    SOLUTIONS | layout
@@ -846,6 +853,7 @@ body {
   margin-right: auto;
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
+  text-align: center;
 }
 /* -----------------------------------------------------
    SOLUTIONS | GRID
@@ -1400,6 +1408,18 @@ body {
   .about-content p {
     font-size: 14.5px;
     line-height: 1.7;
+  }
+  /* -----------------------------------------------------
+     MOBILE | PROCESS STRIP
+  ----------------------------------------------------- */
+  .process-typing {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .process-animate {
+    max-width: var(--container-mobile);
+    margin-left: auto;
+    margin-right: auto;
   }
   /* -----------------------------------------------------
      MOBILE | WHY US
