@@ -917,11 +917,13 @@ body {
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
-
+  flex: 1;
   transition:
     transform var(--hover-duration) var(--hover-ease),
     box-shadow var(--hover-duration) var(--hover-ease),
     background var(--hover-duration) var(--hover-ease);
+  transform-origin: center;
+  will-change: transform;
 }
 .solution-card:hover {
   transform: translateY(var(--hover-lift-sm));
@@ -1192,6 +1194,8 @@ body {
   .solution-item {
     position: relative;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
   }
   .solution-body {
     position: absolute;
