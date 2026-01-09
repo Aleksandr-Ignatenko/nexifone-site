@@ -954,16 +954,6 @@ body {
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0,232,255,0.08);
 }
-/* -----------------------------------------------------
-   SOLUTIONS | ACTIONS
------------------------------------------------------ */
-.solutions .section-actions {
-  margin-top: 36px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
 
 /* =========================================================
    CONTACT CTA
