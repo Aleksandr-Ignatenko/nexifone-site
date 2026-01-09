@@ -864,23 +864,9 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
-.solution-item {
-  position: relative;
-  padding: 22px 20px;
-  border-radius: 14px;
-  background: var(--surface-glass-soft);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  transition: all .25s var(--hover-ease);
-  overflow: hidden;
-}
 .solution-header {
   position: relative;
   z-index: 2;
-}
-.solution-item:hover {
-  transform: translateY(var(--hover-lift-sm));
-  box-shadow: var(--hover-shadow-soft);
 }
 .solution-item h3 {
   margin-bottom: 8px;
@@ -897,10 +883,13 @@ body {
   overflow: hidden;
   margin-top: 0;
 }
-.solution-item.is-open .solution-body {
+.solution-item.open .solution-body {
   max-height: 500px;
-  opacity: 1;
-  transform: translateY(0);
+}
+.solution-item.is-open .solution-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
 }
 .solution-toggle {
   margin-top: 12px;
@@ -917,6 +906,26 @@ body {
 .solution-toggle:hover {
   transform: translateY(-2px);
 }
+.solution-card {
+  background: var(--surface-glass-soft);
+  padding: 22px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease),
+    background var(--hover-duration) var(--hover-ease);
+}
+.solution-card:hover {
+  transform: translateY(var(--hover-lift-sm));
+  background: var(--surface-glass-strong);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    0 0 24px rgba(0,232,255,0.08);
+}
+
 /* -----------------------------------------------------
    SOLUTIONS | accordion base (mobile + default)
 ----------------------------------------------------- */
