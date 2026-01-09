@@ -893,7 +893,10 @@ body {
 .solution-item.is-open .solution-card {
   background: var(--surface-glass-strong);
 }
-
+.solution-item.is-open .solution-card:hover {
+  transform: none;
+  box-shadow: none;
+}
 .solution-toggle {
   margin-top: 12px;
   padding: 8px 18px;
@@ -905,7 +908,6 @@ body {
   cursor: pointer;
   transition: transform .18s ease;
 }
-
 .solution-toggle:hover {
   transform: translateY(-2px);
 }
@@ -927,14 +929,6 @@ body {
   box-shadow:
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0,232,255,0.08);
-}
-
-/* -----------------------------------------------------
-   SOLUTIONS | accordion base (mobile + default)
------------------------------------------------------ */
-.solution-item.is-open {
-  background: var(--surface-glass);
-  box-shadow: var(--hover-shadow-soft);
 }
 /* -----------------------------------------------------
    SOLUTIONS | ACTIONS
