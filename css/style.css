@@ -879,18 +879,21 @@ body {
   opacity: 0.85;
 }
 .solution-body {
+  max-height: 0;
   opacity: 0;
   overflow: hidden;
-  margin-top: 0;
-}
-.solution-item.open .solution-body {
-  max-height: 500px;
+  transition:
+    max-height .35s ease,
+    opacity .25s ease;
 }
 .solution-item.is-open .solution-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .3s ease;
+  max-height: 500px;
+  opacity: 1;
 }
+.solution-item.is-open .solution-card {
+  background: var(--surface-glass-strong);
+}
+
 .solution-toggle {
   margin-top: 12px;
   padding: 8px 18px;
