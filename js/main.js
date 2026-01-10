@@ -345,22 +345,27 @@ if (messageField && counterEl) {
   });
 }
 /* =========================================================
-   CONTACT | EMAIL VALIDATION
+   CONTACT | EMAIL VALIDATION (FIXED)
 ========================================================= */
 const emailInput = document.getElementById("email");
 
 if (emailInput) {
-  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/;
 
-  emailInput.addEventListener("input", () => {
-    if (!emailRegex.test(emailInput.value)) {
+  const validateEmail = () => {
+    const value = emailInput.value.trim();
+
+    if (!emailRegex.test(value)) {
       emailInput.setCustomValidity(
         "Use format: name@domain.com (latin letters and numbers only)"
       );
     } else {
       emailInput.setCustomValidity("");
     }
-  });
+  };
+
+  emailInput.addEventListener("input", validateEmail);
+  emailInput.addEventListener("blur", validateEmail);
 }
 
 
