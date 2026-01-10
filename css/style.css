@@ -1250,6 +1250,7 @@ body {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    max-height: 600px;
   }
   .solutions-grid {
     position: relative;
