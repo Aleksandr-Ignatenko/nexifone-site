@@ -975,9 +975,11 @@ body {
   background: var(--bg);
 }
 .contact-sub {
-  text-align: center;
   max-width: 520px;
   margin: 0 auto 36px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   font-size: 15px;
   opacity: 0.9;
 }
