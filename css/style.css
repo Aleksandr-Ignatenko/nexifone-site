@@ -959,25 +959,6 @@ body {
     0 18px 40px rgba(0,0,0,0.55),
     0 0 24px rgba(0,232,255,0.08);
 }
-.solution-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: inherit;
-  z-index: -1;
-
-  transform: translateY(0);
-  transition:
-    transform var(--hover-duration) var(--hover-ease),
-    box-shadow var(--hover-duration) var(--hover-ease);
-}
-.solution-card:hover::before {
-  transform: translateY(var(--hover-lift-sm));
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.55),
-    0 0 24px rgba(0,232,255,0.08);
-}
 
 /* =========================================================
    CONTACT CTA
