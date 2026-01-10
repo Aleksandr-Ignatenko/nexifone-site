@@ -1503,11 +1503,29 @@ body {
     transition:
       max-height .45s ease,
       opacity .25s ease;
+
+
+    background: transparent;          /* ❌ убираем карточку */
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;                       /* убираем эффект "внутреннего блока" */
+
+    
   }
   .solution-item.is-open .solution-body {
     max-height: 600px;
     opacity: 1;
     margin-top: 16px;
+
+
+    box-shadow: none;                 /* ❗ КЛЮЧЕВО */
+
+  }
+  .solution-body p {
+    padding: 14px 16px 0;             /* текст — просто текст */
+    margin: 0;
   }
   /* -----------------------------------------------------
      MOBILE | VISUAL ELEMENTS
