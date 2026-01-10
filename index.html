@@ -425,8 +425,20 @@
     
           <div class="form-field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4"
-              placeholder="Tell us about your project or requirements…" required></textarea>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              maxlength="1000"
+              placeholder="Tell us about your project or requirements…"
+              required>
+            </textarea>
+
+            <div class="char-counter" aria-live="polite">
+              0 / 1000
+            </div>
+            
           </div>
     
           <button type="submit" class="cta-btn">Send Message</button>
