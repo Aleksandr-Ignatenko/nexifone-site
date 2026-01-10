@@ -42,23 +42,23 @@
   ----------------------------------------------------- */
   window.toggleMenu = toggleMenu;
 
-  /* =========================================================
-     HOME LINK | SMART SCROLL / REDIRECT
-  ========================================================= */
-  const homeLink = document.querySelector('.nav-links a[href="/"]');
-  
-  if (homeLink) {
-    homeLink.addEventListener("click", (e) => {
-      const isHome =
-        location.pathname === "/" ||
-        location.pathname.endsWith("/index.html");
-  
-      if (isHome) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    });
-  }
+/* =========================================================
+   HOME LINKS | SMART SCROLL / REDIRECT (LOGO + NAV)
+========================================================= */
+document.querySelectorAll('.js-home-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const isHome =
+      location.pathname === '/' ||
+      location.pathname.endsWith('/index.html');
+
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // если не главная — обычный переход по href="/"
+  });
+});
+
 
   /* =========================================================
      HERO | TELECOM TYPING TEXT
