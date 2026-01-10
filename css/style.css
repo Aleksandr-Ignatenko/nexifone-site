@@ -1226,25 +1226,19 @@ body {
     top: 100%;
     left: 0;
     width: 100%;
-
-    max-height: none;     /* ← УБИРАЕМ accordion */
-    overflow: visible;   /* ← ИНАЧЕ НЕ ВИДНО */
-    
+    max-height: none;
+    overflow: visible;
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
-
     background: var(--surface-glass-overlay);
     backdrop-filter: blur(16px);
-
     border-radius: 0 0 14px 14px;
     border: 1px solid rgba(255,255,255,0.15);
     border-top: none;
-
     transition:
       opacity .25s ease,
       transform .25s ease;
-
     z-index: 10;
   }
   .solution-body p {
