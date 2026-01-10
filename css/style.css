@@ -906,7 +906,6 @@ body {
     opacity .25s ease;
 }
 .solution-item.is-open .solution-body {
-  max-height: 500px;
   opacity: 1;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
