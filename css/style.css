@@ -986,10 +986,6 @@ body {
   font-size: 15px;
   opacity: 0.9;
 }
-.contact-cta p { 
-  margin:12px 0 18px; 
-  color: rgba(255,255,255,0.9); 
-}
 .contact-form {
   max-width: 620px;
   margin: 0 auto;
