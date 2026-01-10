@@ -324,6 +324,14 @@ document.addEventListener("click", (e) => {
       card.classList.add("is-open");
       toggle.textContent = "Less";
       toggle.setAttribute("aria-expanded", "true");
+      
+      // На десктопе - плавная прокрутка к карточке если она не видна
+      if (isDesktop) {
+        const rect = card.getBoundingClientRect();
+        if (rect.bottom > window.innerHeight) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
     } else {
       card.classList.remove("is-open");
       toggle.textContent = "More";
@@ -336,6 +344,20 @@ document.addEventListener("click", (e) => {
   /* ===== CLICK OUTSIDE ===== */
   if (!card && !toggle) {
     // Закрыть все карточки при клике вне их
+    document.querySelectorAll(".solution-item.is-open").forEach(item => {
+      item.classList.remove("is-open");
+      const btn = item.querySelector(".solution-toggle");
+      if (btn) {
+        btn.textContent = "More";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+});
+
+// Закрывать карточки при скролле на десктопе
+window.addEventListener('scroll', () => {
+  if (window.matchMedia("(min-width: 769px)").matches) {
     document.querySelectorAll(".solution-item.is-open").forEach(item => {
       item.classList.remove("is-open");
       const btn = item.querySelector(".solution-toggle");
