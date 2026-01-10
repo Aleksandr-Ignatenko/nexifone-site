@@ -919,9 +919,6 @@ body {
   transform: none;
   box-shadow: none;
 }
-.solution-item.is-open {
-  z-index: 100;
-}
 .solution-toggle {
   margin-top: 12px;
   padding: 8px 18px;
@@ -1216,26 +1213,22 @@ body {
     flex-direction: column;
   }
   .solution-body {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    position: static;          /* 🔑 ВАЖНО */
+    max-height: 0;
+    overflow: hidden;
+
     background: var(--surface-glass-overlay);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
     border-radius: 0 0 14px 14px;
     border: 1px solid rgba(255,255,255,0.15);
     border-top: none;
-    box-shadow: 0 22px 60px rgba(0,0,0,0.65);
-    z-index: 100;
-    pointer-events: none;
+
     opacity: 0;
-    transform: translateY(0);
-    transition: opacity .3s ease, transform .3s ease;
-    margin-top: 0 !important;
-    max-height: none;
-    overflow: visible;
+    transition:
+      max-height .4s ease,
+      opacity .25s ease;
   }
   .solution-body p {
     padding: 18px 20px;
@@ -1248,8 +1241,8 @@ body {
     padding-bottom: 22px;
   }
   .solution-item.is-open .solution-body {
+    max-height: 600px;         /* или 1000px */
     opacity: 1;
-    pointer-events: auto;
   }
   .solutions-grid {
     position: relative;
