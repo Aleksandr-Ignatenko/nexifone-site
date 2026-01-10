@@ -400,11 +400,44 @@
 ========================================================= -->
     <section class="contact-cta" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="contact-title">Ready to work with Nexifone?</h2>
-        <p>Contact us to get pricing, test routes or arrange a technical consultation.</p>
-        <a href="mailto:info@nexifone.com" class="cta-btn large">Contact</a>
+        
+        <h2 id="contact-title" class="section-title underline-anim">
+          Ready to work with Nexifone?
+        </h2>
+    
+        <p class="contact-sub">
+          Contact us to get pricing, test routes or arrange a technical consultation.
+        </p>
+    
+        <form class="contact-form" action="#" method="post" novalidate>
+          
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+    
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+          </div>
+    
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4"
+              placeholder="Tell us about your project or requirements…" required></textarea>
+          </div>
+    
+          <button type="submit" class="cta-btn large">
+            Send request
+          </button>
+    
+        </form>
+    
       </div>
     </section>
+
   </main>
 
 <!-- =========================================================
