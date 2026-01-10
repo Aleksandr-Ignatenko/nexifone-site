@@ -1234,8 +1234,8 @@ body {
     transform: translateY(-10px);
     transition: opacity .3s ease, transform .3s ease;
     margin-top: 0 !important;
-    max-height: none;
-    overflow: visible;
+    max-height: none !important;
+    overflow: visible !important;
   }
   .solution-body p {
     padding: 18px 20px;
