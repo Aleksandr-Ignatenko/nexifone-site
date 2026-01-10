@@ -1218,6 +1218,10 @@ body {
     left: 0;
     width: 100%;
 
+    /* 🔥 ВАЖНО */
+    max-height: none;     /* ← УБИРАЕМ accordion */
+    overflow: visible;   /* ← ИНАЧЕ НЕ ВИДНО */
+    
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
@@ -1232,6 +1236,7 @@ body {
     transition:
       opacity .25s ease,
       transform .25s ease;
+
     z-index: 10;
   }
   .solution-body p {
