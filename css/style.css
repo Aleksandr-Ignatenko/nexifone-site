@@ -1229,8 +1229,8 @@ body {
     border-top: none;
     box-shadow: 0 22px 60px rgba(0,0,0,0.65);
     z-index: 100;
-    pointer-events: auto;
-    opacity: 1;
+    pointer-events: none;
+    opacity: 0;
     transform: translateY(0);
     transition: opacity .3s ease, transform .3s ease;
     margin-top: 0 !important;
@@ -1249,7 +1249,6 @@ body {
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
   }
   .solutions-grid {
