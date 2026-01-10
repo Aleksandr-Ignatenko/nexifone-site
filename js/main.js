@@ -329,5 +329,21 @@ document.addEventListener("click", (e) => {
   }
 });
 
+  /* =========================================================
+   CONTACT | MESSAGE CHAR COUNTER
+========================================================= */
+const messageField = document.getElementById("message");
+const counterEl = document.querySelector(".char-counter");
+const MAX_CHARS = 1000;
+
+if (messageField && counterEl) {
+  counterEl.textContent = `0 / ${MAX_CHARS}`;
+
+  messageField.addEventListener("input", () => {
+    const length = messageField.value.length;
+    counterEl.textContent = `${length} / ${MAX_CHARS}`;
+  });
+}
+
 
 })();
