@@ -59,6 +59,31 @@ document.querySelectorAll('.js-home-link').forEach(link => {
   });
 });
 
+/* =========================================================
+   NAV ANCHORS | SMART SCROLL OR REDIRECT
+========================================================= */
+document.querySelectorAll('.js-anchor-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const hash = link.getAttribute('href'); // #services
+    const isHome =
+      location.pathname === '/' ||
+      location.pathname.endsWith('/index.html');
+
+    // мы уже на главной → плавный скролл
+    if (isHome) {
+      const target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    // мы НЕ на главной → переход на главную + якорь
+    e.preventDefault();
+    window.location.href = '/' + hash;
+  });
+});
 
   /* =========================================================
      HERO | TELECOM TYPING TEXT
