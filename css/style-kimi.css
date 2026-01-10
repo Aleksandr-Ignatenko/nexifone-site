@@ -1257,7 +1257,7 @@ body {
   }
   .solutions-grid {
     position: relative;
-    overflow: visible !important;
+    overflow: visible;
   }
 }
 /* =========================================================
