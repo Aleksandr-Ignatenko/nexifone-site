@@ -45,24 +45,18 @@
   /* =========================================================
      HOME LINK | SMART SCROLL / REDIRECT
   ========================================================= */
-  const homeLink = document.getElementById("homeLink");
+  const homeLink = document.querySelector('.nav-links a[href="/"]');
   
   if (homeLink) {
     homeLink.addEventListener("click", (e) => {
       const isHome =
-        window.location.pathname === "/" ||
-        window.location.pathname.endsWith("/index.html");
+        location.pathname === "/" ||
+        location.pathname.endsWith("/index.html");
   
       if (isHome) {
         e.preventDefault();
-  
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-      // если не главная — НИЧЕГО не делаем,
-      // браузер сам перейдёт по href="/"
     });
   }
 
