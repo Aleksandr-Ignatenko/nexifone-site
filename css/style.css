@@ -1044,7 +1044,13 @@ body {
   border-color: var(--accent-cyan);
   box-shadow: 0 0 0 2px rgba(0,232,255,0.25);
 }
-
+.char-counter {
+  font-size: 12px;
+  opacity: 0.6;
+  text-align: right;
+  margin-top: 6px;
+  pointer-events: none;
+}
 
 /* =========================================================
    FOOTER
