@@ -468,6 +468,8 @@ body {
   text-decoration:none;
   box-shadow: 0 10px 40px rgba(0, 232, 255, 0.12), 0 4px 18px rgba(189,0,255,0.06);
   transition: transform .18s ease, box-shadow .18s ease;
+  border: none;
+  outline: none;
 }
 .cta-btn.large { 
   padding:14px 28px; 
