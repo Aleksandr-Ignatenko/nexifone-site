@@ -1270,10 +1270,6 @@ body {
     transform: translateY(0);
     pointer-events: auto;
   }
-  .solution-item:not(.is-open):hover {
-    transform: translateY(var(--hover-lift-sm));
-    box-shadow: var(--hover-shadow-soft);
-  }
   .solutions-grid {
     position: relative;
     overflow: visible !important;
