@@ -904,8 +904,10 @@ body {
   opacity: 0;
   overflow: hidden;
   transition:
-    max-height .35s ease,
-    opacity .25s ease;
+    max-height 0.45s ease,
+    opacity 0.25s ease;
+  position: relative; /* Добавьте это */
+  z-index: 1; /* Добавьте это */
 }
 .solution-item.is-open .solution-body {
   opacity: 1;
@@ -1213,12 +1215,16 @@ body {
   ----------------------------------------------------- */ 
   .solution-item {
     position: relative;
-    overflow: visible !important; /* Добавьте !important */
+    height: auto; /* Убедитесь, что высота автоматическая */
+    min-height: 200px; /* Фиксированная минимальная высота для равных карточек */
+    display: flex;
+    flex-direction: column;
   }
   .solution-body {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     width: 100%;
     background: var(--surface-glass-overlay);
     backdrop-filter: blur(20px);
@@ -1229,17 +1235,16 @@ body {
     border-top: none;
     box-shadow: 0 22px 60px rgba(0,0,0,0.65);
     z-index: 100;
-    pointer-events: auto;
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-10px);
     transition: 
       opacity 0.3s ease,
-      transform 0.3s ease,
-      max-height 0s 0.3s; /* Задержка для max-height */
-    margin-top: 0 !important;
-    max-height: 0;
-    overflow: hidden;
-    visibility: hidden; /* Добавьте это */
+      visibility 0.3s ease,
+      transform 0.3s ease;
+    margin-top: 0;
+    max-height: none; /* Убрать max-height для десктопа */
+    overflow: visible;
   }
   .solution-body p {
     padding: 18px 20px;
@@ -1258,30 +1263,31 @@ body {
   }
   .solution-item.is-open .solution-body {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
-    pointer-events: auto;
-    visibility: visible; /* Добавьте это */
-    max-height: 500px; /* Или достаточно большое значение */
-    transition: 
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      max-height 0s; /* Уберите задержку при открытии */
   }
-    .solution-item.is-open .solution-body p {
+  .solution-item.is-open .solution-body p {
     opacity: 1;
     transform: translateY(0);
   }
   .solutions-grid {
     position: relative;
-    overflow: visible !important;
-    z-index: 1;
+    overflow: visible;
+  }
+  .solution-card {
+    height: 100%; /* Карточка занимает всю высоту контейнера */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .solution-card:hover {
     transform: translateY(-4px);
-    z-index: 2;
   }
   .solution-item.is-open .solution-card:hover {
     transform: none; /* Убрать подъем при открытии */
+  }
+  .solution-item.is-open {
+    z-index: 101;
   }
 }
 /* =========================================================
