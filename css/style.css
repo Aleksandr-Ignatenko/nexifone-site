@@ -1218,7 +1218,6 @@ body {
     left: 0;
     width: 100%;
 
-    /* 🔥 ВАЖНО */
     max-height: none;     /* ← УБИРАЕМ accordion */
     overflow: visible;   /* ← ИНАЧЕ НЕ ВИДНО */
     
@@ -1256,6 +1255,9 @@ body {
   }
   .solutions-grid {
     position: relative;
+  }
+  .solution-card {
+    overflow: visible; /* 🔥 КРИТИЧНО */
   }
 }
 /* =========================================================
