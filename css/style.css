@@ -1213,22 +1213,26 @@ body {
     flex-direction: column;
   }
   .solution-body {
-    position: static;
-    max-height: 0;
-    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
 
     background: var(--surface-glass-overlay);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
 
     border-radius: 0 0 14px 14px;
     border: 1px solid rgba(255,255,255,0.15);
     border-top: none;
 
-    opacity: 0;
     transition:
-      max-height .4s ease,
-      opacity .25s ease;
+      opacity .25s ease,
+      transform .25s ease;
+    z-index: 10;
   }
   .solution-body p {
     padding: 18px 20px;
@@ -1241,8 +1245,9 @@ body {
     padding-bottom: 22px;
   }
   .solution-item.is-open .solution-body {
-    max-height: 600px;
     opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .solutions-grid {
     position: relative;
