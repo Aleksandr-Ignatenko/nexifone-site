@@ -1219,6 +1219,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     width: 100%;
     background: var(--surface-glass-overlay);
     backdrop-filter: blur(20px);
@@ -1228,12 +1229,11 @@ body {
     border: 1px solid rgba(255,255,255,0.15);
     border-top: none;
     box-shadow: 0 22px 60px rgba(0,0,0,0.65);
-    z-index: 100;
+    z-index: 1000;
     pointer-events: auto;
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(-10px);
     transition: opacity .3s ease, transform .3s ease;
-    margin-top: 0 !important;
     max-height: none;
     overflow: visible;
   }
@@ -1247,10 +1247,13 @@ body {
   .solution-body p:last-child {
     padding-bottom: 22px;
   }
+  .solution-item.is-open {
+    position: relative;
+    z-index: 1000;
+}
   .solution-item.is-open .solution-body {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
   }
   .solutions-grid {
     position: relative;
