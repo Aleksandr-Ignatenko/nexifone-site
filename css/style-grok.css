@@ -1209,54 +1209,67 @@ body {
   /* -----------------------------------------------------
      SOLUTION | desktop
   ----------------------------------------------------- */ 
+  .solutions-grid {
+    position: relative;
+    overflow: visible !important;
+  }
+
   .solution-item {
     position: relative;
     overflow: visible;
     display: flex;
     flex-direction: column;
+    isolation: isolate;          /* помогает с stacking context */
   }
-.solution-body {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: var(--surface-glass-overlay);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 0;
-  border-radius: 0 0 14px 14px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-top: none;
-  box-shadow: 0 22px 60px rgba(0,0,0,0.65);
-  z-index: 100;
-  margin-top: 0 !important;
-  max-height: none;
-  overflow: visible;
-  
-  /* Начальное состояние — скрыто */
-  opacity: 0;
-  transform: translateY(-20px);          /* можно -10px или 0 — как больше нравится */
-  pointer-events: none;
-  transition: opacity .3s ease, transform .3s ease;
-}
+
+  .solution-card {
+    position: relative;
+    z-index: 2;
+  }
+
+  .solution-body {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--surface-glass-overlay);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    z-index: 100;
+    padding: 0;
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+
+    /* Скрыто по умолчанию — очень важно! */
+    opacity: 0 !important;
+    transform: translateY(-15px) !important;
+    pointer-events: none !important;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  }
+
   .solution-body p {
-    padding: 18px 20px;
+    padding: 20px 24px;
     margin: 0;
   }
+
   .solution-body p:first-child {
-    padding-top: 20px;
+    padding-top: 24px;
   }
+
   .solution-body p:last-child {
-    padding-bottom: 22px;
+    padding-bottom: 28px;
   }
+
+  /* Только при открытии показываем */
   .solution-item.is-open .solution-body {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  .solutions-grid {
-    position: relative;
-    overflow: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
   }
 }
 /* =========================================================
