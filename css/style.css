@@ -998,6 +998,9 @@ body {
     0 18px 40px rgba(0,0,0,0.45),
     0 0 32px rgba(0,232,255,0.08);
 }
+.contact-form > .form-field {
+  margin-bottom: 22px;
+}
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
