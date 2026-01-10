@@ -867,6 +867,8 @@ body {
   padding-left: var(--page-padding);
   padding-right: var(--page-padding);
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 /* -----------------------------------------------------
    SOLUTIONS | GRID
@@ -1211,9 +1213,7 @@ body {
   ----------------------------------------------------- */ 
   .solution-item {
     position: relative;
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
+    overflow: visible !important; /* Добавьте !important */
   }
   .solution-body {
     position: absolute;
@@ -1230,16 +1230,25 @@ body {
     box-shadow: 0 22px 60px rgba(0,0,0,0.65);
     z-index: 100;
     pointer-events: auto;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity .3s ease, transform .3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      max-height 0s 0.3s; /* Задержка для max-height */
     margin-top: 0 !important;
-    max-height: none;
-    overflow: visible;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden; /* Добавьте это */
   }
   .solution-body p {
     padding: 18px 20px;
     margin: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 
+      opacity 0.25s ease 0.15s,
+      transform 0.25s ease 0.15s;
   }
   .solution-body p:first-child {
     padding-top: 20px;
@@ -1251,10 +1260,28 @@ body {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    visibility: visible; /* Добавьте это */
+    max-height: 500px; /* Или достаточно большое значение */
+    transition: 
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      max-height 0s; /* Уберите задержку при открытии */
+  }
+    .solution-item.is-open .solution-body p {
+    opacity: 1;
+    transform: translateY(0);
   }
   .solutions-grid {
     position: relative;
     overflow: visible !important;
+    z-index: 1;
+  }
+  .solution-card:hover {
+    transform: translateY(-4px);
+    z-index: 2;
+  }
+  .solution-item.is-open .solution-card:hover {
+    transform: none; /* Убрать подъем при открытии */
   }
 }
 /* =========================================================
