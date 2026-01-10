@@ -288,36 +288,54 @@ if (whySection && whyAnimate) {
 ========================================================= */
 document.addEventListener("click", (e) => {
   const isDesktop = window.matchMedia("(min-width: 769px)").matches;
-
   const toggle = e.target.closest(".solution-toggle");
-  const card   = e.target.closest(".solution-item");
+  const card = e.target.closest(".solution-item");
 
   /* ===== CLICK ON TOGGLE ===== */
   if (toggle && card) {
     const isOpen = card.classList.contains("is-open");
 
-    // we close EVERYTHING
-    document.querySelectorAll(".solution-item.is-open").forEach(item => {
-      item.classList.remove("is-open");
-      const btn = item.querySelector(".solution-toggle");
-      if (btn) {
-        btn.textContent = "More";
-        btn.setAttribute("aria-expanded", "false");
-      }
-    });
+    if (isDesktop) {
+      // На ПК: закрыть все остальные, открыть текущую
+      document.querySelectorAll(".solution-item.is-open").forEach(item => {
+        if (item !== card) {
+          item.classList.remove("is-open");
+          const btn = item.querySelector(".solution-toggle");
+          if (btn) {
+            btn.textContent = "More";
+            btn.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    } else {
+      // На мобильных: просто закрыть все
+      document.querySelectorAll(".solution-item.is-open").forEach(item => {
+        item.classList.remove("is-open");
+        const btn = item.querySelector(".solution-toggle");
+        if (btn) {
+          btn.textContent = "More";
+          btn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
 
-    // If it was closed, open it.
+    // Переключить текущую карточку
     if (!isOpen) {
       card.classList.add("is-open");
       toggle.textContent = "Less";
       toggle.setAttribute("aria-expanded", "true");
+    } else {
+      card.classList.remove("is-open");
+      toggle.textContent = "More";
+      toggle.setAttribute("aria-expanded", "false");
     }
 
     return;
   }
 
-  /* ===== CLICK OUTSIDE (MOBILE + DESKTOP) ===== */
-  if (!card) {
+  /* ===== CLICK OUTSIDE ===== */
+  if (!card && !toggle) {
+    // Закрыть все карточки при клике вне их
     document.querySelectorAll(".solution-item.is-open").forEach(item => {
       item.classList.remove("is-open");
       const btn = item.querySelector(".solution-toggle");
