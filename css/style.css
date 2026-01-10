@@ -1051,6 +1051,11 @@ body {
   margin-top: 6px;
   pointer-events: none;
 }
+.form-field:has(:required) > label::after {
+  content: " *";
+  color: #ff5c5c; /* или var(--accent-magenta) */
+  font-weight: 600;
+}
 
 /* =========================================================
    FOOTER
