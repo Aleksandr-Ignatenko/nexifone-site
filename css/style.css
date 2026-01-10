@@ -919,6 +919,9 @@ body {
   transform: none;
   box-shadow: none;
 }
+.solution-item.is-open {
+  z-index: 20; /* выше остальных карточек */
+}
 .solution-toggle {
   margin-top: 12px;
   padding: 8px 18px;
