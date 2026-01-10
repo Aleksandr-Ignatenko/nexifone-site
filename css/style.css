@@ -1213,7 +1213,7 @@ body {
     flex-direction: column;
   }
   .solution-body {
-    position: static;          /* 🔑 ВАЖНО */
+    position: static;
     max-height: 0;
     overflow: hidden;
 
@@ -1241,12 +1241,11 @@ body {
     padding-bottom: 22px;
   }
   .solution-item.is-open .solution-body {
-    max-height: 600px;         /* или 1000px */
+    max-height: 600px;
     opacity: 1;
   }
   .solutions-grid {
     position: relative;
-    overflow: visible !important;
   }
 }
 /* =========================================================
