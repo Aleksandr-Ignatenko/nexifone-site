@@ -344,6 +344,24 @@ if (messageField && counterEl) {
     counterEl.textContent = `${length} / ${MAX_CHARS}`;
   });
 }
+/* =========================================================
+   CONTACT | EMAIL VALIDATION
+========================================================= */
+const emailInput = document.getElementById("email");
+
+if (emailInput) {
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  emailInput.addEventListener("input", () => {
+    if (!emailRegex.test(emailInput.value)) {
+      emailInput.setCustomValidity(
+        "Use format: name@domain.com (latin letters and numbers only)"
+      );
+    } else {
+      emailInput.setCustomValidity("");
+    }
+  });
+}
 
 
 })();
