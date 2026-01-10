@@ -464,6 +464,7 @@ body {
   border-radius: 12px;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   color: var(--bg);
+  font-size: 16px;
   font-weight:700;
   text-decoration:none;
   box-shadow: 0 10px 40px rgba(0, 232, 255, 0.12), 0 4px 18px rgba(189,0,255,0.06);
