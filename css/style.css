@@ -1317,6 +1317,9 @@ body {
   max-width: 520px;
   margin: 0 auto 32px;
 }
+.error-actions {
+  margin-bottom: 40px;
+}
 .page-404 .nav-links a {
   opacity: 0.75;
 }
