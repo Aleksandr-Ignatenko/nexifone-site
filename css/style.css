@@ -1275,6 +1275,9 @@ body {
 .footer-static {
   cursor: default;
 }
+.section-static {
+  cursor: default;
+}
 
 /* =========================================================
    Animations
