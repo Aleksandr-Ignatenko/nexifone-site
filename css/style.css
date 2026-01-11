@@ -1291,8 +1291,10 @@ body {
    404 | HOVER TITLE
 ========================================================= */
 .error-title {
-  display: inline-block; /* важно для underline */
+  display: inline-block;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  font-size: 28px;
+  margin-bottom: 12px;
 }
 .error-title:hover {
   color: var(--accent-cyan);
@@ -1309,10 +1311,6 @@ body {
   font-weight: 700;
   color: var(--accent-cyan);
   margin-bottom: 16px;
-}
-.error-title {
-  font-size: 28px;
-  margin-bottom: 12px;
 }
 .error-text {
   opacity: 0.85;
