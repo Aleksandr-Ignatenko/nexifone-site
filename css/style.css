@@ -1292,15 +1292,12 @@ body {
 ========================================================= */
 .error-title {
   display: inline-block;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
   font-size: 28px;
   margin-bottom: 12px;
+  transition: color 0.2s ease;
 }
 .error-title:hover {
   color: var(--accent-cyan);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
 }
 .page-404 {
   padding: 140px 0 120px;
