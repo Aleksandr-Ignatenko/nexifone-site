@@ -837,6 +837,14 @@ body {
   font-size:14px; 
   color: rgba(255,255,255,0.92); line-height:1.5; 
 }
+.service-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.service-link:hover {
+  color: var(--accent-cyan);
+}
 
 /* =========================================================
    SOLUTIONS
