@@ -1220,11 +1220,9 @@ body {
     opacity 0.25s ease,
     transform 0.25s ease;
 }
-/* default icon */
 .footer-social .icon-default {
   opacity: 0.85;
 }
-/* hover icon */
 .footer-social .icon-hover {
   opacity: 0;
   transform: translateY(2px);
@@ -1238,7 +1236,6 @@ body {
   opacity: 1;
   transform: translateY(-2px);
 }
-/* === copyright hover animation === */
 .footer-copyright {
   font-size: 14px;
   color: rgba(255,255,255,0.85);
@@ -1248,7 +1245,6 @@ body {
   cursor: default;
   transition: color 0.25s ease, transform 0.25s ease;
 }
-/* hover effect */
 .footer-copyright-anim:hover {
   color: var(--accent-cyan);
   transform: translateY(-2px);
@@ -1263,6 +1259,18 @@ body {
 .footer-logo img:hover {
   opacity: 1;
   transform: translateY(-1px);
+}
+.footer-title .footer-static {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  transition: color .18s ease, transform .18s ease;
+}
+.footer-title .footer-static:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
 }
 .footer-static {
   cursor: default;
