@@ -30,9 +30,14 @@
   /* -----------------------------------------------------
      Close menu on link click
   ----------------------------------------------------- */
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', toggleMenu);
-  });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+    });
 
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
