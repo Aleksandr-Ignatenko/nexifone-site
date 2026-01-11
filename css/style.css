@@ -1309,6 +1309,9 @@ body {
   max-width: 520px;
   margin: 0 auto 32px;
 }
+.page-404 .nav-links a {
+  opacity: 0.75;
+}
 
 /* =========================================================
    Animations
