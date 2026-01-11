@@ -1264,6 +1264,9 @@ body {
   opacity: 1;
   transform: translateY(-1px);
 }
+.footer-static {
+  cursor: default;
+}
 
 /* =========================================================
    Animations
