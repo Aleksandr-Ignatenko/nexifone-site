@@ -1301,6 +1301,9 @@ body {
 }
 .page-404 {
   padding: 140px 0 120px;
+}
+.page-404 .error-section,
+.page-404 .error-content {
   text-align: center;
 }
 .error-code {
