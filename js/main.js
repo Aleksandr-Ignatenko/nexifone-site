@@ -64,13 +64,14 @@ document.querySelectorAll('.js-home-link').forEach(link => {
 ========================================================= */
 document.querySelectorAll('.js-anchor-link').forEach(link => {
   link.addEventListener('click', (e) => {
-    const hash = link.getAttribute('href'); // #services
+    const hash = link.getAttribute('href');
     const isHome =
       location.pathname === '/' ||
       location.pathname.endsWith('/index.html');
 
-    // мы уже на главной → плавный скролл
-    if (isHome) {
+    const is404 = document.body.classList.contains('page-404');
+
+    if (isHome && !is404) {
       const target = document.querySelector(hash);
       if (target) {
         e.preventDefault();
@@ -79,11 +80,11 @@ document.querySelectorAll('.js-anchor-link').forEach(link => {
       return;
     }
 
-    // мы НЕ на главной → переход на главную + якорь
     e.preventDefault();
     window.location.href = '/' + hash;
   });
 });
+
 
   /* =========================================================
      HERO | TELECOM TYPING TEXT
@@ -372,7 +373,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-  /* =========================================================
+/* =========================================================
    CONTACT | MESSAGE CHAR COUNTER
 ========================================================= */
 const messageField = document.getElementById("message");
