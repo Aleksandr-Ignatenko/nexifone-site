@@ -1299,6 +1299,10 @@ body {
 .error-title:hover {
   color: var(--accent-cyan);
 }
+.error-page {
+  position: relative;
+  overflow: hidden;
+}
 .page-404 {
   padding: 170px 0 120px;
   position: relative;
