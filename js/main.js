@@ -220,7 +220,9 @@ if (aboutSection && aboutGlass) {
 /* =========================================================
    PROCESS STRIP | TYPE SEQUENCE (FIXED)
 ========================================================= */
-(() => {
+const processEl = document.getElementById("processText");
+if (processEl) {
+  
   const el = document.getElementById("processText");
   if (!el) return;
 
@@ -311,7 +313,7 @@ if (aboutSection && aboutGlass) {
   }
 
   loop();
-})();
+}
 
 /* =========================================================
    WHY US | SLIDE IN FROM LEFT
@@ -417,5 +419,72 @@ if (emailInput) {
   emailInput.addEventListener("blur", validateEmail);
 }
 
+/* =========================================================
+   404 | MESH ANIMATION
+========================================================= */
+const canvas = document.getElementById("mesh");
+if (canvas) {
+  const ctx = canvas.getContext("2d");
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = 360;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const nodes = [];
+  const NUM = 45;
+
+  for (let i = 0; i < NUM; i++) {
+    nodes.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+
+    nodes.forEach(n => {
+      n.x += n.vx;
+      n.y += n.vy;
+
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 232, 255, 0.75)";
+      ctx.fill();
+    });
+
+    for (let i = 0; i < NUM; i++) {
+      for (let j = i + 1; j < NUM; j++) {
+        const a = nodes[i];
+        const b = nodes[j];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+
+        if (dist < 160) {
+          ctx.strokeStyle = `rgba(0, 232, 255, ${1 - dist / 160})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+  
 
 })();
