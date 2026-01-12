@@ -1303,7 +1303,6 @@ body {
 .error-page {
   position: relative;
   overflow: hidden;
-  flex: 1;
 }
 .page-404 {
   min-height: 100vh;
@@ -1313,9 +1312,6 @@ body {
 .page-404 .error-section,
 .page-404 .error-content {
   text-align: center;
-}
-.page-404 .error-page {
-  padding-top: var(--header-height);
 }
 .error-code {
   font-size: clamp(72px, 12vw, 140px);
