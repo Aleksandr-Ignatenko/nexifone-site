@@ -1309,6 +1309,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.page-404 .error-page {
+  flex-grow: 1;
+}
 .page-404 .error-section,
 .page-404 .error-content {
   text-align: center;
