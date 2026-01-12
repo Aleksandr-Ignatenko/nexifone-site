@@ -1323,6 +1323,26 @@ body {
 .page-404 .nav-links a {
   opacity: 0.75;
 }
+/* -----------------------------------------------------
+   404 | MESH BACKGROUND
+----------------------------------------------------- */
+.page-404 {
+  position: relative;
+  overflow: hidden;
+}
+.mesh-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 360px;
+  z-index: 0;
+  pointer-events: none;
+}
+.page-404 .error-section {
+  position: relative;
+  z-index: 1;
+}
 
 /* =========================================================
    LEGAL PAGES
