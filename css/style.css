@@ -1302,7 +1302,6 @@ body {
 }
 .error-page {
   position: relative;
-  overflow: hidden;
 }
 .page-404 {
   min-height: 100vh;
@@ -1344,7 +1343,6 @@ body {
   z-index: 0;
   pointer-events: none;
   inset: 0;
-  height: 100%;
 }
 .page-404 .error-section {
   position: relative;
