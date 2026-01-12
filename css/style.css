@@ -1301,6 +1301,7 @@ body {
 }
 .page-404 {
   padding: 170px 0 120px;
+  position: relative;
 }
 .page-404 .error-section,
 .page-404 .error-content {
@@ -1326,10 +1327,6 @@ body {
 /* -----------------------------------------------------
    404 | MESH BACKGROUND
 ----------------------------------------------------- */
-.page-404 {
-  position: relative;
-  overflow: hidden;
-}
 .mesh-bg {
   position: absolute;
   top: 0;
