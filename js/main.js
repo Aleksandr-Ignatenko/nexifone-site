@@ -424,13 +424,15 @@ if (emailInput) {
 ========================================================= */
 const canvas = document.getElementById("mesh");
 if (canvas) {
+  const main = document.querySelector(".error-page");
   const ctx = canvas.getContext("2d");
   let w, h;
 
   function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = 360;
+    w = canvas.width = main.offsetWidth;
+    h = canvas.height = main.offsetHeight;
   }
+
   resize();
   window.addEventListener("resize", resize);
 
@@ -484,7 +486,6 @@ if (canvas) {
 
   animate();
 }
-
   
 
 })();
