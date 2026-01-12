@@ -1347,6 +1347,21 @@ body {
   opacity: 0.7;
   font-size: 14px;
 }
+/* -----------------------------------------------------
+   LEGAL | CONTACT EMAIL
+----------------------------------------------------- */
+.legal-contact {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+.legal-email {
+  color: var(--text);
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+.legal-email:hover {
+  color: var(--accent-cyan);
+}
 
 /* =========================================================
    Animations
