@@ -1314,6 +1314,9 @@ body {
 .page-404 .error-content {
   text-align: center;
 }
+.page-404 .error-page {
+  padding-top: var(--header-height);
+}
 .error-code {
   font-size: clamp(72px, 12vw, 140px);
   font-weight: 700;
