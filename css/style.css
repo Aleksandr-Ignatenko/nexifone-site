@@ -1302,11 +1302,13 @@ body {
 .error-page {
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 120px);
+  flex: 1;
 }
 .page-404 {
-  padding: 170px 0 120px;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .page-404 .error-section,
 .page-404 .error-content {
@@ -1323,11 +1325,11 @@ body {
   max-width: 520px;
   margin: 0 auto 32px;
 }
-.error-actions {
-  margin-bottom: 200px;
-}
 .page-404 .nav-links a {
   opacity: 0.75;
+}
+.error-section {
+  padding: 170px 0 120px;
 }
 /* -----------------------------------------------------
    404 | MESH BACKGROUND
