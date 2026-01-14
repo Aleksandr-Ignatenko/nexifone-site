@@ -423,25 +423,21 @@ if (emailInput) {
    404 | MESH ANIMATION
 ========================================================= */
 const canvas = document.getElementById("mesh");
+
 if (canvas) {
   const ctx = canvas.getContext("2d");
-  let w, h;
+  let w = 0;
+  let h = 0;
 
-function resize() {
-  const main = document.querySelector(".error-page");
-  const footerLine = document.querySelector(".footer-separator");
+  function resize() {
+    const parent = canvas.parentElement;
 
-  const mainTop = main.offsetTop;
-  const footerTop = footerLine.offsetTop;
-
-  w = canvas.width  = main.clientWidth;
-  h = canvas.height = footerTop - mainTop;
-}
-
+    w = canvas.width  = parent.clientWidth;
+    h = canvas.height = parent.clientHeight;
+  }
 
   resize();
   window.addEventListener("resize", resize);
-
 
   const nodes = [];
   const NUM = 45;
