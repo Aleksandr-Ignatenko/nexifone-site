@@ -424,17 +424,21 @@ if (emailInput) {
 ========================================================= */
 const canvas = document.getElementById("mesh");
 if (canvas) {
-  const main = document.querySelector(".error-page");
   const ctx = canvas.getContext("2d");
   let w, h;
 
   function resize() {
-    w = canvas.width  = main.clientWidth;
-    h = canvas.height = main.clientHeight;
+    const footerLine = document.querySelector(".footer-separator");
+    const top = canvas.getBoundingClientRect().top;
+    const bottom = footerLine.getBoundingClientRect().top;
+
+    w = canvas.width  = window.innerWidth;
+    h = canvas.height = bottom - top;
   }
 
   resize();
   window.addEventListener("resize", resize);
+
 
   const nodes = [];
   const NUM = 45;
