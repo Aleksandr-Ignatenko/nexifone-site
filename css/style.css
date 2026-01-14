@@ -1309,9 +1309,7 @@ body {
   font-size: 28px;
   margin-bottom: 12px;
   transition: color 0.2s ease;
-
   cursor: default;
-  user-select: none;
 }
 .error-title:hover {
   color: var(--accent-cyan);
