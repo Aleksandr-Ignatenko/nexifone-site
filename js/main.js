@@ -429,8 +429,8 @@ if (canvas) {
   let w, h;
 
   function resize() {
-    w = canvas.width = main.offsetWidth;
-    h = canvas.height = main.offsetHeight;
+    w = canvas.width  = main.clientWidth;
+    h = canvas.height = main.clientHeight;
   }
 
   resize();
