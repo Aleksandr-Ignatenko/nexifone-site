@@ -1302,8 +1302,13 @@ body {
   margin-bottom: 16px;
 }
 .error-title {
+  display: inline-block;
   font-size: 28px;
   margin-bottom: 12px;
+  transition: color 0.2s ease;
+}
+.error-title:hover {
+  color: var(--accent-cyan);
 }
 .error-text {
   opacity: 0.85;
