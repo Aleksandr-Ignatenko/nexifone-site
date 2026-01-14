@@ -1292,7 +1292,7 @@ body {
    404 | HOVER TITLE
 ========================================================= */
 .page-404 {
-  padding: 200px 0 120px;
+  padding: 0 0 120px;
   text-align: center;
 }
 .error-code {
@@ -1310,9 +1310,9 @@ body {
   max-width: 520px;
   margin: 0 auto 32px;
 }
-/* .error-section {
-  padding-top: 1px;
-} */
+.error-section {
+  padding-top: 200px;
+}
 .page-404 .nav-links a {
   opacity: 0.75;
 }
