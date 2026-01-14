@@ -420,18 +420,18 @@ if (emailInput) {
 }
 
 /* =========================================================
-   404 | MESH ANIMATION
+   404 | MESH ANIMATION (FINAL)
 ========================================================= */
 const canvas = document.getElementById("mesh");
 
 if (canvas) {
   const ctx = canvas.getContext("2d");
+  const parent = canvas.closest(".error-page");
+
   let w = 0;
   let h = 0;
 
   function resize() {
-    const parent = canvas.parentElement;
-
     w = canvas.width  = parent.clientWidth;
     h = canvas.height = parent.clientHeight;
   }
@@ -454,18 +454,18 @@ if (canvas) {
   function animate() {
     ctx.clearRect(0, 0, w, h);
 
-    nodes.forEach(n => {
+    for (const n of nodes) {
       n.x += n.vx;
       n.y += n.vy;
 
-      if (n.x < 0 || n.x > w) n.vx *= -1;
-      if (n.y < 0 || n.y > h) n.vy *= -1;
+      if (n.x <= 0 || n.x >= w) n.vx *= -1;
+      if (n.y <= 0 || n.y >= h) n.vy *= -1;
 
       ctx.beginPath();
       ctx.arc(n.x, n.y, 3, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(0, 232, 255, 0.75)";
       ctx.fill();
-    });
+    }
 
     for (let i = 0; i < NUM; i++) {
       for (let j = i + 1; j < NUM; j++) {
@@ -475,7 +475,6 @@ if (canvas) {
 
         if (dist < 160) {
           ctx.strokeStyle = `rgba(0, 232, 255, ${1 - dist / 160})`;
-          ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
