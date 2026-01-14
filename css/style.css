@@ -1321,6 +1321,9 @@ body {
 .error-section {
   padding-top: 200px;
 }
+.error-actions {
+  margin-bottom: 80px;
+}
 .page-404 .nav-links a {
   opacity: 0.75;
 }
