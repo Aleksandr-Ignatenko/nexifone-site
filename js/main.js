@@ -427,14 +427,16 @@ if (canvas) {
   const ctx = canvas.getContext("2d");
   let w, h;
 
-  function resize() {
-    const footerLine = document.querySelector(".footer-separator");
-    const top = canvas.getBoundingClientRect().top;
-    const bottom = footerLine.getBoundingClientRect().top;
+function resize() {
+  const main = document.querySelector(".error-page");
+  const footerLine = document.querySelector(".footer-separator");
 
-    w = canvas.width  = window.innerWidth;
-    h = canvas.height = bottom - top;
-  }
+  const top = main.getBoundingClientRect().top;
+  const bottom = footerLine.getBoundingClientRect().top;
+
+  w = canvas.width  = window.innerWidth;
+  h = canvas.height = bottom - top;
+}
 
   resize();
   window.addEventListener("resize", resize);
