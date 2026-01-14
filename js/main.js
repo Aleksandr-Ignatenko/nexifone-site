@@ -431,12 +431,13 @@ function resize() {
   const main = document.querySelector(".error-page");
   const footerLine = document.querySelector(".footer-separator");
 
-  const top = main.getBoundingClientRect().top;
-  const bottom = footerLine.getBoundingClientRect().top;
+  const mainTop = main.offsetTop;
+  const footerTop = footerLine.offsetTop;
 
-  w = canvas.width  = window.innerWidth;
-  h = canvas.height = bottom - top;
+  w = canvas.width  = main.clientWidth;
+  h = canvas.height = footerTop - mainTop;
 }
+
 
   resize();
   window.addEventListener("resize", resize);
