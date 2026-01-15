@@ -1350,19 +1350,6 @@ body {
   overflow: hidden;
 }
 
-body.page-404 {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main.error-page {
-  position: relative;
-  flex: 1;              /* 🔥 ВОТ ЭТО КЛЮЧ */
-  overflow: hidden;
-}
-
-
 /* =========================================================
    LEGAL PAGES
 ========================================================= */
